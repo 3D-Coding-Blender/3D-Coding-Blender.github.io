@@ -367,70 +367,10 @@
     </div>
   </section>
 
-  <!-- =================== PARTICLE GALLERY =================== -->
-  <section class="section section-gallery reveal">
-    <div class="section-header">
-      <span class="index">03</span>
-      <h2>Decoding explicit surfaces</h2>
-      <span class="rule"></span>
-    </div>
-
-    <p class="section-lede">
-      Each scene below is a Surflo reconstruction from <strong>16 unposed images</strong>. For each scene, a total of <strong>100K points</strong> are decoded from the global state before being assembled into a mesh. 
-      For the sake of visualization, RGB colors were computed by naively averaging over input images.
-      Please click on <strong class="accent">Normals</strong> to toggle normal shading.
-    </p>
-
-    <div class="viewer-carousel" data-kind="mesh"
-         data-items='[
-           {"name":"Buzz",         "meta":"16 views · Custom capture",     "url":"./assets/meshes/buzz1.ply?v=20260526a"},
-           {"name":"Robot",       "meta":"16 views · Custom capture",     "url":"./assets/meshes/gundam.ply?v=20260526a"},
-           {"name":"Garden",       "meta":"16 views · MipNeRF 360",     "url":"./assets/meshes/garden.ply?v=20260526a"},
-           {"name":"Woody",        "meta":"16 views · Custom capture",     "url":"./assets/meshes/woody1.ply?v=20260526a"},
-           {"name":"Totoro",       "meta":"16 views · Custom capture",     "url":"./assets/meshes/totoro.ply?v=20260529a"},
-           {"name":"36e2e9","meta":"16 views · DL3DV", "url":"./assets/meshes/dl3dv_36e2e9.ply?v=20260527a"},
-           {"name":"b1dc38","meta":"16 views · DL3DV", "url":"./assets/meshes/dl3dv_b1dc38.ply?v=20260527a"},
-           {"name":"61bac6","meta":"16 views · DL3DV", "url":"./assets/meshes/dl3dv_61bac6.ply?v=20260527a"},
-           {"name":"bcb18a","meta":"16 views · DL3DV", "url":"./assets/meshes/dl3dv_bcb18a.ply?v=20260531a"}
-         ]'>
-      <div class="viewer-carousel-stage">
-        <canvas class="viewer-carousel-canvas" aria-hidden="true"></canvas>
-        <div class="viewer-carousel-overlay" aria-live="polite">
-          <span class="viewer-carousel-overlay-name" data-role="name">Buzz</span>
-          <span class="viewer-carousel-overlay-meta" data-role="meta">16 views &middot; textured</span>
-        </div>
-        <button type="button" class="viewer-carousel-arrow viewer-carousel-prev" aria-label="Previous mesh">
-          <i class="fa fa-chevron-left"></i>
-        </button>
-        <button type="button" class="viewer-carousel-arrow viewer-carousel-next" aria-label="Next mesh">
-          <i class="fa fa-chevron-right"></i>
-        </button>
-        <button type="button" class="viewer-carousel-shade"
-                aria-label="Toggle normal shading"
-                aria-pressed="false"
-                title="Toggle normal shading (view-space normals)">
-          <i class="fa fa-adjust"></i><span>Normals</span>
-        </button>
-        <div class="viewer-carousel-loader" aria-hidden="true"><span></span></div>
-      </div>
-      <nav class="viewer-carousel-tabs" aria-label="Mesh selector">
-        <button type="button" class="viewer-carousel-tab is-active" data-idx="0">Buzz</button>
-        <button type="button" class="viewer-carousel-tab" data-idx="1">Robot</button>
-        <button type="button" class="viewer-carousel-tab" data-idx="2">Garden</button>
-        <button type="button" class="viewer-carousel-tab" data-idx="3">Woody</button>
-        <button type="button" class="viewer-carousel-tab" data-idx="4">Totoro</button>
-        <button type="button" class="viewer-carousel-tab" data-idx="5">36e2e9</button>
-        <button type="button" class="viewer-carousel-tab" data-idx="7">b1dc38</button>
-        <button type="button" class="viewer-carousel-tab" data-idx="6">61bac6</button>
-        <button type="button" class="viewer-carousel-tab" data-idx="8">bcb18a</button>
-      </nav>
-    </div>
-  </section>
-
   <!-- =================== MULTI-VIEW SCALING =================== -->
   <section class="section section-scaling reveal">
     <div class="section-header">
-      <span class="index">04</span>
+      <span class="index">03</span>
       <h2>A Global State filtering out Redundancy</h2>
       <span class="rule"></span>
     </div>
@@ -475,7 +415,7 @@
   <!-- =================== MULTI-RES =================== -->
   <section class="section section-resolution reveal">
     <div class="section-header">
-      <span class="index">05</span>
+      <span class="index">04</span>
       <h2>One latent, Any output resolution</h2>
       <span class="rule"></span>
     </div>
@@ -571,7 +511,7 @@
   <!-- =================== GUIDANCE ABLATION =================== -->
   <section class="section section-guidance reveal">
     <div class="section-header">
-      <span class="index">06</span>
+      <span class="index">05</span>
       <h2>Points communicate through rendering</h2>
       <span class="rule"></span>
     </div>
@@ -606,7 +546,7 @@
   <!-- =================== COMPARISON =================== -->
   <section class="section section-comparison reveal">
     <div class="section-header">
-      <span class="index">07</span>
+      <span class="index">06</span>
       <h2>Comparison with state-of-the-art</h2>
       <span class="rule"></span>
     </div>
@@ -1019,7 +959,7 @@
   <!-- =================== QUANTITATIVE =================== -->
   <section class="section section-quantitative reveal">
     <div class="section-header">
-      <span class="index">08</span>
+      <span class="index">07</span>
       <h2>Numbers</h2>
       <span class="rule"></span>
     </div>
@@ -1509,7 +1449,7 @@
   <!-- =================== DATASET RELEASE =================== -->
   <section class="section section-dataset reveal">
     <div class="section-header">
-      <span class="index">09</span>
+      <span class="index">08</span>
       <h2>A new Dataset for Surface Reconstruction</h2>
       <span class="rule"></span>
     </div>
@@ -1619,7 +1559,7 @@
   <!-- =================== TAKE-AWAYS =================== -->
   <!-- <section class="section section-takeaways reveal">
     <div class="section-header">
-      <span class="index">10</span>
+      <span class="index">09</span>
       <h2>Three moves, one story.</h2>
       <span class="rule"></span>
     </div>
@@ -1652,7 +1592,7 @@
   <!-- =================== CITATION =================== -->
   <section class="section section-cite reveal" id="bibtex">
     <div class="section-header">
-      <span class="index">11</span>
+      <span class="index">10</span>
       <h2>Citation</h2>
       <span class="rule"></span>
     </div>
