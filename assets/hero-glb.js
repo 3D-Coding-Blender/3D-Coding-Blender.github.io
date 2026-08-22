@@ -38,7 +38,7 @@ function initHeroGLB(canvas, opts = {}) {
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
   const scene = new THREE.Scene();
-  scene.fog = new THREE.FogExp2(0x0b0c0e, 0.025);
+  scene.fog = opts.kind === 'maoqiu' ? null : new THREE.FogExp2(0x0b0c0e, 0.025);
   const camera = new THREE.PerspectiveCamera(38, 1, 0.01, 100);
   camera.position.set(0, 0, 3.4);
 
@@ -84,10 +84,12 @@ function initHeroGLB(canvas, opts = {}) {
 
   function applyTheme() {
     const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-    const background = isLight ? 0xffffff : 0x0b0c0e;
+    const background = opts.kind === 'maoqiu'
+      ? 0x3a3a39
+      : (isLight ? 0xffffff : 0x0b0c0e);
     scene.background = new THREE.Color(background);
-    scene.fog.color.setHex(background);
-    floor.material.color.setHex(isLight ? 0xe8ebf1 : 0x0e1012);
+    if (scene.fog) scene.fog.color.setHex(background);
+    floor.material.color.setHex(opts.kind === 'maoqiu' ? 0x3a3a39 : (isLight ? 0xe8ebf1 : 0x0e1012));
     renderer.toneMappingExposure = opts.kind === 'card' && isLight ? 0.68 : 0.8;
     applyCardThemeBalance();
   }
@@ -109,6 +111,7 @@ function initHeroGLB(canvas, opts = {}) {
     opts.kind === 'card' ? 0.44 : 0.36,
     opts.kind === 'card' ? 0.98 : 1.12,
   );
+  bloomPass.enabled = opts.kind !== 'maoqiu';
   composer.addPass(bloomPass);
   composer.addPass(new OutputPass());
 
@@ -134,6 +137,26 @@ function initHeroGLB(canvas, opts = {}) {
         state.material.envMapIntensity = isLight ? 1.45 : 2.15;
       }
     });
+  }
+
+  function enhanceMaoqiuMaterial(material) {
+    const isHair = material.name === 'web_baked_particle_hair_material';
+    material.envMapIntensity = isHair ? 1.15 : 0.95;
+    if (material.color) material.color.set(isHair ? 0xd39a52 : 0xb97932);
+    if ('roughness' in material) material.roughness = isHair ? 0.38 : 0.68;
+    if ('metalness' in material) material.metalness = 0;
+    if ('sheen' in material) material.sheen = isHair ? 0.3 : 0.18;
+    if ('sheenColor' in material) material.sheenColor.set(isHair ? 0xc17a2e : 0x9a5c22);
+    if ('sheenRoughness' in material) material.sheenRoughness = isHair ? 0.26 : 0.34;
+    if (isHair) {
+      material.depthTest = true;
+      material.depthWrite = false;
+      material.polygonOffset = true;
+      material.polygonOffsetFactor = -1;
+      material.polygonOffsetUnits = -1;
+      material.side = THREE.DoubleSide;
+    }
+    material.needsUpdate = true;
   }
 
   applyTheme();
@@ -296,8 +319,8 @@ function initHeroGLB(canvas, opts = {}) {
     outlinePass.selectedObjects = [];
     root.traverse((object) => {
       if (!object.isMesh) return;
-      object.castShadow = true;
-      object.receiveShadow = true;
+      object.castShadow = opts.kind !== 'maoqiu';
+      object.receiveShadow = opts.kind !== 'maoqiu';
       const sourceMaterials = Array.isArray(object.material)
         ? object.material
         : [object.material];
@@ -322,6 +345,9 @@ function initHeroGLB(canvas, opts = {}) {
           material.envMapIntensity = 0.28;
           material.clearcoat = 0.04;
         }
+        if (opts.kind === 'maoqiu') {
+          enhanceMaoqiuMaterial(material);
+        }
         if (material.name === 'card_holographic_dynamic') dynamicCard(material);
         return material;
       });
@@ -331,6 +357,7 @@ function initHeroGLB(canvas, opts = {}) {
       if (opts.kind === 'duck' && object.name === '身体') {
         outlinePass.selectedObjects = [object];
       }
+      if (opts.kind === 'maoqiu' && object.name.includes('hair')) object.renderOrder = 1;
     });
   }
 
@@ -352,7 +379,7 @@ function initHeroGLB(canvas, opts = {}) {
   }
 
   function buildRevealPoints(root) {
-    if (reduceMotion) {
+    if (reduceMotion || opts.reveal === false) {
       restoreMaterials();
       animationReady = true;
       outlinePass.enabled = opts.kind === 'duck';
