@@ -128,6 +128,72 @@ body.surflo-page {
   outline: none;
 }
 
+.showcase-method {
+  padding: 82px 0 18px;
+}
+
+.showcase-method-heading {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);
+  gap: clamp(40px, 7vw, 110px);
+  align-items: end;
+  margin-bottom: 54px;
+}
+
+.showcase-method-heading h2 {
+  max-width: 920px;
+  margin: 0;
+  color: var(--showcase-text);
+  font-size: clamp(31px, 3.4vw, 52px);
+  font-weight: 300;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+}
+
+.showcase-method-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.16fr) repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--showcase-line);
+  border-bottom: 1px solid var(--showcase-line);
+}
+
+.showcase-method-step {
+  position: relative;
+  min-width: 0;
+  padding: 34px clamp(24px, 3vw, 46px) 42px;
+}
+
+.showcase-method-step + .showcase-method-step {
+  border-left: 1px solid var(--showcase-line);
+}
+
+.showcase-method-step--primary::before {
+  position: absolute;
+  top: -1px;
+  right: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--showcase-lavender), var(--showcase-accent));
+  content: "";
+}
+
+.showcase-method-step h3 {
+  margin: 22px 0 15px;
+  color: var(--showcase-text);
+  font-size: clamp(23px, 2vw, 31px);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+.showcase-method-step p {
+  margin: 0;
+  color: var(--showcase-muted);
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.65;
+}
+
 .showcase-section {
   padding: 112px 0 28px;
   scroll-margin-top: 32px;
@@ -296,9 +362,19 @@ body.surflo-page {
   }
 
   .showcase-intro-grid,
-  .showcase-heading {
+  .showcase-heading,
+  .showcase-method-heading {
     grid-template-columns: 1fr;
     gap: 30px;
+  }
+
+  .showcase-method-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .showcase-method-step + .showcase-method-step {
+    border-top: 1px solid var(--showcase-line);
+    border-left: 0;
   }
 
   .showcase-heading > div {
@@ -334,6 +410,22 @@ body.surflo-page {
 
   .showcase-section {
     padding-top: 78px;
+  }
+
+  .showcase-method {
+    padding: 62px 4px 0;
+  }
+
+  .showcase-method-heading {
+    margin-bottom: 38px;
+  }
+
+  .showcase-method-heading h2 {
+    font-size: clamp(32px, 9vw, 44px);
+  }
+
+  .showcase-method-step {
+    padding: 28px 16px 34px;
   }
 
   .showcase-grid--three,

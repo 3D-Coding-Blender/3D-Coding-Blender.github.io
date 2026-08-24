@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
   <title>3D-Coding-Blender: Learning Awesome Blender Code Generation from Internet Tutorial Videos</title>
-  <meta name="description" content="3D-Coding-Blender — Learning Awesome Blender Code Generation from Internet Tutorial Videos."/>
+  <meta name="description" content="3D-Coding-Blender — Learning 3D coding from real-world 3D creation workflows."/>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
   <meta charset="utf-8">
 
   <!-- OpenGraph -->
   <meta property="og:type" content="website"/>
   <meta property="og:title" content="3D-Coding-Blender"/>
-  <meta property="og:description" content="Learning Awesome Blender Code Generation from Internet Tutorial Videos."/>
+  <meta property="og:description" content="Learning 3D coding from real-world 3D creation workflows."/>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -24,7 +24,7 @@
   <link href="./base.css?v=20260820palette" rel="stylesheet">
   <link href="./assets/site.css?v=20260820palette" rel="stylesheet">
   <link href="./surflo.css?v=20260822hero-divider" rel="stylesheet">
-  <link href="./assets/showcase.css?v=20260824a" rel="stylesheet">
+  <link href="./assets/showcase.css?v=20260824b" rel="stylesheet">
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
@@ -59,7 +59,7 @@
       <figcaption class="hero-caption">
         <span class="hero-caption-title" aria-label="3D-Coding-Blender">3D-Coding-Blender</span>
         <span class="hero-caption-sub">
-          Learning Awesome Blender Code Generation from Internet Tutorial Videos
+          Learning 3D coding from real-world 3D creation workflows.
         </span>
       </figcaption>
     </div>
@@ -88,10 +88,12 @@
           <span class="showcase-label">Abstract</span>
           <p>
             We explore how internet tutorial videos can teach models to generate
-            executable Blender code for diverse 3D creation tasks. Our work connects
-            visual demonstrations with procedural programs, covering expressive
-            materials, object modeling, scientific visualization, and controllable
-            edits to appearance and animation.
+            executable Blender code and recreate editable 3D assets. Our pipeline
+            connects visual demonstrations with real-world 3D creation workflows,
+            and organizes successful reconstructions into reusable knowledge for
+            future tasks. Existing assets provide supporting examples for knowledge
+            bootstrapping, while controlled editing extends the system to combine
+            geometry, materials, lighting, and animation into richer creations.
           </p>
         </div>
       </div>
@@ -104,6 +106,32 @@
       </nav>
     </section>
 
+    <!-- =================== HOW IT WORKS =================== -->
+    <section id="how-it-works" class="showcase-method reveal">
+      <header class="showcase-method-heading">
+        <p class="showcase-kicker">How It Works</p>
+        <h2>Learning, retaining, and creating with real-world Blender workflows.</h2>
+      </header>
+
+      <div class="showcase-method-grid">
+        <article class="showcase-method-step showcase-method-step--primary">
+          <span class="showcase-index">01</span>
+          <h3>Learn from Tutorials</h3>
+          <p>We parse internet Blender tutorials, recover the demonstrated 3D creation workflows, and translate them into executable code that recreates editable assets.</p>
+        </article>
+        <article class="showcase-method-step">
+          <span class="showcase-index">02</span>
+          <h3>Build Reusable Knowledge</h3>
+          <p>Successful reconstructions are organized into retrievable knowledge—from modeling and materials to lighting, animation, and other workflow-specific techniques. Existing assets and publicly shared tutorial projects help bootstrap and enrich this collection.</p>
+        </article>
+        <article class="showcase-method-step">
+          <span class="showcase-index">03</span>
+          <h3>Edit and Compose</h3>
+          <p>Controlled editing extends the pipeline beyond reconstruction, allowing geometry, materials, lighting, and animation to be modified and combined into richer creations.</p>
+        </article>
+      </div>
+    </section>
+
     <!-- =================== MATERIALS =================== -->
     <section id="materials" class="showcase-section reveal">
       <header class="showcase-heading">
@@ -112,7 +140,7 @@
           <p class="showcase-label">Showcase</p>
         </div>
         <h2>Materials</h2>
-        <p>From stylized surfaces to animated effects, generated as executable Blender programs.</p>
+        <p>Material workflows learned from tutorials and recreated as executable Blender programs.</p>
       </header>
       <div class="showcase-grid showcase-grid--three">
         <article class="showcase-card">
@@ -150,7 +178,7 @@
           <p class="showcase-label">Showcase</p>
         </div>
         <h2>Simple Modeling</h2>
-        <p>Compact, playful objects reconstructed through Blender code generation.</p>
+        <p>Compact, editable objects recreated through code generation from real-world modeling workflows.</p>
       </header>
       <div class="showcase-grid showcase-grid--modeling">
         <article class="showcase-card"><img src="./assets/showcase/model-cat-paw-jelly.png" alt="Cat paw jelly model" loading="lazy"><div class="showcase-card-overlay"><span>Object Modeling</span><h3>Cat Paw Jelly</h3></div></article>
@@ -169,7 +197,7 @@
           <p class="showcase-label">Showcase</p>
         </div>
         <h2>Editing</h2>
-        <p>One animated character, explored through a sequence of chromatic appearance edits.</p>
+        <p>Controlled edits that recombine materials, geometry, lighting, and animation while preserving the source asset.</p>
       </header>
       <div class="showcase-grid showcase-grid--editing">
         <article class="showcase-card"><video muted loop playsinline preload="metadata" aria-label="Chromatic duck edit one"><source src="./assets/showcase/edit-chromatic-01.mp4" type="video/mp4"></video><div class="showcase-card-overlay"><span>Appearance Edit · 01</span><h3>Chromatic Study I</h3></div></article>
@@ -195,7 +223,7 @@
           <p class="showcase-label">Additional Showcase</p>
         </div>
         <h2>Scientific Visualization</h2>
-        <p>Procedural structures for visualizing biological forms.</p>
+        <p>Procedural workflows for creating structured scientific and biological visualizations.</p>
       </header>
       <div class="showcase-grid showcase-grid--three">
         <article class="showcase-card"><img src="./assets/showcase/science-neuron.png" alt="Neuron visualization" loading="lazy"><div class="showcase-card-overlay"><span>Biomedical</span><h3>Neuron</h3></div></article>
