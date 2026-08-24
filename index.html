@@ -24,6 +24,7 @@
   <link href="./base.css?v=20260820palette" rel="stylesheet">
   <link href="./assets/site.css?v=20260820palette" rel="stylesheet">
   <link href="./surflo.css?v=20260822hero-divider" rel="stylesheet">
+  <link href="./assets/showcase.css?v=20260824a" rel="stylesheet">
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
@@ -72,10 +73,137 @@
       <span class="hero-animation-loader" role="status" aria-label="Loading animation"></span>
     </div>
 
-    <a class="hero-scroll-cue" href="#meta" aria-label="Scroll to content">
+    <a class="hero-scroll-cue" href="#abstract" aria-label="Scroll to abstract">
       Scroll <i class="fa fa-chevron-down"></i>
     </a>
   </header>
+
+  <!-- =================== PROJECT INTRODUCTION =================== -->
+  <main class="showcase-main">
+    <section id="abstract" class="showcase-intro reveal">
+      <p class="showcase-kicker">3D-Coding-Blender</p>
+      <div class="showcase-intro-grid">
+        <h2>Learning Blender creation from internet tutorial videos.</h2>
+        <div class="showcase-abstract">
+          <span class="showcase-label">Abstract</span>
+          <p>
+            We explore how internet tutorial videos can teach models to generate
+            executable Blender code for diverse 3D creation tasks. Our work connects
+            visual demonstrations with procedural programs, covering expressive
+            materials, object modeling, scientific visualization, and controllable
+            edits to appearance and animation.
+          </p>
+        </div>
+      </div>
+
+      <nav class="showcase-jump-nav" aria-label="Showcase categories">
+        <a href="#materials">Materials</a>
+        <a href="#modeling">Simple Modeling</a>
+        <a href="#editing">Editing</a>
+        <a href="#science">Scientific Visualization</a>
+      </nav>
+    </section>
+
+    <!-- =================== MATERIALS =================== -->
+    <section id="materials" class="showcase-section reveal">
+      <header class="showcase-heading">
+        <div>
+          <span class="showcase-index">01</span>
+          <p class="showcase-label">Showcase</p>
+        </div>
+        <h2>Materials</h2>
+        <p>From stylized surfaces to animated effects, generated as executable Blender programs.</p>
+      </header>
+      <div class="showcase-grid showcase-grid--three">
+        <article class="showcase-card">
+          <img src="./assets/showcase/material-window.png" alt="Paper-cut window material result" loading="lazy">
+          <div class="showcase-card-overlay"><span>Material</span><h3>Paper-cut Window</h3></div>
+        </article>
+        <article class="showcase-card">
+          <video muted loop playsinline preload="metadata" aria-label="Black Wukong material result"><source src="./assets/showcase/material-wukong.mp4" type="video/mp4"></video>
+          <div class="showcase-card-overlay"><span>Material · Motion</span><h3>Black Wukong</h3></div>
+        </article>
+        <article class="showcase-card">
+          <video muted loop playsinline preload="metadata" aria-label="Door opening material result"><source src="./assets/showcase/material-door.mp4" type="video/mp4"></video>
+          <div class="showcase-card-overlay"><span>Material · Motion</span><h3>Opening Door</h3></div>
+        </article>
+        <article class="showcase-card">
+          <video muted loop playsinline preload="metadata" aria-label="Armor Hero material result"><source src="./assets/showcase/material-armor-hero.mp4" type="video/mp4"></video>
+          <div class="showcase-card-overlay"><span>Material · Motion</span><h3>Armor Hero</h3></div>
+        </article>
+        <article class="showcase-card">
+          <img src="./assets/showcase/material-maodie.png" alt="Maodie stylized material result" loading="lazy">
+          <div class="showcase-card-overlay"><span>Stylized Material</span><h3>Maodie</h3></div>
+        </article>
+        <article class="showcase-card">
+          <img src="./assets/showcase/material-sakura.png" alt="Sakura stylized material result" loading="lazy">
+          <div class="showcase-card-overlay"><span>Stylized Material</span><h3>Sakura</h3></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- =================== SIMPLE MODELING =================== -->
+    <section id="modeling" class="showcase-section reveal">
+      <header class="showcase-heading">
+        <div>
+          <span class="showcase-index">02</span>
+          <p class="showcase-label">Showcase</p>
+        </div>
+        <h2>Simple Modeling</h2>
+        <p>Compact, playful objects reconstructed through Blender code generation.</p>
+      </header>
+      <div class="showcase-grid showcase-grid--modeling">
+        <article class="showcase-card"><img src="./assets/showcase/model-cat-paw-jelly.png" alt="Cat paw jelly model" loading="lazy"><div class="showcase-card-overlay"><span>Object Modeling</span><h3>Cat Paw Jelly</h3></div></article>
+        <article class="showcase-card"><img src="./assets/showcase/model-bee-keycap.png" alt="Bee keycap model" loading="lazy"><div class="showcase-card-overlay"><span>Object Modeling</span><h3>Bee Keycap</h3></div></article>
+        <article class="showcase-card showcase-card--wide"><img src="./assets/showcase/model-shaved-ice.png" alt="Shaved ice model" loading="lazy"><div class="showcase-card-overlay"><span>Object Modeling</span><h3>Shaved Ice</h3></div></article>
+        <article class="showcase-card"><img src="./assets/showcase/model-bear-ice-zongzi.png" alt="Bear ice zongzi model" loading="lazy"><div class="showcase-card-overlay"><span>Object Modeling</span><h3>Bear Ice Zongzi</h3></div></article>
+        <article class="showcase-card"><img src="./assets/showcase/model-pearl-necklace.png" alt="Pearl necklace model" loading="lazy"><div class="showcase-card-overlay"><span>Object Modeling</span><h3>Pearl Necklace</h3></div></article>
+      </div>
+    </section>
+
+    <!-- =================== EDITING =================== -->
+    <section id="editing" class="showcase-section reveal">
+      <header class="showcase-heading">
+        <div>
+          <span class="showcase-index">03</span>
+          <p class="showcase-label">Showcase</p>
+        </div>
+        <h2>Editing</h2>
+        <p>One animated character, explored through a sequence of chromatic appearance edits.</p>
+      </header>
+      <div class="showcase-grid showcase-grid--editing">
+        <article class="showcase-card"><video muted loop playsinline preload="metadata" aria-label="Chromatic duck edit one"><source src="./assets/showcase/edit-chromatic-01.mp4" type="video/mp4"></video><div class="showcase-card-overlay"><span>Appearance Edit · 01</span><h3>Chromatic Study I</h3></div></article>
+        <article class="showcase-card"><video muted loop playsinline preload="metadata" aria-label="Chromatic duck edit two"><source src="./assets/showcase/edit-chromatic-02.mp4" type="video/mp4"></video><div class="showcase-card-overlay"><span>Appearance Edit · 02</span><h3>Chromatic Study II</h3></div></article>
+        <article class="showcase-card"><video muted loop playsinline preload="metadata" aria-label="Chromatic duck edit three"><source src="./assets/showcase/edit-chromatic-03.mp4" type="video/mp4"></video><div class="showcase-card-overlay"><span>Appearance Edit · 03</span><h3>Chromatic Study III</h3></div></article>
+        <article class="showcase-card"><video muted loop playsinline preload="metadata" aria-label="Chromatic duck edit four"><source src="./assets/showcase/edit-chromatic-04.mp4" type="video/mp4"></video><div class="showcase-card-overlay"><span>Appearance Edit · 04</span><h3>Chromatic Study IV</h3></div></article>
+        <article class="showcase-card"><video muted loop playsinline preload="metadata" aria-label="Chromatic duck edit five"><source src="./assets/showcase/edit-chromatic-05.mp4" type="video/mp4"></video><div class="showcase-card-overlay"><span>Appearance Edit · 05</span><h3>Chromatic Study V</h3></div></article>
+        <a class="showcase-card showcase-card--tutorial" href="https://www.bilibili.com/video/BV1cbZFB2E9h/" target="_blank" rel="noopener noreferrer" aria-label="Open the original Bilibili tutorial: Blender chromatic material">
+          <video muted loop playsinline preload="metadata" aria-label="Final chromatic Duck Gigi animation"><source src="./assets/showcase/edit-chromatic-duck.mp4" type="video/mp4"></video>
+          <div class="showcase-card-overlay">
+            <span class="showcase-source">Original Bilibili Tutorial ↗</span>
+            <h3>【blender】用抓精灵的时间告诉你如何实现炫彩材质！</h3>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- =================== SCIENTIFIC VISUALIZATION =================== -->
+    <section id="science" class="showcase-section reveal">
+      <header class="showcase-heading">
+        <div>
+          <span class="showcase-index">04</span>
+          <p class="showcase-label">Additional Showcase</p>
+        </div>
+        <h2>Scientific Visualization</h2>
+        <p>Procedural structures for visualizing biological forms.</p>
+      </header>
+      <div class="showcase-grid showcase-grid--three">
+        <article class="showcase-card"><img src="./assets/showcase/science-neuron.png" alt="Neuron visualization" loading="lazy"><div class="showcase-card-overlay"><span>Biomedical</span><h3>Neuron</h3></div></article>
+        <article class="showcase-card"><img src="./assets/showcase/science-cell.png" alt="Cell visualization" loading="lazy"><div class="showcase-card-overlay"><span>Biomedical</span><h3>Cell</h3></div></article>
+        <article class="showcase-card"><img src="./assets/showcase/science-cell-membrane.png" alt="Cell membrane visualization" loading="lazy"><div class="showcase-card-overlay"><span>Biomedical</span><h3>Cell Membrane</h3></div></article>
+      </div>
+    </section>
+  </main>
 
   <!-- =================== META =================== -->
   <section id="meta" class="section section-meta">
@@ -1638,13 +1766,11 @@
     import('./assets/hero-glb.js?v=20260822assets6').catch((err) => {
       console.error('[surflo] hero-glb.js failed to load:', err);
     });
-    import('./surflo.js?v=20260822hero-divider').catch((err) => {
-      console.error('[surflo] surflo.js failed to load:', err);
-    });
   </script>
 
   <!-- Site-wide micro-interactions (theme toggle, reveal-on-scroll, magnetic buttons) -->
   <script src="./assets/site.js?v=20260520d"></script>
+  <script src="./assets/showcase.js?v=20260824a"></script>
 
 </body>
 </html>
