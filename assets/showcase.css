@@ -274,7 +274,19 @@ body.surflo-page {
 
 .showcase-grid--modeling .showcase-card video {
   object-fit: contain;
-  background: #d0cbb0;
+  background: rgb(206, 206, 206);
+}
+
+#materials .showcase-card img,
+#materials .showcase-card video {
+  object-fit: contain;
+  background: #000;
+}
+
+#science .showcase-card img,
+#science .showcase-card video {
+  object-fit: contain;
+  background: rgb(206, 206, 206);
 }
 
 .showcase-card-overlay {
