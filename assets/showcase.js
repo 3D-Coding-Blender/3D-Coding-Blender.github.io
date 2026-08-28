@@ -46,6 +46,49 @@
     card.addEventListener('focusout', () => pauseCard(card));
   });
 
+  // Generation section tabs --------------------------------------------
+  document.querySelectorAll('.showcase-tabs').forEach((tablist) => {
+    const tabs = Array.from(tablist.querySelectorAll('.showcase-tab'));
+    const section = tablist.closest('.showcase-section');
+    const panels = section
+      ? Array.from(section.querySelectorAll(':scope > .showcase-tab-panel'))
+      : [];
+    if (!tabs.length || !panels.length) return;
+
+    function activate(index) {
+      index = Math.max(0, Math.min(tabs.length - 1, index));
+      tabs.forEach((tab, i) => {
+        const active = i === index;
+        tab.classList.toggle('is-active', active);
+        tab.setAttribute('aria-selected', active ? 'true' : 'false');
+        tab.tabIndex = active ? 0 : -1;
+      });
+      panels.forEach((panel, i) => {
+        const active = i === index;
+        panel.classList.toggle('is-active', active);
+        panel.hidden = !active;
+      });
+    }
+
+    tabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => activate(i));
+      tab.addEventListener('keydown', (event) => {
+        let next = null;
+        if (event.key === 'ArrowRight' || event.key === 'ArrowDown') next = (i + 1) % tabs.length;
+        if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') next = (i - 1 + tabs.length) % tabs.length;
+        if (event.key === 'Home') next = 0;
+        if (event.key === 'End') next = tabs.length - 1;
+        if (next === null) return;
+        event.preventDefault();
+        activate(next);
+        tabs[next].focus();
+      });
+    });
+
+    const initial = tabs.findIndex((tab) => tab.getAttribute('aria-selected') === 'true');
+    activate(initial >= 0 ? initial : 0);
+  });
+
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {

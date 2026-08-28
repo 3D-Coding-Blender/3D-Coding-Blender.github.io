@@ -225,6 +225,12 @@ table {
   .theme-toggle .material-icons-outlined { font-size: 16px; }
 }
 
+/* The homepage no longer exposes a theme switcher. Keep stale cached markup
+   from rendering the removed control during a rolling deploy. */
+.theme-toggle {
+  display: none !important;
+}
+
 /* Inline code styling */
 code {
   background-color: transparent !important;

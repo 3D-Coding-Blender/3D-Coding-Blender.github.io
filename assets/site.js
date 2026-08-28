@@ -108,38 +108,6 @@
     });
   }
 
-  function themeToggle() {
-    const btn = document.createElement('button');
-    btn.className = 'theme-toggle';
-    btn.type = 'button';
-
-    function render(theme) {
-      // Icon represents the mode you'll switch INTO. Uses the original
-      // Material Icons Outlined glyphs (sun / moon) so the look stays minimal.
-      const next = theme === 'dark' ? 'light' : 'dark';
-      btn.innerHTML = next === 'light'
-        ? '<span class="material-icons-outlined">light_mode</span>'
-        : '<span class="material-icons-outlined">dark_mode</span>';
-      const label = 'Switch to ' + next + ' mode';
-      btn.setAttribute('aria-label', label);
-      btn.setAttribute('title', label);
-    }
-
-    const saved = localStorage.getItem('theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', saved);
-    render(saved);
-
-    btn.addEventListener('click', () => {
-      const cur = document.documentElement.getAttribute('data-theme');
-      const next = cur === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', next);
-      try { localStorage.setItem('theme', next); } catch (e) {}
-      render(next);
-    });
-
-    document.body.appendChild(btn);
-  }
-
   // Hero / lite-mode state -----------------------------------------------
   let heroScene = null;
   let heroPendingInit = false;
@@ -255,6 +223,11 @@
   }
 
   onReady(() => {
+    if (document.body.classList.contains('surflo-page')) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+    // Remove any stale theme-toggle node left by a previously cached script.
+    document.querySelectorAll('.theme-toggle').forEach((el) => el.remove());
     liteToggle();
     revealOnScroll();
     magneticButtons();
@@ -262,6 +235,5 @@
     smoothAnchors();
     newsCollapse();
     pubBibtexToggle();
-    themeToggle();
   });
 })();

@@ -263,6 +263,56 @@ body.surflo-page {
   aspect-ratio: 2 / 1;
 }
 
+.showcase-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 22px;
+  border-bottom: 1px solid var(--showcase-line);
+}
+
+.showcase-tab {
+  position: relative;
+  padding: 10px 2px 13px;
+  border: 0;
+  background: transparent;
+  color: var(--showcase-muted);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+}
+
+.showcase-tab::after {
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 2px;
+  background: transparent;
+  content: "";
+  transition: background 180ms ease;
+}
+
+.showcase-tab:hover,
+.showcase-tab:focus-visible,
+.showcase-tab.is-active {
+  color: var(--showcase-text);
+}
+
+.showcase-tab.is-active::after {
+  background: linear-gradient(90deg, var(--showcase-lavender), var(--showcase-accent));
+}
+
+.showcase-tab:focus-visible {
+  outline: 2px solid var(--showcase-lavender);
+  outline-offset: 4px;
+}
+
+.showcase-tab-panel[hidden] {
+  display: none;
+}
+
 .showcase-card img,
 .showcase-card video {
   width: 100%;
@@ -289,7 +339,9 @@ body.surflo-page {
 }
 
 #glass-heart .showcase-card img,
-#glass-heart .showcase-card video {
+#glass-heart .showcase-card video,
+#generation .showcase-card img,
+#generation .showcase-card video {
   object-fit: contain;
   background: rgb(67, 67, 67);
 }
@@ -343,6 +395,12 @@ body.surflo-page {
   grid-column: span 2;
   aspect-ratio: 2 / 1;
   border-color: rgba(182, 156, 255, 0.34);
+}
+
+/* Keep the tutorial styling, but match the dimensions of every Editing card. */
+#editing .showcase-card--tutorial {
+  grid-column: auto;
+  aspect-ratio: 4 / 3;
 }
 
 .showcase-card--tutorial::after {

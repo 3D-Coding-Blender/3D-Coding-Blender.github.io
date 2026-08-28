@@ -21,10 +21,10 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link href="./base.css?v=20260820palette" rel="stylesheet">
-  <link href="./assets/site.css?v=20260820palette" rel="stylesheet">
+  <link href="./base.css?v=20260828-no-theme-toggle" rel="stylesheet">
+  <link href="./assets/site.css?v=20260828-hero-stage-tone" rel="stylesheet">
   <link href="./surflo.css?v=20260822hero-divider" rel="stylesheet">
-  <link href="./assets/showcase.css?v=20260828glassheart1" rel="stylesheet">
+  <link href="./assets/showcase.css?v=20260828-generation-tabs-glassheart" rel="stylesheet">
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
@@ -103,6 +103,7 @@
         <a href="#modeling">Simple Modeling</a>
         <a href="#editing">Editing</a>
         <a href="#glass-heart">Glass Heart</a>
+        <a href="#generation">Generation</a>
       </nav>
     </section>
 
@@ -183,7 +184,7 @@
       <div class="showcase-grid showcase-grid--modeling">
         <article class="showcase-card"><video autoplay muted loop playsinline preload="metadata" poster="./assets/showcase/model-cat-paw-jelly.png?v=20260828final4" aria-label="Cat paw jelly model 360-degree turntable"><source src="./assets/showcase/model-cat-paw-jelly.mp4?v=20260828final4" type="video/mp4"></video><div class="showcase-card-overlay"><span>Object Modeling · Motion</span><h3>Cat Paw Jelly</h3></div></article>
         <article class="showcase-card"><video autoplay muted loop playsinline preload="metadata" poster="./assets/showcase/model-bee-keycap.png?v=20260828final4" aria-label="Bee keycap model 360-degree turntable"><source src="./assets/showcase/model-bee-keycap.mp4?v=20260828final4" type="video/mp4"></video><div class="showcase-card-overlay"><span>Object Modeling · Motion</span><h3>Bee Keycap</h3></div></article>
-        <article class="showcase-card showcase-card--wide"><video autoplay muted loop playsinline preload="metadata" poster="./assets/showcase/model-shaved-ice.png?v=20260828final5" aria-label="Shaved ice model 360-degree turntable"><source src="./assets/showcase/model-shaved-ice.mp4?v=20260828final5" type="video/mp4"></video><div class="showcase-card-overlay"><span>Object Modeling · Motion</span><h3>Shaved Ice</h3></div></article>
+        <article class="showcase-card"><video autoplay muted loop playsinline preload="metadata" poster="./assets/showcase/model-shaved-ice.png?v=20260828final5" aria-label="Shaved ice model 360-degree turntable"><source src="./assets/showcase/model-shaved-ice.mp4?v=20260828final5" type="video/mp4"></video><div class="showcase-card-overlay"><span>Object Modeling · Motion</span><h3>Shaved Ice</h3></div></article>
         <article class="showcase-card"><video autoplay muted loop playsinline preload="metadata" poster="./assets/showcase/model-bear-ice-zongzi.png?v=20260828final4" aria-label="Bear ice zongzi model 360-degree turntable"><source src="./assets/showcase/model-bear-ice-zongzi.mp4?v=20260828final4" type="video/mp4"></video><div class="showcase-card-overlay"><span>Object Modeling · Motion</span><h3>Bear Ice Zongzi</h3></div></article>
         <article class="showcase-card"><video autoplay muted loop playsinline preload="metadata" poster="./assets/showcase/model-pearl-necklace.png?v=20260828final4" aria-label="Pearl necklace model 360-degree turntable"><source src="./assets/showcase/model-pearl-necklace.mp4?v=20260828final4" type="video/mp4"></video><div class="showcase-card-overlay"><span>Object Modeling · Motion</span><h3>Pearl Necklace</h3></div></article>
         <article class="showcase-card"><video autoplay muted loop playsinline preload="metadata" poster="./assets/showcase/model-candle.png?v=20260828simple2" aria-label="Candle model 360-degree turntable"><source src="./assets/showcase/model-candle.mp4?v=20260828simple2" type="video/mp4"></video><div class="showcase-card-overlay"><span>Object Modeling · Motion</span><h3>Candle</h3></div></article>
@@ -246,6 +247,43 @@
         <article class="showcase-card"><video autoplay muted loop playsinline preload="metadata" poster="./assets/showcase/glass-heart-sci-fi-orb.png?v=20260828glassheart1" aria-label="Glass Heart science-fiction orb 360-degree turntable"><source src="./assets/showcase/glass-heart-sci-fi-orb.mp4?v=20260828glassheart1" type="video/mp4"></video><div class="showcase-card-overlay"><span>Glass Material · Motion</span><h3>Sci-Fi Orb</h3></div></article>
         <article class="showcase-card"><video autoplay muted loop playsinline preload="metadata" poster="./assets/showcase/glass-heart-viking-round-shield.png?v=20260828glassheart1" aria-label="Glass Heart Viking round shield 360-degree turntable"><source src="./assets/showcase/glass-heart-viking-round-shield.mp4?v=20260828glassheart1" type="video/mp4"></video><div class="showcase-card-overlay"><span>Glass Material · Motion</span><h3>Viking Round Shield</h3></div></article>
         <article class="showcase-card"><video autoplay muted loop playsinline preload="metadata" poster="./assets/showcase/glass-heart-classical-sailing-ship.png?v=20260828glassheart1" aria-label="Glass Heart classical sailing ship 360-degree turntable"><source src="./assets/showcase/glass-heart-classical-sailing-ship.mp4?v=20260828glassheart1" type="video/mp4"></video><div class="showcase-card-overlay"><span>Glass Material · Motion</span><h3>Classical Sailing Ship</h3></div></article>
+
+      </div>
+    </section>
+
+    <!-- =================== GENERATION =================== -->
+    <section id="generation" class="showcase-section reveal">
+      <header class="showcase-heading">
+        <div>
+          <span class="showcase-index">05</span>
+          <p class="showcase-label">Additional Showcase</p>
+        </div>
+        <h2>Generation</h2>
+        <p>Generated Blender creations spanning scientific visualization and tutorial-based practice.</p>
+      </header>
+
+      <div class="showcase-tabs" role="tablist" aria-label="Generation categories">
+        <button type="button" class="showcase-tab is-active" role="tab" aria-selected="true" aria-controls="generation-science-panel" id="generation-science-tab">Scientific Visualization</button>
+        <button type="button" class="showcase-tab" role="tab" aria-selected="false" aria-controls="generation-practice-panel" id="generation-practice-tab" tabindex="-1">Practice</button>
+      </div>
+
+      <div class="showcase-tab-panel is-active" id="generation-science-panel" role="tabpanel" aria-labelledby="generation-science-tab">
+        <div class="showcase-grid showcase-grid--three">
+          <article class="showcase-card"><img src="./assets/showcase/science-neuron.png?v=20260828final4" alt="Neuron visualization" loading="lazy"><div class="showcase-card-overlay"><span>Biomedical</span><h3>Neuron</h3></div></article>
+          <article class="showcase-card"><img src="./assets/showcase/science-cell.png?v=20260828final4" alt="Cell visualization" loading="lazy"><div class="showcase-card-overlay"><span>Biomedical</span><h3>Cell</h3></div></article>
+          <article class="showcase-card"><img src="./assets/showcase/science-cell-membrane.png?v=20260828final4" alt="Cell membrane visualization" loading="lazy"><div class="showcase-card-overlay"><span>Biomedical</span><h3>Cell Membrane</h3></div></article>
+        </div>
+      </div>
+
+      <div class="showcase-tab-panel" id="generation-practice-panel" role="tabpanel" aria-labelledby="generation-practice-tab" hidden>
+        <div class="showcase-grid showcase-grid--three">
+          <article class="showcase-card"><img src="./assets/showcase/practice-bottle-world.png?v=20260828-generation-practice" alt="Blender bottle world practice scene" loading="lazy"><div class="showcase-card-overlay"><span>Practice · Scene</span><h3>Bottle World</h3></div></article>
+          <article class="showcase-card"><img src="./assets/showcase/practice-toon-room.png?v=20260828-generation-practice" alt="Blender toon-style room practice scene" loading="lazy"><div class="showcase-card-overlay"><span>Practice · Scene</span><h3>Toon-Style Room</h3></div></article>
+          <article class="showcase-card"><img src="./assets/showcase/practice-exploded-gift.png?v=20260828-generation-practice" alt="Blender exploded gift animation practice scene" loading="lazy"><div class="showcase-card-overlay"><span>Practice · Animation</span><h3>Exploded Gift</h3></div></article>
+          <article class="showcase-card"><img src="./assets/showcase/practice-material-switch.png?v=20260828-generation-practice" alt="Blender material switching practice scene" loading="lazy"><div class="showcase-card-overlay"><span>Practice · Material</span><h3>Material Switch</h3></div></article>
+          <article class="showcase-card"><img src="./assets/showcase/practice-ucupaint.png?v=20260828-generation-practice" alt="Blender Ucupaint practice scene" loading="lazy"><div class="showcase-card-overlay"><span>Practice · Material</span><h3>Ucupaint Study</h3></div></article>
+          <article class="showcase-card"><img src="./assets/showcase/practice-drink-ad.png?v=20260828-generation-practice" alt="Blender drink advertisement practice scene" loading="lazy"><div class="showcase-card-overlay"><span>Practice · Simulation</span><h3>Drink Advertisement</h3></div></article>
+        </div>
       </div>
     </section>
   </main>
@@ -1808,17 +1846,17 @@
 
   <!-- Hero GLB scene + project viewers (both ES modules) -->
   <script type="module">
-    import('./assets/hero-glb.js?v=20260822assets6').catch((err) => {
+    import('./assets/hero-glb.js?v=20260828-duck-stage').catch((err) => {
       console.error('[surflo] hero-glb.js failed to load:', err);
     });
-    import('./surflo.js?v=20260824showcase1').catch((err) => {
+    import('./surflo.js?v=20260828-fur-default').catch((err) => {
       console.error('[surflo] surflo.js failed to load:', err);
     });
   </script>
 
-  <!-- Site-wide micro-interactions (theme toggle, reveal-on-scroll, magnetic buttons) -->
-  <script src="./assets/site.js?v=20260520d"></script>
-  <script src="./assets/showcase.js?v=20260824a"></script>
+  <!-- Site-wide micro-interactions (reveal-on-scroll, magnetic buttons, tabs) -->
+  <script src="./assets/site.js?v=20260828-no-theme-toggle"></script>
+  <script src="./assets/showcase.js?v=20260828-generation-tabs"></script>
 
 </body>
 </html>

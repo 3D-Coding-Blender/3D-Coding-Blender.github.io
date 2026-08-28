@@ -79,7 +79,7 @@ function initHeroGLB(canvas, opts = {}) {
   floor.rotation.x = -Math.PI / 2;
   floor.position.y = -0.42;
   floor.receiveShadow = true;
-  floor.visible = opts.kind === 'card';
+  floor.visible = opts.kind === 'card' || opts.kind === 'duck';
   scene.add(floor);
 
   function applyTheme() {
