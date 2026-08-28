@@ -272,6 +272,28 @@ body.surflo-page {
   transition: transform 550ms cubic-bezier(0.2, 0.75, 0.2, 1), filter 300ms ease;
 }
 
+.showcase-grid--modeling .showcase-card video {
+  object-fit: contain;
+  background: rgb(67, 67, 67);
+}
+
+#editing .showcase-card video {
+  object-fit: contain;
+  background: rgb(206,206,206);
+}
+
+#materials .showcase-card img,
+#materials .showcase-card video {
+  object-fit: contain;
+  background: #000;
+}
+
+#science .showcase-card img,
+#science .showcase-card video {
+  object-fit: contain;
+  background: rgb(67, 67, 67);
+}
+
 .showcase-card-overlay {
   position: absolute;
   inset: 0;
