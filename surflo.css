@@ -150,20 +150,6 @@
   cursor: grab;
   touch-action: pan-y;
 }
-.hero-canvas.is-hidden { opacity: 0; pointer-events: none; }
-#hero-fur-video { display: none; }
-.hero-fur-canvas {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 220ms ease;
-}
-.hero-fur-canvas.is-active { opacity: 1; }
 .hero-stage::after {
   content: "";
   position: absolute;
