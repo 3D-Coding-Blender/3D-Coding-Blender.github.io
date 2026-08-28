@@ -61,71 +61,24 @@ function resolveTransform(url) {
    1. Hero mesh
    -------------------------------------------------------------- */
 const HERO_ANIMATIONS = {
-  'holographic-card': {
-    url: './assets/models/holographic-card.glb?v=20260822fixed',
-    offsetY: 0.22,
-    kind: 'card',
+  'stained-glass-window': {
+    url: './assets/models/stained-glass-window.glb?v=20260829reorg1',
+    offsetY: 0,
+    kind: 'stained-glass',
+    targetSize: 1.8,
+    mobileTargetSize: 0.82,
+    initialRotationY: -0.4,
+    autoRotate: 0.000025,
   },
   'chromatic-duck': {
     url: './assets/models/chromatic-duck.glb?v=20260822fixed2',
     offsetY: 0.16,
     kind: 'duck',
   },
-  maoqiu: {
-    kind: 'maoqiu',
-    video: true,
-  },
 };
 
 function startHero() {
   const canvas = document.getElementById('hero-canvas');
-  const furVideo = document.getElementById('hero-fur-video');
-  const furCanvas = document.getElementById('hero-fur-canvas');
-  const furContext = furCanvas?.getContext('2d', { willReadFrequently: true });
-  const furBuffer = document.createElement('canvas');
-  const furBufferContext = furBuffer.getContext('2d', { willReadFrequently: true });
-  let furFrame = 0;
-  let furActive = false;
-
-  function drawFurFrame() {
-    if (!furActive || !furVideo || !furCanvas || !furContext || furVideo.readyState < 2) return;
-    const width = 1280;
-    const height = 720;
-    if (furBuffer.width !== width || furBuffer.height !== height) {
-      furBuffer.width = width;
-      furBuffer.height = height;
-      furCanvas.width = width;
-      furCanvas.height = height;
-    }
-    furBufferContext.drawImage(furVideo, 0, 0, width, height);
-    const frame = furBufferContext.getImageData(0, 0, width, height);
-    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-    const background = isLight ? [255, 255, 255] : [11, 12, 14];
-    for (let i = 0; i < frame.data.length; i += 4) {
-      const r = frame.data[i];
-      const g = frame.data[i + 1];
-      const b = frame.data[i + 2];
-      const spread = Math.max(r, g, b) - Math.min(r, g, b);
-      const distance = Math.abs(r - 58) + Math.abs(g - 58) + Math.abs(b - 57);
-      const pixel = i / 4;
-      const x = (pixel % width) / width;
-      const y = Math.floor(pixel / width) / height;
-      const dx = (x - 0.40) / 0.34;
-      const dy = (y - 0.51) / 0.47;
-      const insideObjectArea = dx * dx + dy * dy < 1.08;
-      const protectSurface = insideObjectArea && (spread > 14 || distance > 48);
-      if (!protectSurface && spread < 18 && distance < 150) frame.data[i + 3] = 0;
-    }
-    furContext.fillStyle = `rgb(${background.join(',')})`;
-    furContext.fillRect(0, 0, width, height);
-    furContext.putImageData(frame, 0, 0);
-  }
-
-  function furLoop() {
-    if (furActive) drawFurFrame();
-    furFrame = requestAnimationFrame(furLoop);
-  }
-  furLoop();
   if (!canvas) return;
 
   const controls = document.querySelector('.hero-animation-controls');
@@ -149,17 +102,6 @@ function startHero() {
       if (heroInstance) heroInstance.destroy();
       heroInstance = null;
 
-      const usesVideo = item.video === true;
-      canvas.classList.toggle('is-hidden', usesVideo);
-      furActive = usesVideo;
-      furCanvas?.classList.toggle('is-active', usesVideo);
-      if (usesVideo) {
-        furVideo.currentTime = 0;
-        furVideo.play().catch(() => {});
-      } else if (furVideo) {
-        furVideo.pause();
-      }
-
       tabs.forEach((tab) => {
         const selected = tab.dataset.heroAnimation === key;
         tab.classList.toggle('is-active', selected);
@@ -170,18 +112,15 @@ function startHero() {
       controls?.classList.add('is-loading');
       canvas.classList.add('is-switching');
 
-      if (usesVideo) {
-        controls?.classList.remove('is-loading');
-        canvas.classList.remove('is-switching');
-        return;
-      }
-
       heroInstance = window.initHeroGLB(canvas, {
         url: item.url,
-        autoRotate: 0.00013,
+        autoRotate: item.autoRotate ?? 0.00013,
         offsetY: item.offsetY,
         kind: item.kind,
         reveal: item.reveal,
+        targetSize: item.targetSize,
+        mobileTargetSize: item.mobileTargetSize,
+        initialRotationY: item.initialRotationY,
         onReady() {
           if (generation !== loadGeneration) return;
           controls?.classList.remove('is-loading');
@@ -216,7 +155,7 @@ function startHero() {
     });
 
     const initialTab = tabs.find((tab) => tab.getAttribute('aria-selected') === 'true') || tabs[0];
-    selectAnimation(initialTab?.dataset.heroAnimation || 'holographic-card');
+    selectAnimation(initialTab?.dataset.heroAnimation || 'stained-glass-window');
   }
   tryStart();
 }

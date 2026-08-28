@@ -498,7 +498,9 @@ function initHeroGLB(canvas, opts = {}) {
     const center = box.getCenter(new THREE.Vector3());
     const size = box.getSize(new THREE.Vector3());
     const maxDimension = Math.max(size.x, size.y, size.z) || 1;
-    const targetSize = isMobile ? 0.9 : 1.1;
+    const targetSize = isMobile
+      ? (opts.mobileTargetSize ?? 0.9)
+      : (opts.targetSize ?? 1.1);
     const scale = targetSize / maxDimension;
     fitGroup.scale.setScalar(scale);
     fitGroup.position.set(
@@ -649,7 +651,7 @@ function initHeroGLB(canvas, opts = {}) {
 
   let rotation = 0;
   const baseRotationX = opts.kind === 'card' ? 0.06 : 0;
-  const baseRotationY = opts.kind === 'card' ? -0.045 : 0;
+  const baseRotationY = opts.initialRotationY ?? (opts.kind === 'card' ? -0.045 : 0);
   let lastTime = performance.now();
   function frame(now) {
     if (!running) return;

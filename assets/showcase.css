@@ -339,8 +339,16 @@ body.surflo-page {
   background: #000;
 }
 
+#glass-heart .showcase-card {
+  aspect-ratio: 1 / 1;
+}
+
 #glass-heart .showcase-card img,
-#glass-heart .showcase-card video,
+#glass-heart .showcase-card video {
+  object-fit: contain;
+  background: transparent;
+}
+
 #generation .showcase-card img,
 #generation .showcase-card video {
   object-fit: contain;
