@@ -247,6 +247,7 @@ body.surflo-page {
   position: relative;
   display: block;
   min-width: 0;
+  cursor: zoom-in;
   aspect-ratio: 4 / 3;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.09);
@@ -425,6 +426,138 @@ body.surflo-page {
   color: #d5c8ff;
 }
 
+body.showcase-lightbox-open {
+  overflow: hidden;
+}
+
+.showcase-lightbox[hidden] {
+  display: none;
+}
+
+.showcase-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+  padding: clamp(16px, 4vw, 48px);
+  background: rgba(4, 5, 8, 0.88);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 180ms ease, visibility 180ms ease;
+}
+
+.showcase-lightbox.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.showcase-lightbox-inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: min(1120px, 100%);
+  max-height: calc(100vh - 32px);
+  overflow: auto;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 16px;
+  background: #15171d;
+  box-shadow: 0 28px 100px rgba(0, 0, 0, 0.55);
+}
+
+.showcase-lightbox-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 999px;
+  background: rgba(5, 6, 10, 0.7);
+  color: #fff;
+  font-size: 27px;
+  font-weight: 300;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.showcase-lightbox-close:hover,
+.showcase-lightbox-close:focus-visible {
+  border-color: var(--showcase-lavender);
+  background: rgba(182, 156, 255, 0.2);
+  outline: none;
+  transform: scale(1.04);
+}
+
+.showcase-lightbox-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+  max-height: min(74vh, 760px);
+  overflow: hidden;
+  background: #050608;
+}
+
+.showcase-lightbox-media-element {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: min(74vh, 760px);
+  object-fit: contain;
+}
+
+video.showcase-lightbox-media-element {
+  width: 100%;
+  height: auto;
+}
+
+.showcase-lightbox-caption {
+  padding: 20px clamp(20px, 3vw, 34px) 24px;
+}
+
+.showcase-lightbox-label {
+  display: block;
+  color: var(--showcase-muted);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.showcase-lightbox-title {
+  margin: 8px 0 0;
+  color: var(--showcase-text);
+  font-size: clamp(22px, 3vw, 34px);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+.showcase-lightbox-link {
+  margin-top: 12px;
+}
+
+.showcase-lightbox-original {
+  color: #d5c8ff;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.showcase-lightbox-original:hover,
+.showcase-lightbox-original:focus-visible {
+  color: #fff;
+  text-decoration: underline;
+}
+
 .surflo-footer {
   width: min(1440px, calc(100% - 64px));
   margin-top: 110px;
@@ -529,6 +662,19 @@ body.surflo-page {
 
   .showcase-card-overlay h3 {
     font-size: 21px;
+  }
+
+  .showcase-lightbox {
+    padding: 12px;
+  }
+
+  .showcase-lightbox-inner {
+    max-height: calc(100vh - 24px);
+  }
+
+  .showcase-lightbox-media,
+  .showcase-lightbox-media-element {
+    max-height: 62vh;
   }
 }
 
