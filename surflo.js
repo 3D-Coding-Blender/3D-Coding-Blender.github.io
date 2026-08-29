@@ -61,14 +61,10 @@ function resolveTransform(url) {
    1. Hero mesh
    -------------------------------------------------------------- */
 const HERO_ANIMATIONS = {
-  'stained-glass-window': {
-    url: './assets/models/stained-glass-window.glb?v=20260829reorg1',
-    offsetY: 0,
-    kind: 'stained-glass',
-    targetSize: 1.8,
-    mobileTargetSize: 0.82,
-    initialRotationY: -0.4,
-    autoRotate: 0.000025,
+  'holographic-card': {
+    url: './assets/models/holographic-card.glb?v=20260830-holo-hero1',
+    offsetY: 0.22,
+    kind: 'card',
   },
   'chromatic-duck': {
     url: './assets/models/chromatic-duck.glb?v=20260822fixed2',
@@ -155,7 +151,7 @@ function startHero() {
     });
 
     const initialTab = tabs.find((tab) => tab.getAttribute('aria-selected') === 'true') || tabs[0];
-    selectAnimation(initialTab?.dataset.heroAnimation || 'stained-glass-window');
+    selectAnimation(initialTab?.dataset.heroAnimation || 'holographic-card');
   }
   tryStart();
 }

@@ -18,6 +18,40 @@
 
   document.querySelectorAll(legacySelectors.join(',')).forEach((element) => element.remove());
 
+  document.querySelectorAll('.showcase-tabs').forEach((tabList) => {
+    const tabs = Array.from(tabList.querySelectorAll('[data-showcase-tab]'));
+
+    function activateTab(activeTab) {
+      tabs.forEach((tab) => {
+        const selected = tab === activeTab;
+        const panel = document.getElementById(tab.dataset.showcaseTab);
+        tab.classList.toggle('is-active', selected);
+        tab.setAttribute('aria-selected', String(selected));
+        tab.tabIndex = selected ? 0 : -1;
+        if (panel) {
+          panel.hidden = !selected;
+          panel.classList.toggle('is-active', selected);
+          if (!selected) panel.querySelectorAll('video').forEach((video) => video.pause());
+        }
+      });
+    }
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => activateTab(tab));
+      tab.addEventListener('keydown', (event) => {
+        let nextIndex = null;
+        if (event.key === 'ArrowRight' || event.key === 'ArrowDown') nextIndex = (index + 1) % tabs.length;
+        if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') nextIndex = (index - 1 + tabs.length) % tabs.length;
+        if (event.key === 'Home') nextIndex = 0;
+        if (event.key === 'End') nextIndex = tabs.length - 1;
+        if (nextIndex === null) return;
+        event.preventDefault();
+        tabs[nextIndex].focus();
+        activateTab(tabs[nextIndex]);
+      });
+    });
+  });
+
   const cards = Array.from(document.querySelectorAll('.showcase-card'));
   const videos = cards
     .map((card) => card.querySelector('video'))

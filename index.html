@@ -14,12 +14,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet">
 
   <link href="./base.css?v=20260828-no-theme-toggle" rel="stylesheet">
   <link href="./assets/site.css?v=20260828-hero-stage-tone" rel="stylesheet">
   <link href="./surflo.css?v=20260822hero-divider" rel="stylesheet">
-  <link href="./assets/showcase.css?v=20260829-seventy-percent-cards" rel="stylesheet">
+  <link href="./assets/showcase.css?v=20260830-material-workflows-tabs" rel="stylesheet">
 
 <!--  Google Analytics (DO NOT copy/paste following section, setup your own analytics tag at https://analytics.google.com/analytics/web/)  -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CDL4R10HKE"></script>
@@ -54,7 +54,7 @@
 
     <div class="hero-animation-controls">
       <div class="hero-animation-tabs" role="tablist" aria-label="3D animation selection">
-        <button type="button" class="hero-animation-tab is-active" role="tab" aria-selected="true" aria-controls="hero-animation-panel" data-hero-animation="stained-glass-window">Stained Glass Window</button>
+        <button type="button" class="hero-animation-tab is-active" role="tab" aria-selected="true" aria-controls="hero-animation-panel" data-hero-animation="holographic-card">Holographic Card</button>
         <button type="button" class="hero-animation-tab" role="tab" aria-selected="false" aria-controls="hero-animation-panel" data-hero-animation="chromatic-duck" tabindex="-1">Chromatic Duck</button>
       </div>
       <span class="hero-animation-loader" role="status" aria-label="Loading animation"></span>
@@ -129,7 +129,97 @@
         <h2>Materials</h2>
         <p>Material workflows learned from tutorials and recreated as executable Blender programs.</p>
       </header>
-      <div class="showcase-grid showcase-grid--three">
+      <section class="materials-workflows" aria-label="Material generation workflows">
+        <article class="workflow-card" id="workflow-stained-glass">
+          <header class="workflow-card-header">
+            <span>Workflow 01</span>
+            <div><h3>Stained Glass Window</h3><p>Source image and tutorial cover to editable Blender material.</p></div>
+          </header>
+          <div class="workflow-flow">
+            <section class="workflow-stage workflow-stage--inputs" aria-label="Stained Glass Window inputs">
+              <span class="workflow-stage-label">Input</span>
+              <div class="workflow-input-grid">
+                <a class="workflow-media" href="./assets/workflows/stained-glass/source.png" target="_blank" rel="noopener noreferrer">
+                  <img src="./assets/workflows/stained-glass/source.png" alt="Original red-orange dragon image used to generate the stained glass material" loading="lazy" decoding="async">
+                  <span>Source image</span>
+                </a>
+                <a class="workflow-media" href="./assets/workflows/stained-glass/tutorial-cover.jpg" target="_blank" rel="noopener noreferrer">
+                  <img src="./assets/workflows/stained-glass/tutorial-cover.jpg" alt="Bilibili stained glass material tutorial cover" loading="lazy" decoding="async">
+                  <span>Tutorial cover</span>
+                </a>
+              </div>
+            </section>
+            <div class="workflow-connector" aria-hidden="true"><span>Pipeline</span><b>→</b></div>
+            <section class="workflow-stage workflow-stage--outputs" aria-label="Stained Glass Window pipeline outputs">
+              <span class="workflow-stage-label">Executable outputs</span>
+              <a class="workflow-media workflow-media--nodes" href="./assets/workflows/stained-glass/material-nodes.png" target="_blank" rel="noopener noreferrer">
+                <img src="./assets/workflows/stained-glass/material-nodes.png" alt="Compact Blender material node graph for the stained glass window" loading="lazy" decoding="async">
+                <span>Blender material nodes</span>
+              </a>
+              <div class="workflow-code-card">
+                <div><span>Blender Python</span><a href="./assets/workflows/stained-glass/reproduce.py" download>reproduce.py ↓</a></div>
+                <pre><code>image = bpy.data.images.load(SOURCE_IMAGE, check_existing=True)
+voronoi = nodes.new("ShaderNodeTexVoronoi")
+voronoi.feature = "DISTANCE_TO_EDGE"
+set_input(voronoi, "Scale", 50.0)
+bpy.ops.wm.save_as_mainfile(filepath=str(OUTPUT_DIR / "asset.blend"))</code></pre>
+              </div>
+            </section>
+            <div class="workflow-connector workflow-connector--final" aria-hidden="true"><span>Render</span><b>→</b></div>
+            <a class="workflow-result" href="./assets/workflows/stained-glass/final.png" target="_blank" rel="noopener noreferrer">
+              <span>Final Blender work</span>
+              <img src="./assets/workflows/stained-glass/final.png" alt="Final Stained Glass Window Blender render" loading="lazy" decoding="async">
+              <strong>Stained Glass Window</strong>
+            </a>
+          </div>
+        </article>
+
+        <article class="workflow-card" id="workflow-chromatic-duck">
+          <header class="workflow-card-header">
+            <span>Workflow 02</span>
+            <div><h3>Chromatic Duck Gigi</h3><p>Original yellow asset and material tutorial to a generated chromatic result.</p></div>
+          </header>
+          <div class="workflow-flow">
+            <section class="workflow-stage workflow-stage--inputs" aria-label="Chromatic Duck Gigi inputs">
+              <span class="workflow-stage-label">Input</span>
+              <div class="workflow-input-grid">
+                <a class="workflow-media" href="./assets/workflows/chromatic-duck/source-yellow.png" target="_blank" rel="noopener noreferrer">
+                  <img src="./assets/workflows/chromatic-duck/source-yellow.png" alt="Original yellow Duck Gigi ISO preview" loading="lazy" decoding="async">
+                  <span>Original yellow asset</span>
+                </a>
+                <a class="workflow-media" href="./assets/workflows/chromatic-duck/tutorial-cover.jpg" target="_blank" rel="noopener noreferrer">
+                  <img src="./assets/workflows/chromatic-duck/tutorial-cover.jpg" alt="Bilibili chromatic material tutorial cover" loading="lazy" decoding="async">
+                  <span>Tutorial cover</span>
+                </a>
+              </div>
+            </section>
+            <div class="workflow-connector" aria-hidden="true"><span>Pipeline</span><b>→</b></div>
+            <section class="workflow-stage workflow-stage--outputs" aria-label="Chromatic Duck Gigi pipeline outputs">
+              <span class="workflow-stage-label">Executable outputs</span>
+              <a class="workflow-media workflow-media--nodes" href="./assets/workflows/chromatic-duck/material-nodes.png" target="_blank" rel="noopener noreferrer">
+                <img src="./assets/workflows/chromatic-duck/material-nodes.png" alt="Compact Blender material node graph for the chromatic Duck Gigi" loading="lazy" decoding="async">
+                <span>Blender material nodes</span>
+              </a>
+              <div class="workflow-code-card">
+                <div><span>Blender Python</span><a href="./assets/workflows/chromatic-duck/reproduce.py" download>reproduce.py ↓</a></div>
+                <pre><code>noise_large = nodes.new("ShaderNodeTexNoise")
+layer_weight = nodes.new("ShaderNodeLayerWeight")
+links.new(layer_weight.outputs["Facing"], tint_mix.inputs[0])
+links.new(tint_mix.outputs["Color"], principled.inputs["Base Color"])
+bpy.ops.wm.save_as_mainfile(filepath=str(OUTPUT_DIR / "asset.blend"))</code></pre>
+              </div>
+            </section>
+            <div class="workflow-connector workflow-connector--final" aria-hidden="true"><span>Render</span><b>→</b></div>
+            <a class="workflow-result" href="./assets/workflows/chromatic-duck/final.png" target="_blank" rel="noopener noreferrer">
+              <span>Final Blender work</span>
+              <img src="./assets/workflows/chromatic-duck/final.png" alt="Final chromatic Duck Gigi Blender render" loading="lazy" decoding="async">
+              <strong>Chromatic Duck Gigi</strong>
+            </a>
+          </div>
+        </article>
+      </section>
+
+      <div class="showcase-grid showcase-grid--three materials-results-grid" aria-label="Material results">
         <article class="showcase-card">
           <video muted loop playsinline preload="metadata" poster="./assets/showcase/material-golden-fur-ball.png?v=20260829reorg1" aria-label="Golden fur ball material turntable"><source src="./assets/showcase/material-golden-fur-ball.mp4?v=20260829reorg1" type="video/mp4"></video>
           <div class="showcase-card-overlay"><span>Material · Motion</span><h3>Golden Fur Ball</h3></div>
@@ -149,10 +239,6 @@
         <article class="showcase-card">
           <video muted loop playsinline preload="metadata" aria-label="Maodie two-sided material turntable"><source src="./assets/showcase/material-maodie.mp4?v=20260828final4" type="video/mp4"></video>
           <div class="showcase-card-overlay"><span>Stylized Material · Motion</span><h3>Maodie</h3></div>
-        </article>
-        <article class="showcase-card">
-          <video muted loop playsinline preload="metadata" poster="./assets/showcase/material-holographic-card.png?v=20260829front1" aria-label="Holographic card material 360-degree turntable"><source src="./assets/showcase/material-holographic-card.mp4?v=20260829front1" type="video/mp4"></video>
-          <div class="showcase-card-overlay"><span>Material · Motion</span><h3>Holographic Card</h3></div>
         </article>
       </div>
     </section>
@@ -201,7 +287,12 @@
         <h2>Editing</h2>
         <p>Controlled edits that recombine materials, geometry, lighting, and animation while preserving the source asset.</p>
       </header>
-      <div class="showcase-grid showcase-grid--editing">
+      <div class="showcase-tabs" role="tablist" aria-label="Editing showcase categories">
+        <button type="button" class="showcase-tab is-active" id="editing-duck-tab" role="tab" aria-selected="true" aria-controls="editing-duck-panel" data-showcase-tab="editing-duck-panel">Chromatic Duck <span>6</span></button>
+        <button type="button" class="showcase-tab" id="editing-sofa-tab" role="tab" aria-selected="false" aria-controls="editing-sofa-panel" data-showcase-tab="editing-sofa-panel" tabindex="-1">Sofa <span>71</span></button>
+      </div>
+      <div class="showcase-tab-panel is-active" id="editing-duck-panel" role="tabpanel" aria-labelledby="editing-duck-tab">
+        <div class="showcase-grid showcase-grid--editing">
         <a class="showcase-card showcase-card--tutorial" href="https://www.bilibili.com/video/BV1cbZFB2E9h/" target="_blank" rel="noopener noreferrer" aria-label="Open the original Bilibili tutorial: Blender chromatic material">
           <video muted loop playsinline preload="metadata" aria-label="Final chromatic Duck Gigi animation"><source src="./assets/showcase/edit-chromatic-duck.mp4?v=20260828duckblack1" type="video/mp4"></video>
           <div class="showcase-card-overlay">
@@ -214,6 +305,295 @@
         <article class="showcase-card"><video muted loop playsinline preload="metadata" aria-label="Chromatic duck edit three"><source src="./assets/showcase/edit-chromatic-03.mp4?v=20260828duckblack1" type="video/mp4"></video><div class="showcase-card-overlay"><span>Appearance Edit · 03</span><h3>Chromatic Study III</h3></div></article>
         <article class="showcase-card"><video muted loop playsinline preload="metadata" aria-label="Chromatic duck edit four"><source src="./assets/showcase/edit-chromatic-04.mp4?v=20260828duckblack1" type="video/mp4"></video><div class="showcase-card-overlay"><span>Appearance Edit · 04</span><h3>Chromatic Study IV</h3></div></article>
         <article class="showcase-card"><video muted loop playsinline preload="metadata" aria-label="Chromatic duck edit five"><source src="./assets/showcase/edit-chromatic-05.mp4?v=20260828duckblack1" type="video/mp4"></video><div class="showcase-card-overlay"><span>Appearance Edit · 05</span><h3>Chromatic Study V</h3></div></article>
+        </div>
+      </div>
+      <div class="showcase-tab-panel" id="editing-sofa-panel" role="tabpanel" aria-labelledby="editing-sofa-tab" hidden>
+        <div class="showcase-grid showcase-grid--editing showcase-grid--sofa">
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-original.png" alt="原始面包沙发" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Original</span><h3>面包沙发</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-002.png?v=20260830sofa1" alt="面包沙发材质编辑：森林绿丝绒" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit</span><h3>森林绿丝绒</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-005.png?v=20260830sofa1" alt="面包沙发材质编辑：细粒雕刻石材" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit</span><h3>细粒雕刻石材</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-008.png?v=20260830sofa1" alt="面包沙发材质编辑：厚釉搪瓷" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit</span><h3>厚釉搪瓷</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-016.png?v=20260830sofa1" alt="面包沙发材质编辑：彩虹棱镜" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit</span><h3>彩虹棱镜</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-018.png?v=20260830sofa1" alt="面包沙发材质编辑：樱粉水晶" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit</span><h3>樱粉水晶</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-025.png?v=20260830sofa1" alt="面包沙发材质编辑：蜜糖琥珀" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit</span><h3>蜜糖琥珀</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-043.png?v=20260830sofa1" alt="面包沙发材质编辑：冰川蓝" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit</span><h3>冰川蓝</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-045.png?v=20260830sofa1" alt="面包沙发材质编辑：锤纹青铜" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit</span><h3>锤纹青铜</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-056.png?v=20260830sofa1" alt="面包沙发材质编辑：紫晶玻璃" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit</span><h3>紫晶玻璃</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-134.png?v=20260830sofa1" alt="面包沙发场景编辑：双层展示台和圆形侧牌" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Scene Edit</span><h3>双层展示台和圆形侧牌</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-161.png?v=20260830sofa1" alt="面包沙发材质编辑：极夜青紫（恒星蚀炫彩）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 恒星蚀炫彩</span><h3>极夜青紫</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-162.png?v=20260830sofa1" alt="面包沙发材质编辑：日落等离子（恒星蚀炫彩）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 恒星蚀炫彩</span><h3>日落等离子</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-163.png?v=20260830sofa1" alt="面包沙发材质编辑：森林极光（恒星蚀炫彩）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 恒星蚀炫彩</span><h3>森林极光</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-164.png?v=20260830sofa1" alt="面包沙发材质编辑：紫青电光（恒星蚀炫彩）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 恒星蚀炫彩</span><h3>紫青电光</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-165.png?v=20260830sofa1" alt="面包沙发材质编辑：玫瑰欧泊（恒星蚀炫彩）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 恒星蚀炫彩</span><h3>玫瑰欧泊</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-166.png?v=20260830sofa1" alt="面包沙发材质编辑：琥珀青焰（恒星蚀炫彩）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 恒星蚀炫彩</span><h3>琥珀青焰</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-167.png?v=20260830sofa1" alt="面包沙发材质编辑：深空蓝星（棱镜全息炫彩）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 棱镜全息炫彩</span><h3>深空蓝星</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-168.png?v=20260830sofa1" alt="面包沙发材质编辑：洋红星云（棱镜全息炫彩）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 棱镜全息炫彩</span><h3>洋红星云</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-169.png?v=20260830sofa1" alt="面包沙发材质编辑：翡翠彗星（棱镜全息炫彩）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 棱镜全息炫彩</span><h3>翡翠彗星</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-170.png?v=20260830sofa1" alt="面包沙发材质编辑：金色流星（棱镜全息炫彩）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 棱镜全息炫彩</span><h3>金色流星</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-171.png?v=20260830sofa1" alt="面包沙发材质编辑：冰晶宇宙（棱镜全息炫彩）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 棱镜全息炫彩</span><h3>冰晶宇宙</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-172.png?v=20260830sofa1" alt="面包沙发材质编辑：红宝石银河（棱镜全息炫彩）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 棱镜全息炫彩</span><h3>红宝石银河</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-173.png?v=20260830sofa1" alt="面包沙发材质编辑：石墨虹彩（欧泊焦散炫彩）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 欧泊焦散炫彩</span><h3>石墨虹彩</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-174.png?v=20260830sofa1" alt="面包沙发材质编辑：孔雀羽彩（欧泊焦散炫彩）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 欧泊焦散炫彩</span><h3>孔雀羽彩</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-175.png?v=20260830sofa1" alt="面包沙发材质编辑：甲虫翅彩（欧泊焦散炫彩）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 欧泊焦散炫彩</span><h3>甲虫翅彩</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-176.png?v=20260830sofa1" alt="面包沙发材质编辑：熔融光谱（欧泊焦散炫彩）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 欧泊焦散炫彩</span><h3>熔融光谱</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-177.png?v=20260830sofa1" alt="面包沙发材质编辑：蓝钢镜彩（欧泊焦散炫彩）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 欧泊焦散炫彩</span><h3>蓝钢镜彩</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-178.png?v=20260830sofa1" alt="面包沙发材质编辑：李紫金辉（欧泊焦散炫彩）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 欧泊焦散炫彩</span><h3>李紫金辉</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-179.png?v=20260830sofa1" alt="面包沙发材质编辑：月白贝母（极光铬炫彩）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 极光铬炫彩</span><h3>月白贝母</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-180.png?v=20260830sofa1" alt="面包沙发材质编辑：黑珍珠（极光铬炫彩）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 极光铬炫彩</span><h3>黑珍珠</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-181.png?v=20260830sofa1" alt="面包沙发材质编辑：香槟珍珠（极光铬炫彩）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 极光铬炫彩</span><h3>香槟珍珠</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-182.png?v=20260830sofa1" alt="面包沙发材质编辑：鲍鱼贝彩（极光铬炫彩）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 极光铬炫彩</span><h3>鲍鱼贝彩</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-183.png?v=20260830sofa1" alt="面包沙发材质编辑：玫瑰珍珠（极光铬炫彩）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 极光铬炫彩</span><h3>玫瑰珍珠</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-184.png?v=20260830sofa1" alt="面包沙发材质编辑：冰蓝珍珠（极光铬炫彩）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 极光铬炫彩</span><h3>冰蓝珍珠</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-185.png?v=20260830sofa1" alt="面包沙发材质编辑：青瓷开片（霓虹金缮炫彩）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 霓虹金缮炫彩</span><h3>青瓷开片</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-186.png?v=20260830sofa1" alt="面包沙发材质编辑：钴蓝开片（霓虹金缮炫彩）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 霓虹金缮炫彩</span><h3>钴蓝开片</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-187.png?v=20260830sofa1" alt="面包沙发材质编辑：祭红开片（霓虹金缮炫彩）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 霓虹金缮炫彩</span><h3>祭红开片</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-188.png?v=20260830sofa1" alt="面包沙发材质编辑：黑曜金缮（霓虹金缮炫彩）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 霓虹金缮炫彩</span><h3>黑曜金缮</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-189.png?v=20260830sofa1" alt="面包沙发材质编辑：松石釉裂（霓虹金缮炫彩）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 霓虹金缮炫彩</span><h3>松石釉裂</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-190.png?v=20260830sofa1" alt="面包沙发材质编辑：梅紫釉裂（霓虹金缮炫彩）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 霓虹金缮炫彩</span><h3>梅紫釉裂</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-191.png?v=20260830sofa1" alt="面包沙发材质编辑：勃艮第红绒（定向短绒天鹅绒）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 定向短绒天鹅绒</span><h3>勃艮第红绒</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-192.png?v=20260830sofa1" alt="面包沙发材质编辑：森林绿绒（定向短绒天鹅绒）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 定向短绒天鹅绒</span><h3>森林绿绒</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-193.png?v=20260830sofa1" alt="面包沙发材质编辑：午夜蓝绒（定向短绒天鹅绒）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 定向短绒天鹅绒</span><h3>午夜蓝绒</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-194.png?v=20260830sofa1" alt="面包沙发材质编辑：茄紫短绒（定向短绒天鹅绒）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 定向短绒天鹅绒</span><h3>茄紫短绒</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-195.png?v=20260830sofa1" alt="面包沙发材质编辑：驼金短绒（定向短绒天鹅绒）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 定向短绒天鹅绒</span><h3>驼金短绒</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-196.png?v=20260830sofa1" alt="面包沙发材质编辑：墨青短绒（定向短绒天鹅绒）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 定向短绒天鹅绒</span><h3>墨青短绒</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-197.png?v=20260830sofa1" alt="面包沙发材质编辑：青瓷开片（开片厚釉陶瓷）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 开片厚釉陶瓷</span><h3>青瓷开片</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-198.png?v=20260830sofa1" alt="面包沙发材质编辑：钴蓝开片（开片厚釉陶瓷）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 开片厚釉陶瓷</span><h3>钴蓝开片</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-199.png?v=20260830sofa1" alt="面包沙发材质编辑：祭红开片（开片厚釉陶瓷）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 开片厚釉陶瓷</span><h3>祭红开片</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-200.png?v=20260830sofa1" alt="面包沙发材质编辑：象牙釉裂（开片厚釉陶瓷）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 开片厚釉陶瓷</span><h3>象牙釉裂</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-201.png?v=20260830sofa1" alt="面包沙发材质编辑：松石釉裂（开片厚釉陶瓷）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 开片厚釉陶瓷</span><h3>松石釉裂</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-202.png?v=20260830sofa1" alt="面包沙发材质编辑：梅紫釉裂（开片厚釉陶瓷）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 开片厚釉陶瓷</span><h3>梅紫釉裂</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-203.png?v=20260830sofa1" alt="面包沙发材质编辑：博物馆白水磨石（矿物水磨石嵌片）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 矿物水磨石嵌片</span><h3>博物馆白水磨石</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-204.png?v=20260830sofa1" alt="面包沙发材质编辑：夜色水磨石（矿物水磨石嵌片）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 矿物水磨石嵌片</span><h3>夜色水磨石</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-205.png?v=20260830sofa1" alt="面包沙发材质编辑：鼠尾草矿石（矿物水磨石嵌片）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 矿物水磨石嵌片</span><h3>鼠尾草矿石</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-206.png?v=20260830sofa1" alt="面包沙发材质编辑：珊瑚矿物（矿物水磨石嵌片）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 矿物水磨石嵌片</span><h3>珊瑚矿物</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-207.png?v=20260830sofa1" alt="面包沙发材质编辑：青金石嵌片（矿物水磨石嵌片）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 矿物水磨石嵌片</span><h3>青金石嵌片</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-208.png?v=20260830sofa1" alt="面包沙发材质编辑：苔岩花岗（矿物水磨石嵌片）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 矿物水磨石嵌片</span><h3>苔岩花岗</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-209.png?v=20260830sofa1" alt="面包沙发材质编辑：柑橘气泡树脂（熔岩气泡半透明树脂）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 熔岩气泡半透明树脂</span><h3>柑橘气泡树脂</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-210.png?v=20260830sofa1" alt="面包沙发材质编辑：莓果气泡树脂（熔岩气泡半透明树脂）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 熔岩气泡半透明树脂</span><h3>莓果气泡树脂</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-211.png?v=20260830sofa1" alt="面包沙发材质编辑：泻湖气泡树脂（熔岩气泡半透明树脂）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 熔岩气泡半透明树脂</span><h3>泻湖气泡树脂</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-212.png?v=20260830sofa1" alt="面包沙发材质编辑：烟紫气泡树脂（熔岩气泡半透明树脂）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 熔岩气泡半透明树脂</span><h3>烟紫气泡树脂</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-213.png?v=20260830sofa1" alt="面包沙发材质编辑：青苹果气泡树脂（熔岩气泡半透明树脂）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 熔岩气泡半透明树脂</span><h3>青苹果气泡树脂</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-214.png?v=20260830sofa1" alt="面包沙发材质编辑：冰清气泡树脂（熔岩气泡半透明树脂）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 熔岩气泡半透明树脂</span><h3>冰清气泡树脂</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-215.png?v=20260830sofa1" alt="面包沙发材质编辑：帝王蓝织锦（立体提花织锦）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 立体提花织锦</span><h3>帝王蓝织锦</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-216.png?v=20260830sofa1" alt="面包沙发材质编辑：牡丹红织锦（立体提花织锦）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 立体提花织锦</span><h3>牡丹红织锦</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-217.png?v=20260830sofa1" alt="面包沙发材质编辑：翡翠金织锦（立体提花织锦）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 立体提花织锦</span><h3>翡翠金织锦</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-218.png?v=20260830sofa1" alt="面包沙发材质编辑：茄紫银织锦（立体提花织锦）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 立体提花织锦</span><h3>茄紫银织锦</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-219.png?v=20260830sofa1" alt="面包沙发材质编辑：墨色铜织锦（立体提花织锦）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 立体提花织锦</span><h3>墨色铜织锦</h3></div>
+          </article>
+          <article class="showcase-card">
+            <img src="./assets/showcase/sofa/edit-sofa-220.png?v=20260830sofa1" alt="面包沙发材质编辑：深苔金织锦（立体提花织锦）" loading="lazy" decoding="async">
+            <div class="showcase-card-overlay"><span>Material Edit · 立体提花织锦</span><h3>深苔金织锦</h3></div>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -267,14 +647,14 @@
     import('./assets/hero-glb.js?v=20260828-duck-stage').catch((err) => {
       console.error('[surflo] hero-glb.js failed to load:', err);
     });
-    import('./surflo.js?v=20260828-fur-default').catch((err) => {
+    import('./surflo.js?v=20260830-holographic-hero').catch((err) => {
       console.error('[surflo] surflo.js failed to load:', err);
     });
   </script>
 
   <!-- Site-wide micro-interactions (reveal-on-scroll, magnetic buttons, lightbox) -->
   <script src="./assets/site.js?v=20260828-no-theme-toggle"></script>
-  <script src="./assets/showcase.js?v=20260829-black-compact-cards"></script>
+  <script src="./assets/showcase.js?v=20260830-editing-tabs"></script>
 
 </body>
 </html>
