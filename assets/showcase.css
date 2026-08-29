@@ -231,29 +231,29 @@ body.surflo-page {
 
 .showcase-grid {
   display: grid;
-  gap: 10px;
+  gap: 6px;
 }
 
 .showcase-grid--three,
 .showcase-grid--editing {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .showcase-grid--modeling {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
 }
 
 .showcase-card {
   position: relative;
   display: block;
   min-width: 0;
-  width: 94%;
+  width: 90%;
   justify-self: center;
   cursor: zoom-in;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: 12px;
+  border: 1px solid #fff;
+  border-radius: 10px;
   background: #000;
   color: inherit;
   isolation: isolate;
@@ -310,7 +310,7 @@ body.surflo-page {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: clamp(18px, 2vw, 30px);
+  padding: clamp(12px, 1.35vw, 20px);
   background: linear-gradient(180deg, transparent 35%, rgba(5, 6, 10, 0.2) 58%, rgba(5, 6, 10, 0.94) 100%);
   opacity: 0;
   transform: translateY(10px);
@@ -320,12 +320,17 @@ body.surflo-page {
 
 .showcase-card-overlay h3 {
   max-width: 760px;
-  margin: 8px 0 0;
+  margin: 5px 0 0;
   color: #fff;
-  font-size: clamp(20px, 2vw, 31px);
+  font-size: clamp(14px, 1.4vw, 22px);
   font-weight: 400;
   letter-spacing: -0.025em;
   line-height: 1.15;
+}
+
+.showcase-card-overlay > span {
+  font-size: 9px;
+  letter-spacing: 0.12em;
 }
 
 .showcase-card:hover .showcase-card-overlay,
@@ -351,7 +356,7 @@ body.surflo-page {
 .showcase-card--tutorial {
   grid-column: span 2;
   aspect-ratio: 2 / 1;
-  border-color: rgba(182, 156, 255, 0.34);
+  border-color: #fff;
 }
 
 /* Keep the tutorial styling, but match the dimensions of every Editing card. */
@@ -559,7 +564,7 @@ video.showcase-lightbox-media-element {
   .showcase-grid--three,
   .showcase-grid--editing,
   .showcase-grid--modeling {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -617,7 +622,7 @@ video.showcase-lightbox-media-element {
   }
 
   .showcase-card-overlay h3 {
-    font-size: 21px;
+    font-size: 16px;
   }
 
   .showcase-lightbox {
