@@ -17,23 +17,6 @@ body.surflo-page {
   color: var(--showcase-text);
 }
 
-/* The imported Surflo content is retained in the source for now, but removed
-   from the visible project page while this showcase direction is evaluated. */
-#meta,
-.section-video,
-.section-tldr-cards,
-.section-tldr,
-.section-problem,
-.section-scaling,
-.section-resolution,
-.section-guidance,
-.section-comparison,
-.section-quantitative,
-.section-dataset,
-.section-cite {
-  display: none !important;
-}
-
 .showcase-main {
   position: relative;
   z-index: 2;
@@ -236,11 +219,11 @@ body.surflo-page {
 
 .showcase-grid--three,
 .showcase-grid--editing {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
 }
 
 .showcase-grid--modeling {
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr));
 }
 
 .showcase-card {
@@ -367,16 +350,16 @@ body.surflo-page {
 
 .showcase-card--tutorial::after {
   position: absolute;
-  top: 18px;
-  right: 18px;
+  top: 12px;
+  right: 12px;
   z-index: 3;
-  padding: 8px 12px;
+  padding: 5px 8px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 999px;
   background: rgba(7, 8, 12, 0.55);
   color: #fff;
   content: "Tutorial ↗";
-  font-size: 11px;
+  font-size: 9px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -562,9 +545,12 @@ video.showcase-lightbox-media-element {
   }
 
   .showcase-grid--three,
-  .showcase-grid--editing,
+  .showcase-grid--editing {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  }
+
   .showcase-grid--modeling {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr));
   }
 }
 

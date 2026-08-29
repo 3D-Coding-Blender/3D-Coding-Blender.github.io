@@ -33,38 +33,6 @@
       .forEach(el => io.observe(el));
   }
 
-  function magneticButtons() {
-    const items = document.querySelectorAll('.pub-actions .label-info, .icon-pill');
-    items.forEach((el) => {
-      let raf = 0;
-      el.addEventListener('mousemove', (e) => {
-        const rect = el.getBoundingClientRect();
-        const dx = (e.clientX - (rect.left + rect.width / 2)) / rect.width;
-        const dy = (e.clientY - (rect.top + rect.height / 2)) / rect.height;
-        if (raf) cancelAnimationFrame(raf);
-        raf = requestAnimationFrame(() => {
-          el.style.transform = `translate(${dx * 4}px, ${dy * 4 - 1}px)`;
-        });
-      });
-      el.addEventListener('mouseleave', () => {
-        if (raf) cancelAnimationFrame(raf);
-        el.style.transform = '';
-      });
-    });
-  }
-
-  function cardSpotlight() {
-    document.querySelectorAll('.pub-card').forEach((card) => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = ((e.clientX - rect.left) / rect.width) * 100;
-        const y = ((e.clientY - rect.top) / rect.height) * 100;
-        card.style.setProperty('--mx', x + '%');
-        card.style.setProperty('--my', y + '%');
-      });
-    });
-  }
-
   function smoothAnchors() {
     document.querySelectorAll('a[href^="#"]').forEach((a) => {
       const href = a.getAttribute('href');
@@ -74,36 +42,6 @@
         if (!target) return;
         e.preventDefault();
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    });
-  }
-
-  function newsCollapse() {
-    const toggle = document.querySelector('[data-news-toggle]');
-    const collapse = document.querySelector('[data-news-collapse]');
-    if (!toggle || !collapse) return;
-
-    toggle.addEventListener('click', () => {
-      const isOpen = collapse.classList.toggle('is-open');
-      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      const label = toggle.querySelector('[data-news-toggle-label]');
-      if (label) label.textContent = isOpen ? 'Show less' : 'Show more';
-    });
-  }
-
-  function pubBibtexToggle() {
-    document.querySelectorAll('[data-bibtex-toggle]').forEach((btn) => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetId = btn.getAttribute('data-bibtex-toggle');
-        const target = document.getElementById(targetId);
-        if (!target) return;
-        const isOpen = target.classList.toggle('is-open');
-        const icon = btn.querySelector('i.fa-chevron-down, i.fa-chevron-up');
-        if (icon) {
-          icon.classList.toggle('fa-chevron-down', !isOpen);
-          icon.classList.toggle('fa-chevron-up', isOpen);
-        }
       });
     });
   }
@@ -230,10 +168,6 @@
     document.querySelectorAll('.theme-toggle').forEach((el) => el.remove());
     liteToggle();
     revealOnScroll();
-    magneticButtons();
-    cardSpotlight();
     smoothAnchors();
-    newsCollapse();
-    pubBibtexToggle();
   });
 })();
