@@ -1995,3 +1995,69 @@
     opacity: 0;
   }
 }
+
+
+/* Hover context for tutorial-derived hero assets. */
+.hero-asset-copy-wrap {
+  position: absolute;
+  right: clamp(1.5rem, 4vw, 3.75rem);
+  bottom: clamp(2.5rem, 7vh, 4.75rem);
+  z-index: 4;
+  width: min(560px, 44vw);
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity 260ms var(--ease-out), transform 260ms var(--ease-out);
+}
+.hero:hover .hero-asset-copy-wrap,
+.hero:focus-within .hero-asset-copy-wrap {
+  opacity: 1;
+  transform: translateY(0);
+}
+.hero-asset-copy {
+  padding: 1rem 1.1rem 1.05rem 1.25rem;
+  border-left: 2px solid rgba(var(--accent-rgb), 0.78);
+  border-radius: 0 18px 18px 0;
+  background: linear-gradient(90deg, rgba(15, 17, 22, 0.68), rgba(15, 17, 22, 0.24));
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.16);
+  backdrop-filter: blur(14px);
+  color: rgba(255, 255, 255, 0.84);
+  font-family: 'Roobert', 'Roboto', sans-serif;
+  font-style: italic;
+  font-weight: 700;
+  text-shadow: 0 1px 14px rgba(0, 0, 0, 0.52);
+}
+.hero-asset-copy[hidden] { display: none; }
+.hero-asset-copy h2 {
+  margin: 0 0 0.55rem;
+  color: #fff;
+  font-size: clamp(17px, 1.35vw, 22px);
+  line-height: 1.15;
+  font-style: italic;
+  font-weight: 700;
+}
+.hero-asset-copy p {
+  margin: 0;
+  font-size: clamp(12px, 0.9vw, 14px);
+  line-height: 1.55;
+  font-style: italic;
+  font-weight: 700;
+}
+@media (max-width: 640px) {
+  .hero-asset-copy-wrap {
+    right: 0.75rem;
+    bottom: clamp(10.5rem, 23vh, 12.5rem);
+    left: 0.75rem;
+    width: auto;
+  }
+  .hero-asset-copy { max-width: 100%; margin-left: auto; padding: 0.8rem 0.85rem 0.85rem 1rem; }
+  .hero-asset-copy p {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+  }
+}
+@media (hover: none), (pointer: coarse) {
+  .hero-asset-copy-wrap { opacity: 1; transform: none; }
+}

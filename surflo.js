@@ -100,6 +100,7 @@ function startHero() {
 
   const controls = document.querySelector('.hero-animation-controls');
   const tabs = Array.from(document.querySelectorAll('.hero-animation-tab'));
+  const copies = Array.from(document.querySelectorAll('.hero-asset-copy'));
   let activeKey = '';
   let heroInstance = null;
   let loadGeneration = 0;
@@ -124,6 +125,12 @@ function startHero() {
         tab.classList.toggle('is-active', selected);
         tab.setAttribute('aria-selected', String(selected));
         tab.tabIndex = selected ? 0 : -1;
+      });
+
+      copies.forEach((copy) => {
+        const selected = copy.dataset.heroCopy === key;
+        copy.hidden = !selected;
+        copy.setAttribute('aria-hidden', String(!selected));
       });
 
       controls?.classList.add('is-loading');
