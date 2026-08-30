@@ -278,12 +278,13 @@ body.surflo-page {
 
 #glass-heart .showcase-card {
   aspect-ratio: 1 / 1;
+  background: #dedede;
 }
 
 #glass-heart .showcase-card img,
 #glass-heart .showcase-card video {
   object-fit: contain;
-  background: #000;
+  background: #dedede;
 }
 
 .showcase-card-overlay {
