@@ -56,6 +56,8 @@
       <div class="hero-animation-tabs" role="tablist" aria-label="3D animation selection">
         <button type="button" class="hero-animation-tab is-active" role="tab" aria-selected="true" aria-controls="hero-animation-panel" data-hero-animation="holographic-card">Holographic Card</button>
         <button type="button" class="hero-animation-tab" role="tab" aria-selected="false" aria-controls="hero-animation-panel" data-hero-animation="chromatic-duck" tabindex="-1">Chromatic Duck</button>
+        <button type="button" class="hero-animation-tab" role="tab" aria-selected="false" aria-controls="hero-animation-panel" data-hero-animation="stained-glass-window" tabindex="-1">Stained Glass Window</button>
+        <button type="button" class="hero-animation-tab" role="tab" aria-selected="false" aria-controls="hero-animation-panel" data-hero-animation="maoqiu" tabindex="-1">Golden Fur Ball</button>
       </div>
       <span class="hero-animation-loader" role="status" aria-label="Loading animation"></span>
     </div>
@@ -647,7 +649,7 @@ bpy.ops.wm.save_as_mainfile(filepath=str(OUTPUT_DIR / "asset.blend"))</code></pr
     import('./assets/hero-glb.js?v=20260828-duck-stage').catch((err) => {
       console.error('[surflo] hero-glb.js failed to load:', err);
     });
-    import('./surflo.js?v=20260830-holographic-hero').catch((err) => {
+    import('./surflo.js?v=20260830-four-hero-tabs').catch((err) => {
       console.error('[surflo] surflo.js failed to load:', err);
     });
   </script>

@@ -71,6 +71,23 @@ const HERO_ANIMATIONS = {
     offsetY: 0.16,
     kind: 'duck',
   },
+  'stained-glass-window': {
+    url: './assets/models/stained-glass-window.glb?v=20260829reorg1',
+    offsetY: 0,
+    kind: 'stained-glass',
+    targetSize: 1.8,
+    mobileTargetSize: 0.82,
+    initialRotationY: -0.4,
+    autoRotate: 0.000025,
+  },
+  maoqiu: {
+    url: './assets/models/maoqiu.glb?v=20260830-original1',
+    offsetY: 0.06,
+    kind: 'maoqiu',
+    targetSize: 1.38,
+    mobileTargetSize: 0.88,
+    autoRotate: 0.00007,
+  },
 };
 
 function startHero() {
