@@ -46,6 +46,70 @@
     });
   }
 
+  function backToTop() {
+    if (document.querySelector('.back-to-top')) return;
+
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'back-to-top';
+    btn.innerHTML = '<i class="fa fa-chevron-up" aria-hidden="true"></i>';
+    btn.setAttribute('aria-label', 'Back to top');
+    btn.setAttribute('aria-hidden', 'true');
+    btn.tabIndex = -1;
+
+    let ticking = false;
+    function update() {
+      const visible = window.scrollY > 360;
+      btn.classList.toggle('is-visible', visible);
+      btn.setAttribute('aria-hidden', String(!visible));
+      btn.tabIndex = visible ? 0 : -1;
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(update);
+    }, { passive: true });
+
+    btn.addEventListener('click', () => {
+      const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
+    });
+
+    document.body.appendChild(btn);
+    update();
+  }
+
+  function heroExpand() {
+    const hero = document.querySelector('.hero');
+    const btn = document.querySelector('.hero-expand');
+    if (!hero || !btn) return;
+
+    const icon = btn.querySelector('i');
+    function render() {
+      const expanded = hero.classList.contains('is-expanded');
+      btn.setAttribute('aria-pressed', String(expanded));
+      btn.setAttribute('aria-label', expanded ? 'Close full-screen 3D viewer' : 'Expand 3D viewer');
+      btn.setAttribute('title', expanded ? 'Close full-screen 3D viewer' : 'Expand 3D viewer');
+      if (icon) icon.className = expanded ? 'fa fa-times' : 'fa fa-expand';
+    }
+
+    function toggle() {
+      hero.classList.toggle('is-expanded');
+      document.body.classList.toggle('hero-viewer-expanded', hero.classList.contains('is-expanded'));
+      render();
+    }
+
+    btn.addEventListener('click', toggle);
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && hero.classList.contains('is-expanded')) {
+        toggle();
+      }
+    });
+    render();
+  }
+
   // Hero / lite-mode state -----------------------------------------------
   let heroScene = null;
   let heroPendingInit = false;
@@ -169,5 +233,7 @@
     liteToggle();
     revealOnScroll();
     smoothAnchors();
+    backToTop();
+    heroExpand();
   });
 })();

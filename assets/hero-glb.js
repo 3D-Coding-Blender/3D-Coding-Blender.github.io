@@ -23,6 +23,7 @@ function initHeroGLB(canvas, opts = {}) {
       canvas,
       antialias: !isMobile,
       alpha: true,
+      preserveDrawingBuffer: !!opts.preserveDrawingBuffer,
       powerPreference: 'high-performance',
     });
   } catch (error) {
@@ -149,7 +150,12 @@ function initHeroGLB(canvas, opts = {}) {
     if ('sheenColor' in material) material.sheenColor.set(isHair ? 0xc17a2e : 0x9a5c22);
     if ('sheenRoughness' in material) material.sheenRoughness = isHair ? 0.26 : 0.34;
     if (isHair) {
-      material.depthTest = true;
+      // The baked fur consists of many thin overlapping strand faces. Do not
+      // let the opaque body depth-test them away: a strand's base can be
+      // inside the body while its tip is visible outside the silhouette.
+      // Disabling both depth operations preserves the complete baked shell;
+      // the hair is rendered after the body (renderOrder 1) below.
+      material.depthTest = false;
       material.depthWrite = false;
       material.polygonOffset = true;
       material.polygonOffsetFactor = -1;
@@ -513,7 +519,10 @@ function initHeroGLB(canvas, opts = {}) {
     const materials = new Set();
     model.traverse((object) => {
       if (!object.isMesh) return;
-      object.frustumCulled = true;
+      // The fur asset is a dense baked shell. Avoid frustum-culling its
+      // individual mesh while the pivot rotates, which can drop strands when
+      // the loader's generated bounds are conservative.
+      object.frustumCulled = opts.kind === 'maoqiu' ? false : true;
       const objectMaterials = Array.isArray(object.material)
         ? object.material
         : [object.material];
@@ -532,7 +541,15 @@ function initHeroGLB(canvas, opts = {}) {
       gltf.animations.forEach((clip) => mixer.clipAction(clip).play());
     }
 
-    buildRevealPoints(model);
+    // The baked fur GLB must stay intact. Its hair mesh contains the full
+    // strand geometry, so never route it through the generic sampled point
+    // reveal even if a caller omits the explicit `reveal: false` option.
+    if (opts.kind === 'maoqiu') {
+      restoreMaterials();
+      animationReady = true;
+    } else {
+      buildRevealPoints(model);
+    }
     if (typeof opts.onReady === 'function') opts.onReady(gltf);
   }
 

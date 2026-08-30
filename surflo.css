@@ -24,6 +24,7 @@
 }
 
 .surflo-page {
+  margin: 0;
   background: var(--bg-color);
   /* Lift muted/subdued text against the near-black background.
      Overrides base.css's #777 (47% lightness) which reads as too dark. */
@@ -58,13 +59,126 @@
   line-height: 1;
   letter-spacing: 0;
   overflow-wrap: anywhere;
+  color: var(--surflo-lav);
+}
+.surflo-page .hero-caption-title:hover,
+.surflo-page .hero-caption-title:focus {
+  color: var(--showcase-lavender, var(--surflo-lav));
 }
 .surflo-page .hero-caption-sub {
   max-width: 760px;
   font-size: 16px;
   letter-spacing: 0;
 }
+.hero-resource-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 9px;
+  margin-top: 0.15rem;
+}
+.hero-resource-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 34px;
+  padding: 0 13px;
+  border: 1px solid rgba(var(--surflo-lav-rgb), 0.62);
+  border-radius: 999px;
+  background: rgba(20, 22, 28, 0.48);
+  color: rgba(245, 243, 255, 0.9);
+  font-family: 'Roobert', 'Roboto', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(12px) saturate(130%);
+  -webkit-backdrop-filter: blur(12px) saturate(130%);
+  transition: color 180ms var(--ease-out),
+              border-color 180ms var(--ease-out),
+              background 180ms var(--ease-out),
+              transform 180ms var(--ease-out);
+}
+.hero-resource-link:hover,
+.hero-resource-link:focus-visible {
+  border-color: var(--surflo-lav);
+  background: rgba(var(--surflo-lav-rgb), 0.2);
+  color: #fff;
+  outline: none;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+.hero-resource-link i,
+.hero-resource-icon {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 15px;
+  font-size: 15px;
+  line-height: 1;
+}
+.hero-huggingface-icon { overflow: visible; }
 .surflo-page .hero-card-wrap { display: none; }
+
+/* Expand control for the interactive hero viewer. */
+.hero-expand {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  z-index: 6;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 1px solid rgba(var(--surflo-lav-rgb), 0.62);
+  border-radius: 50%;
+  background: rgba(20, 22, 28, 0.58);
+  color: var(--surflo-lav);
+  font-family: 'Roobert', 'Roboto', sans-serif;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(16px) saturate(135%);
+  -webkit-backdrop-filter: blur(16px) saturate(135%);
+  transition: color 180ms var(--ease-out),
+              border-color 180ms var(--ease-out),
+              background 180ms var(--ease-out),
+              transform 180ms var(--ease-out);
+}
+.hero-expand:hover,
+.hero-expand:focus-visible,
+.hero-expand[aria-pressed="true"] {
+  border-color: var(--surflo-lav);
+  background: rgba(var(--surflo-lav-rgb), 0.2);
+  color: #fff;
+  outline: none;
+  transform: translateY(-1px);
+}
+.hero-expand i { line-height: 1; }
+
+/* Page-level full-viewport frame for the enlarged 3D viewer. */
+.hero.is-expanded {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  max-height: none;
+  margin: 0;
+}
+.hero.is-expanded .hero-content,
+.hero.is-expanded .hero-asset-copy-wrap,
+.hero.is-expanded .hero-animation-controls,
+.hero.is-expanded .hero-scroll-cue {
+  display: none !important;
+}
+body.hero-viewer-expanded { overflow: hidden; }
 
 /* Compact vertical glass selector on the right edge of the 3D stage. */
 .hero-animation-controls {
@@ -211,6 +325,13 @@
     padding: 0 10px;
     font-size: 12px;
   }
+  .hero-expand {
+    top: 14px;
+    right: 14px;
+    width: 38px;
+    height: 38px;
+    font-size: 13px;
+  }
   .surflo-page .hero-caption {
     flex: none;
     padding-left: 1rem;
@@ -224,6 +345,15 @@
   }
   .surflo-page .hero-caption-sub {
     font-size: 13px;
+  }
+  .hero-resource-links {
+    justify-content: center;
+    gap: 7px;
+  }
+  .hero-resource-link {
+    min-height: 32px;
+    padding: 0 11px;
+    font-size: 11px;
   }
 }
 
@@ -1883,20 +2013,122 @@
 
 /* ---------- Footer --------------------------------------------- */
 .surflo-footer {
+  position: relative;
   max-width: 1300px;
   margin: 0 auto;
-  padding: 2rem 1.5rem 3rem;
-  text-align: center;
+  padding: 2.8rem 1.5rem 3.6rem;
+  text-align: left;
   font-family: 'Roboto', sans-serif;
-  font-weight: 100;
+  font-weight: 400;
   font-size: 12.5px;
   letter-spacing: 0.04em;
   color: var(--subdued-text-color);
 }
-.surflo-footer p { margin: 0.4rem 0; }
-.surflo-footer .quiet { font-size: 11.5px; opacity: 0.75; }
+.surflo-footer::before {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(var(--surflo-lav-rgb), 0.08), var(--surflo-lav) 42%, rgba(var(--surflo-lav-rgb), 0.08));
+  box-shadow: 0 0 14px rgba(var(--surflo-lav-rgb), 0.24);
+  content: "";
+  transform: translateX(-50%);
+}
+.surflo-footer::after {
+  position: absolute;
+  right: 1.25rem;
+  bottom: 0.35rem;
+  color: rgba(var(--surflo-lav-rgb), 0.06);
+  content: "3D";
+  font-family: 'Roobert', 'Roboto', sans-serif;
+  font-size: clamp(76px, 11vw, 148px);
+  font-weight: 700;
+  letter-spacing: -0.12em;
+  line-height: 0.8;
+  pointer-events: none;
+  user-select: none;
+}
+.surflo-footer-bar {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 1.2rem;
+  color: var(--subdued-text-color);
+  font-family: 'Roobert', 'Roboto', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.surflo-footer-bar-line {
+  width: min(180px, 24vw);
+  height: 1px;
+  background: linear-gradient(90deg, rgba(var(--surflo-lav-rgb), 0.7), transparent);
+}
+.surflo-footer p { margin: 0; }
+.surflo-footer .quiet {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  max-width: calc(100% - 120px);
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--surflo-lav);
+  color: rgba(242, 238, 255, 0.9);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.045em;
+  line-height: 1.4;
+  opacity: 1;
+}
+.footer-copyright-year {
+  color: var(--surflo-lav);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.footer-copyright-divider {
+  width: 28px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--surflo-lav), rgba(var(--surflo-lav-rgb), 0.1));
+}
+.footer-copyright-name { color: rgba(242, 238, 255, 0.72); }
 .surflo-footer a { color: var(--accent); text-decoration: none; }
 .surflo-footer a:hover { color: var(--link-hover-color); }
+
+@media (max-width: 640px) {
+  .surflo-footer {
+    padding: 2.4rem 1rem 3rem;
+    text-align: center;
+  }
+  .surflo-footer-bar {
+    justify-content: center;
+    gap: 8px;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+  }
+  .surflo-footer-bar-line { width: min(80px, 16vw); }
+  .surflo-footer .quiet {
+    justify-content: center;
+    max-width: 100%;
+    padding-top: 0.75rem;
+    padding-left: 0;
+    border-top: 2px solid var(--surflo-lav);
+    border-left: 0;
+    gap: 0.65rem;
+    font-size: 12px;
+  }
+  .surflo-footer::after {
+    right: 50%;
+    font-size: 92px;
+    transform: translateX(50%);
+  }
+}
 
 /* ---------- Responsive ------------------------------------------ */
 @media (max-width: 980px) {
@@ -1997,26 +2229,20 @@
 }
 
 
-/* Hover context for tutorial-derived hero assets. */
+/* Keep the active tutorial prompt visible at all times. */
 .hero-asset-copy-wrap {
   position: absolute;
   right: clamp(1.5rem, 4vw, 3.75rem);
   bottom: clamp(2.5rem, 7vh, 4.75rem);
   z-index: 4;
   width: min(560px, 44vw);
-  opacity: 0;
-  transform: translateY(10px);
-  pointer-events: none;
-  transition: opacity 260ms var(--ease-out), transform 260ms var(--ease-out);
-}
-.hero:hover .hero-asset-copy-wrap,
-.hero:focus-within .hero-asset-copy-wrap {
   opacity: 1;
   transform: translateY(0);
+  pointer-events: none;
 }
 .hero-asset-copy {
   padding: 1rem 1.1rem 1.05rem 1.25rem;
-  border-left: 2px solid rgba(var(--accent-rgb), 0.78);
+  border-left: 2px solid rgba(var(--surflo-lav-rgb), 0.78);
   border-radius: 0 18px 18px 0;
   background: linear-gradient(90deg, rgba(15, 17, 22, 0.68), rgba(15, 17, 22, 0.24));
   box-shadow: 0 18px 48px rgba(0, 0, 0, 0.16);
@@ -2051,13 +2277,4 @@
     width: auto;
   }
   .hero-asset-copy { max-width: 100%; margin-left: auto; padding: 0.8rem 0.85rem 0.85rem 1rem; }
-  .hero-asset-copy p {
-    display: -webkit-box;
-    overflow: hidden;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4;
-  }
-}
-@media (hover: none), (pointer: coarse) {
-  .hero-asset-copy-wrap { opacity: 1; transform: none; }
 }

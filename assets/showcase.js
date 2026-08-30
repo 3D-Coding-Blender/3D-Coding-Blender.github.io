@@ -12,8 +12,7 @@
     '.section-guidance',
     '.section-comparison',
     '.section-quantitative',
-    '.section-dataset',
-    '.section-cite'
+    '.section-dataset'
   ];
 
   document.querySelectorAll(legacySelectors.join(',')).forEach((element) => element.remove());
@@ -122,13 +121,24 @@
     if (focusTarget && typeof focusTarget.focus === 'function') focusTarget.focus();
   }
 
-  function openLightbox(card) {
-    const source = card.querySelector('img, video');
+  function openLightbox(card, { showOriginalLink = true } = {}) {
+    const source = card.querySelector('img, video, canvas');
     if (!source) return;
 
     previousFocus = document.activeElement;
     lightboxMedia.replaceChildren();
-    const media = source.cloneNode(true);
+    let media;
+    if (source.tagName === 'CANVAS') {
+      let snapshot = '';
+      try { snapshot = source.toDataURL('image/png'); } catch (error) { /* ignore unreadable canvas */ }
+      if (!snapshot) return;
+      media = Object.assign(new Image(), {
+        src: snapshot,
+        alt: source.getAttribute('aria-label') || 'Expanded showcase render',
+      });
+    } else {
+      media = source.cloneNode(true);
+    }
     media.className = 'showcase-lightbox-media-element';
     media.removeAttribute('loading');
     media.removeAttribute('aria-hidden');
@@ -141,20 +151,24 @@
     }
     lightboxMedia.appendChild(media);
 
-    const sourceLabel = card.querySelector('.showcase-card-overlay > span');
-    const sourceTitle = card.querySelector('.showcase-card-overlay h3');
+    const directSpan = Array.from(card.children).find((child) => child.tagName === 'SPAN');
+    const directTitle = Array.from(card.children).find((child) => child.tagName === 'STRONG');
+    const sourceLabel = card.querySelector('.showcase-card-overlay > span') || directSpan;
+    const sourceTitle = card.querySelector('.showcase-card-overlay h3') || directTitle;
     lightboxLabel.textContent = sourceLabel ? sourceLabel.textContent.trim() : '';
-    lightboxTitle.textContent = sourceTitle ? sourceTitle.textContent.trim() : 'Showcase';
+    lightboxTitle.textContent = sourceTitle
+      ? sourceTitle.textContent.trim()
+      : (source.alt || 'Showcase');
     lightboxLink.replaceChildren();
 
-    const href = card.getAttribute('href');
+    const href = card.dataset.originalUrl || (showOriginalLink ? card.getAttribute('href') : '');
     if (href) {
       const link = document.createElement('a');
       link.className = 'showcase-lightbox-original';
       link.href = href;
-      link.target = card.getAttribute('target') || '_blank';
+      link.target = card.dataset.originalTarget || card.getAttribute('target') || '_blank';
       link.rel = card.getAttribute('rel') || 'noopener noreferrer';
-      link.textContent = 'Open original tutorial ↗';
+      link.textContent = card.dataset.originalUrl ? 'Tutorial ↗' : 'Open original tutorial ↗';
       lightboxLink.appendChild(link);
     }
 
@@ -185,6 +199,34 @@
         event.preventDefault();
         openLightbox(card);
       }
+    });
+  });
+
+  // Keep the real Tutorial link independent from the card lightbox handler.
+  // Do not preventDefault here: the anchor must open Bilibili in a new tab.
+  const originalLinks = document.querySelectorAll('.showcase-card-original-link');
+  originalLinks.forEach((link) => {
+    link.addEventListener('click', (event) => event.stopPropagation());
+    link.addEventListener('keydown', (event) => event.stopPropagation());
+  });
+
+  // Workflow media should enlarge in the same lightbox instead of opening
+  // the linked image in a new page. Keep this scope limited to the two
+  // featured workflows.
+  const workflowMedia = Array.from(document.querySelectorAll(
+    '#workflow-stained-glass .workflow-media, #workflow-stained-glass .workflow-result, '
+    + '#workflow-chromatic-duck .workflow-media, #workflow-chromatic-duck .workflow-result',
+  ));
+  workflowMedia.forEach((media) => {
+    media.setAttribute('aria-haspopup', 'dialog');
+    media.addEventListener('click', (event) => {
+      event.preventDefault();
+      openLightbox(media, { showOriginalLink: false });
+    });
+    media.addEventListener('keydown', (event) => {
+      if (event.key !== ' ' && event.key !== 'Enter') return;
+      event.preventDefault();
+      openLightbox(media, { showOriginalLink: false });
     });
   });
 

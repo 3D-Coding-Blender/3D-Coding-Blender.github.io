@@ -81,15 +81,15 @@ const HERO_ANIMATIONS = {
     autoRotate: 0.000025,
   },
   maoqiu: {
-    renderer: 'turntable',
-    atlasUrl: './assets/maoqiu-turntable/atlas.webp?v=20260830-cycles1',
-    columns: 6,
-    rows: 6,
-    frameCount: 36,
+    url: './assets/models/maoqiu.glb?v=20260830-original1',
     offsetY: 0.06,
     kind: 'maoqiu',
-    scale: 0.93,
-    pixelsPerFrame: 9,
+    targetSize: 1.38,
+    mobileTargetSize: 0.88,
+    // This asset is already a dense baked fur mesh. Rendering it through the
+    // generic particle reveal downsamples ~828k hair vertices and leaves the
+    // hero looking incomplete while adding unnecessary GPU work.
+    reveal: false,
     autoRotate: 0.00007,
   },
 };
@@ -195,6 +195,33 @@ function startHero() {
     const initialTab = tabs.find((tab) => tab.getAttribute('aria-selected') === 'true') || tabs[0];
     selectAnimation(initialTab?.dataset.heroAnimation || 'holographic-card');
   }
+  tryStart();
+}
+
+/* Reuse the stained-glass GLB renderer in the workflow's final output. */
+function setupWorkflowHeroPreview() {
+  const canvas = document.querySelector('[data-workflow-hero="stained-glass-window"]');
+  if (!canvas) return;
+
+  const tryStart = () => {
+    if (typeof window.initHeroGLB !== 'function') {
+      window.setTimeout(tryStart, 60);
+      return;
+    }
+    const item = HERO_ANIMATIONS['stained-glass-window'];
+    window.initHeroGLB(canvas, {
+      url: item.url,
+      autoRotate: item.autoRotate,
+      offsetY: item.offsetY,
+      kind: item.kind,
+      targetSize: item.targetSize,
+      mobileTargetSize: item.mobileTargetSize,
+      initialRotationY: item.initialRotationY,
+      reveal: false,
+      preserveDrawingBuffer: true,
+    });
+  };
+
   tryStart();
 }
 
@@ -1195,6 +1222,7 @@ function setupCiteCopy() {
 
 function boot() {
   startHero();
+  setupWorkflowHeroPreview();
   setupPipeline();
   setupViewers();
   setupImageCompare();

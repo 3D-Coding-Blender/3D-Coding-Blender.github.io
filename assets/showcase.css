@@ -311,6 +311,55 @@ body.surflo-page {
   transition: border-color 180ms ease, transform 180ms ease;
 }
 
+.workflow-media-shell {
+  position: relative;
+  min-width: 0;
+}
+
+.workflow-media-shell > .workflow-media {
+  width: 100%;
+}
+
+.workflow-original-link {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 25px;
+  padding: 0 9px;
+  border: 1px solid rgba(182, 156, 255, 0.68);
+  border-radius: 999px;
+  background: rgba(12, 10, 20, 0.84);
+  color: #eee8ff;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: color 180ms ease, border-color 180ms ease,
+              background 180ms ease, transform 180ms ease;
+}
+
+.workflow-original-link:hover,
+.workflow-original-link:focus-visible {
+  border-color: var(--showcase-lavender);
+  background: rgba(182, 156, 255, 0.22);
+  color: #fff;
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.workflow-original-link i {
+  font-size: 10px;
+}
+
 .workflow-media:hover,
 .workflow-media:focus-visible,
 .workflow-result:hover,
@@ -410,12 +459,19 @@ body.surflo-page {
   transition: border-color 180ms ease, transform 180ms ease;
 }
 
-.workflow-result img {
+.workflow-result img,
+.workflow-result video,
+.workflow-result canvas {
   width: 100%;
+  display: block;
   aspect-ratio: 1 / 1;
   margin: 9px 0;
   object-fit: contain;
   background: #000;
+}
+
+.workflow-result-canvas {
+  height: clamp(180px, 22vw, 300px);
 }
 
 .workflow-result strong {
@@ -628,21 +684,11 @@ body.surflo-page {
 }
 
 .showcase-card--tutorial::after {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  z-index: 3;
-  padding: 5px 8px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 999px;
-  background: rgba(7, 8, 12, 0.55);
-  color: #fff;
-  content: "Tutorial ↗";
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  backdrop-filter: blur(12px);
+  display: none;
+}
+
+.showcase-card-original-link {
+  z-index: 4;
 }
 
 .showcase-card-overlay .showcase-source {
@@ -783,8 +829,57 @@ video.showcase-lightbox-media-element {
 
 .surflo-footer {
   width: min(1440px, calc(100% - 64px));
-  margin-top: 110px;
+  margin-top: 24px;
   border-top-color: var(--showcase-line);
+}
+
+.showcase-citation {
+  padding: 82px 0 18px;
+  scroll-margin-top: 32px;
+}
+
+.showcase-citation-heading {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 34px;
+}
+
+.showcase-citation-heading .showcase-index {
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+.showcase-citation-heading .showcase-kicker {
+  margin: 0;
+}
+
+.showcase-citation .cite-wrap {
+  max-width: none;
+  margin: 0;
+  border-color: rgba(182, 156, 255, 0.3);
+  background: rgba(182, 156, 255, 0.05);
+}
+
+.showcase-citation .cite-copy {
+  border-color: rgba(182, 156, 255, 0.35);
+  background: rgba(182, 156, 255, 0.08);
+  color: var(--showcase-lavender);
+}
+
+.showcase-citation .cite-copy:hover {
+  border-color: var(--showcase-lavender);
+  background: rgba(182, 156, 255, 0.16);
+}
+
+.showcase-citation .cite-copy:focus-visible {
+  border-color: var(--showcase-lavender);
+  box-shadow: 0 0 0 2px rgba(182, 156, 255, 0.25);
+}
+
+.showcase-citation .cite-copy.is-copied {
+  border-color: rgba(182, 156, 255, 0.55);
+  background: rgba(182, 156, 255, 0.22);
 }
 
 @media (max-width: 1120px) {
@@ -1056,6 +1151,69 @@ video.showcase-lightbox-media-element {
   font-weight: 300;
   line-height: 1.65;
 }
+
+/* Give every process and outcome item its own visible chapter color instead
+   of reserving the accent treatment for item 01. */
+.showcase-method-grid--five .showcase-method-step,
+.showcase-outcome-grid .showcase-outcome-card {
+  --item-accent: #b69cff;
+  --item-accent-rgb: 182, 156, 255;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(var(--item-accent-rgb), 0.14), transparent 42%),
+    rgba(var(--item-accent-rgb), 0.018);
+}
+
+.showcase-method-grid--five .showcase-method-step:nth-child(2),
+.showcase-outcome-grid .showcase-outcome-card:nth-child(2) {
+  --item-accent: #d18cff;
+  --item-accent-rgb: 209, 140, 255;
+}
+
+.showcase-method-grid--five .showcase-method-step:nth-child(3),
+.showcase-outcome-grid .showcase-outcome-card:nth-child(3) {
+  --item-accent: #f08fc8;
+  --item-accent-rgb: 240, 143, 200;
+}
+
+.showcase-method-grid--five .showcase-method-step:nth-child(4) {
+  --item-accent: #ff9f9f;
+  --item-accent-rgb: 255, 159, 159;
+}
+
+.showcase-method-grid--five .showcase-method-step:nth-child(5) {
+  --item-accent: #f2c879;
+  --item-accent-rgb: 242, 200, 121;
+}
+
+.showcase-method-grid--five .showcase-method-step::before,
+.showcase-outcome-grid .showcase-outcome-card::before {
+  position: absolute;
+  top: -1px;
+  right: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--item-accent), rgba(var(--item-accent-rgb), 0.18));
+  content: "";
+}
+
+.showcase-method-grid--five .showcase-index,
+.showcase-outcome-grid .showcase-index {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  margin: 0;
+  border: 1px solid rgba(var(--item-accent-rgb), 0.52);
+  border-radius: 50%;
+  background: rgba(var(--item-accent-rgb), 0.12);
+  color: var(--item-accent);
+  box-shadow: 0 0 24px rgba(var(--item-accent-rgb), 0.12);
+}
+
+.showcase-method-grid--five .showcase-method-step h3,
+.showcase-outcome-grid .showcase-outcome-card h3 {
+  margin-top: 18px;
+}
 .showcase-deliverable-list {
   display: flex;
   flex-wrap: wrap;
@@ -1198,6 +1356,21 @@ video.showcase-lightbox-media-element {
 .showcase-strip--glass { grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); }
 .showcase-strip--glass .showcase-card { aspect-ratio: 1 / 1; }
 
+/* Glass Heart media includes a light-gray background in the source frames.
+   Scope the tone adjustment to this strip so the other showcases stay intact. */
+#editing .showcase-strip--glass .showcase-card {
+  background:
+    radial-gradient(circle at 18% 12%, rgba(149, 126, 255, 0.22), transparent 34%),
+    linear-gradient(145deg, #0c1220 0%, #17132a 52%, #0d2630 100%);
+}
+
+#editing .showcase-strip--glass .showcase-card img,
+#editing .showcase-strip--glass .showcase-card video {
+  background: transparent;
+  filter: none;
+  mix-blend-mode: screen;
+}
+
 @media (max-width: 980px) {
   .showcase-chapter-heading { grid-template-columns: 46px 1fr; }
   .showcase-chapter-heading p { grid-column: 2; }
@@ -1206,6 +1379,7 @@ video.showcase-lightbox-media-element {
   .showcase-grid--editing { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 @media (max-width: 620px) {
+  .showcase-citation { padding: 62px 4px 0; }
   .showcase-intro-grid { gap: 30px; }
   .showcase-compact-heading { margin-bottom: 26px; }
   .showcase-chapter { padding: 78px 4px 18px; }

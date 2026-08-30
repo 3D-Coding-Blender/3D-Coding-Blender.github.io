@@ -17,9 +17,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet">
 
   <link href="./base.css?v=20260828-no-theme-toggle" rel="stylesheet">
-  <link href="./assets/site.css?v=20260828-hero-stage-tone" rel="stylesheet">
-  <link href="./surflo.css?v=20260830-content-expansion" rel="stylesheet">
-  <link href="./assets/showcase.css?v=20260830-original-grid" rel="stylesheet">
+  <link href="./assets/site.css?v=20260831-back-to-top1" rel="stylesheet">
+  <link href="./surflo.css?v=20260831-footer-editorial3" rel="stylesheet">
+  <link href="./assets/showcase.css?v=20260831-colored-steps1" rel="stylesheet">
 
 <!--  Google Analytics (DO NOT copy/paste following section, setup your own analytics tag at https://analytics.google.com/analytics/web/)  -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CDL4R10HKE"></script>
@@ -41,6 +41,12 @@
       <canvas class="hero-canvas" id="hero-canvas" aria-hidden="true"></canvas>
       <div class="hero-vignette" aria-hidden="true"></div>
     </div>
+
+    <button type="button" class="hero-expand" id="hero-expand"
+            aria-label="Expand 3D viewer" aria-controls="hero-animation-panel"
+            aria-pressed="false" title="Expand 3D viewer">
+      <i class="fa fa-expand" aria-hidden="true"></i>
+    </button>
 
     <div class="hero-asset-copy-wrap" aria-live="polite">
       <article class="hero-asset-copy" data-hero-copy="holographic-card" aria-hidden="false">
@@ -68,6 +74,26 @@
         <span class="hero-caption-sub">
           Learning 3D coding from real-world 3D creation workflows.
         </span>
+        <nav class="hero-resource-links" aria-label="Project resources">
+          <a class="hero-resource-link" href="https://arxiv.org/" target="_blank" rel="noopener noreferrer">
+            <i class="fa fa-file-text-o" aria-hidden="true"></i>
+            <span>arXiv</span>
+          </a>
+          <a class="hero-resource-link" href="https://github.com/" target="_blank" rel="noopener noreferrer">
+            <i class="fa fa-github" aria-hidden="true"></i>
+            <span>Github</span>
+          </a>
+          <a class="hero-resource-link" href="https://huggingface.co/" target="_blank" rel="noopener noreferrer">
+            <svg class="hero-resource-icon hero-huggingface-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M12 2.25a9.75 9.75 0 1 0 9.75 9.75A9.76 9.76 0 0 0 12 2.25Z" fill="none" stroke="currentColor" stroke-width="1.7"/>
+              <circle cx="8.5" cy="10.4" r="1.05" fill="currentColor"/>
+              <circle cx="15.5" cy="10.4" r="1.05" fill="currentColor"/>
+              <path d="M7.25 14.1c1.1 1.75 2.7 2.65 4.75 2.65s3.65-.9 4.75-2.65" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+              <path d="M4.15 14.5 2.8 16.15m17.05-1.65 1.35 1.65" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <span>Dataset</span>
+          </a>
+        </nav>
       </figcaption>
     </div>
 
@@ -111,6 +137,7 @@
         <a href="#what-you-get">What You Get</a>
         <a href="#generation">Generation</a>
         <a href="#editing">Editing</a>
+        <a href="#bibtex">Citation</a>
       </nav>
     </section>
 
@@ -211,20 +238,26 @@
             <section class="workflow-stage workflow-stage--inputs" aria-label="Stained Glass Asuka inputs">
               <span class="workflow-stage-label">Input</span>
               <div class="workflow-input-grid">
-                <a class="workflow-media" href="./assets/workflows/stained-glass/source.png?v=20260830-asuka" target="_blank" rel="noopener noreferrer">
+                <a class="workflow-media" href="./assets/workflows/stained-glass/source.png?v=20260830-asuka">
                   <img src="./assets/workflows/stained-glass/source.png?v=20260830-asuka" alt="Original geometric Asuka artwork used to generate the stained glass material" loading="lazy" decoding="async">
                   <span>Source image</span>
                 </a>
-                <a class="workflow-media" href="./assets/workflows/stained-glass/tutorial-cover.jpg" target="_blank" rel="noopener noreferrer">
-                  <img src="./assets/workflows/stained-glass/tutorial-cover.jpg" alt="Bilibili stained glass material tutorial cover" loading="lazy" decoding="async">
-                  <span>Tutorial cover</span>
-                </a>
+                <div class="workflow-media-shell">
+                  <a class="workflow-media" href="./assets/workflows/stained-glass/tutorial-cover.png"
+                     data-original-url="https://www.bilibili.com/video/BV18xqdBYEEv/?spm_id_from=333.1387.favlist.content.click&amp;vd_source=9b2feb0a000d74ffe67c500760963d45">
+                    <img src="./assets/workflows/stained-glass/tutorial-cover.png" alt="Bilibili stained glass material tutorial cover" loading="lazy" decoding="async">
+                    <span>Tutorial cover</span>
+                  </a>
+                  <a class="workflow-original-link" href="https://www.bilibili.com/video/BV18xqdBYEEv/?spm_id_from=333.1387.favlist.content.click&amp;vd_source=9b2feb0a000d74ffe67c500760963d45" target="_blank" rel="noopener noreferrer" aria-label="Open the original Stained Glass Asuka tutorial on Bilibili">
+                    <i class="fa fa-external-link" aria-hidden="true"></i><span>Tutorial</span>
+                  </a>
+                </div>
               </div>
             </section>
             <div class="workflow-connector" aria-hidden="true"><span>Pipeline</span><b>→</b></div>
             <section class="workflow-stage workflow-stage--outputs" aria-label="Stained Glass Asuka pipeline outputs">
               <span class="workflow-stage-label">Executable outputs</span>
-              <a class="workflow-media workflow-media--nodes" href="./assets/workflows/stained-glass/material-nodes.png" target="_blank" rel="noopener noreferrer">
+              <a class="workflow-media workflow-media--nodes" href="./assets/workflows/stained-glass/material-nodes.png">
                 <img src="./assets/workflows/stained-glass/material-nodes.png" alt="Compact Blender material node graph for the stained glass window" loading="lazy" decoding="async">
                 <span>Blender material nodes</span>
               </a>
@@ -238,9 +271,9 @@ bpy.ops.wm.save_as_mainfile(filepath=str(OUTPUT_DIR / "asset.blend"))</code></pr
               </div>
             </section>
             <div class="workflow-connector workflow-connector--final" aria-hidden="true"><span>Render</span><b>→</b></div>
-            <a class="workflow-result" href="./assets/workflows/stained-glass/final.png" target="_blank" rel="noopener noreferrer">
+            <a class="workflow-result workflow-result--hero-glass" href="./assets/models/stained-glass-window.glb?v=20260829reorg1">
               <span>Final Blender work</span>
-              <img src="./assets/workflows/stained-glass/final.png" alt="Final Stained Glass Asuka Blender render" loading="lazy" decoding="async">
+              <canvas class="workflow-result-canvas" data-workflow-hero="stained-glass-window" aria-label="Interactive Stained Glass Asuka Blender render"></canvas>
               <strong>Stained Glass Asuka</strong>
             </a>
           </div>
@@ -253,24 +286,29 @@ bpy.ops.wm.save_as_mainfile(filepath=str(OUTPUT_DIR / "asset.blend"))</code></pr
           <p>Tutorial-learned surfaces, shaders, and animated effects.</p>
         </header>
         <div class="showcase-strip showcase-strip--materials" aria-label="Generated material assets">
-          <article class="showcase-card">
+          <article class="showcase-card" data-original-url="https://www.bilibili.com/video/BV1Jm5r6pE4k/">
           <video muted loop playsinline preload="metadata" poster="./assets/showcase/material-golden-fur-ball.png?v=20260829reorg1" aria-label="Golden fur ball material turntable"><source src="./assets/showcase/material-golden-fur-ball.mp4?v=20260829reorg1" type="video/mp4"></video>
+          <a class="workflow-original-link showcase-card-original-link" href="https://www.bilibili.com/video/BV1Jm5r6pE4k/" target="_blank" rel="noopener noreferrer" aria-label="Open the Golden Fur Ball material tutorial on Bilibili"><i class="fa fa-external-link" aria-hidden="true"></i><span>Tutorial</span></a>
           <div class="showcase-card-overlay"><span>Material · Motion</span><h3>Golden Fur Ball</h3></div>
         </article>
-          <article class="showcase-card">
+          <article class="showcase-card" data-original-url="https://www.bilibili.com/video/BV1f3b16YExK/">
           <video muted loop playsinline preload="metadata" aria-label="Black Wukong material 360-degree turntable"><source src="./assets/showcase/material-wukong.mp4?v=20260828final1" type="video/mp4"></video>
+          <a class="workflow-original-link showcase-card-original-link" href="https://www.bilibili.com/video/BV1f3b16YExK/" target="_blank" rel="noopener noreferrer" aria-label="Open the Black Wukong material tutorial on Bilibili"><i class="fa fa-external-link" aria-hidden="true"></i><span>Tutorial</span></a>
           <div class="showcase-card-overlay"><span>Material · Motion</span><h3>Black Wukong</h3></div>
         </article>
-          <article class="showcase-card">
+          <article class="showcase-card" data-original-url="https://www.bilibili.com/video/BV1K1doB5Eq3/">
           <video muted loop playsinline preload="metadata" aria-label="Opening Door cat card material sway"><source src="./assets/showcase/material-door.mp4?v=20260828final1" type="video/mp4"></video>
+          <a class="workflow-original-link showcase-card-original-link" href="https://www.bilibili.com/video/BV1K1doB5Eq3/" target="_blank" rel="noopener noreferrer" aria-label="Open the Opening Door material tutorial on Bilibili"><i class="fa fa-external-link" aria-hidden="true"></i><span>Tutorial</span></a>
           <div class="showcase-card-overlay"><span>Material · Motion</span><h3>Opening Door</h3></div>
         </article>
-          <article class="showcase-card">
+          <article class="showcase-card" data-original-url="https://www.bilibili.com/video/BV1313c6DEn2/">
           <video muted loop playsinline preload="metadata" aria-label="Armor Hero material sway"><source src="./assets/showcase/material-armor-hero.mp4?v=20260828final4" type="video/mp4"></video>
+          <a class="workflow-original-link showcase-card-original-link" href="https://www.bilibili.com/video/BV1313c6DEn2/" target="_blank" rel="noopener noreferrer" aria-label="Open the Armor Hero material tutorial on Bilibili"><i class="fa fa-external-link" aria-hidden="true"></i><span>Tutorial</span></a>
           <div class="showcase-card-overlay"><span>Material · Motion</span><h3>Armor Hero</h3></div>
         </article>
-          <article class="showcase-card">
+          <article class="showcase-card" data-original-url="https://www.bilibili.com/video/BV1VJjd6RER4/">
           <video muted loop playsinline preload="metadata" aria-label="Maodie two-sided material turntable"><source src="./assets/showcase/material-maodie.mp4?v=20260828final4" type="video/mp4"></video>
+          <a class="workflow-original-link showcase-card-original-link" href="https://www.bilibili.com/video/BV1VJjd6RER4/" target="_blank" rel="noopener noreferrer" aria-label="Open the Maodie material tutorial on Bilibili"><i class="fa fa-external-link" aria-hidden="true"></i><span>Tutorial</span></a>
           <div class="showcase-card-overlay"><span>Stylized Material · Motion</span><h3>Maodie</h3></div>
         </article>
         </div>
@@ -320,20 +358,26 @@ bpy.ops.wm.save_as_mainfile(filepath=str(OUTPUT_DIR / "asset.blend"))</code></pr
             <section class="workflow-stage workflow-stage--inputs" aria-label="Chromatic Duck Gigi inputs">
               <span class="workflow-stage-label">Input</span>
               <div class="workflow-input-grid">
-                <a class="workflow-media" href="./assets/workflows/chromatic-duck/source-yellow.png" target="_blank" rel="noopener noreferrer">
+                <a class="workflow-media" href="./assets/workflows/chromatic-duck/source-yellow.png">
                   <img src="./assets/workflows/chromatic-duck/source-yellow.png" alt="Original yellow Duck Gigi ISO preview" loading="lazy" decoding="async">
                   <span>Original yellow asset</span>
                 </a>
-                <a class="workflow-media" href="./assets/workflows/chromatic-duck/tutorial-cover.jpg" target="_blank" rel="noopener noreferrer">
-                  <img src="./assets/workflows/chromatic-duck/tutorial-cover.jpg" alt="Bilibili chromatic material tutorial cover" loading="lazy" decoding="async">
-                  <span>Tutorial cover</span>
-                </a>
+                <div class="workflow-media-shell">
+                  <a class="workflow-media" href="./assets/workflows/chromatic-duck/tutorial-cover.jpg"
+                     data-original-url="https://www.bilibili.com/video/BV1cbZFB2E9h/?spm_id_from=333.1387.upload.video_card.click">
+                    <img src="./assets/workflows/chromatic-duck/tutorial-cover.jpg" alt="Bilibili chromatic material tutorial cover" loading="lazy" decoding="async">
+                    <span>Tutorial cover</span>
+                  </a>
+                  <a class="workflow-original-link" href="https://www.bilibili.com/video/BV1cbZFB2E9h/?spm_id_from=333.1387.upload.video_card.click" target="_blank" rel="noopener noreferrer" aria-label="Open the original Chromatic Duck Gigi tutorial on Bilibili">
+                    <i class="fa fa-external-link" aria-hidden="true"></i><span>Tutorial</span>
+                  </a>
+                </div>
               </div>
             </section>
             <div class="workflow-connector" aria-hidden="true"><span>Pipeline</span><b>→</b></div>
             <section class="workflow-stage workflow-stage--outputs" aria-label="Chromatic Duck Gigi pipeline outputs">
               <span class="workflow-stage-label">Executable outputs</span>
-              <a class="workflow-media workflow-media--nodes" href="./assets/workflows/chromatic-duck/material-nodes.png" target="_blank" rel="noopener noreferrer">
+              <a class="workflow-media workflow-media--nodes" href="./assets/workflows/chromatic-duck/material-nodes.png">
                 <img src="./assets/workflows/chromatic-duck/material-nodes.png" alt="Compact Blender material node graph for the chromatic Duck Gigi" loading="lazy" decoding="async">
                 <span>Blender material nodes</span>
               </a>
@@ -347,9 +391,9 @@ bpy.ops.wm.save_as_mainfile(filepath=str(OUTPUT_DIR / "asset.blend"))</code></pr
               </div>
             </section>
             <div class="workflow-connector workflow-connector--final" aria-hidden="true"><span>Render</span><b>→</b></div>
-            <a class="workflow-result" href="./assets/workflows/chromatic-duck/final.png" target="_blank" rel="noopener noreferrer">
+            <a class="workflow-result" href="./assets/showcase/edit-chromatic-duck.mp4?v=20260828duckblack1">
               <span>Final Blender work</span>
-              <img src="./assets/workflows/chromatic-duck/final.png" alt="Final chromatic Duck Gigi Blender render" loading="lazy" decoding="async">
+              <video autoplay muted loop playsinline preload="metadata" aria-label="Final chromatic Duck Gigi animation"><source src="./assets/showcase/edit-chromatic-duck.mp4?v=20260828duckblack1" type="video/mp4"></video>
               <strong>Chromatic Duck Gigi</strong>
             </a>
           </div>
@@ -362,13 +406,18 @@ bpy.ops.wm.save_as_mainfile(filepath=str(OUTPUT_DIR / "asset.blend"))</code></pr
       </div>
       <div class="showcase-tab-panel is-active" id="editing-duck-panel" role="tabpanel" aria-labelledby="editing-duck-tab">
         <div class="showcase-grid showcase-grid--editing">
-        <a class="showcase-card showcase-card--tutorial" href="https://www.bilibili.com/video/BV1cbZFB2E9h/" target="_blank" rel="noopener noreferrer" aria-label="Open the original Bilibili tutorial: Blender chromatic material">
+        <article class="showcase-card showcase-card--tutorial"
+                 data-original-url="https://www.bilibili.com/video/BV1cbZFB2E9h/?spm_id_from=333.1387.upload.video_card.click"
+                 aria-label="Open Chromatic Duck Gigi enlarged">
           <video muted loop playsinline preload="metadata" aria-label="Final chromatic Duck Gigi animation"><source src="./assets/showcase/edit-chromatic-duck.mp4?v=20260828duckblack1" type="video/mp4"></video>
+          <a class="workflow-original-link showcase-card-original-link" href="https://www.bilibili.com/video/BV1cbZFB2E9h/?spm_id_from=333.1387.upload.video_card.click" target="_blank" rel="noopener noreferrer" aria-label="Open the Chromatic Duck Gigi tutorial on Bilibili">
+            <i class="fa fa-external-link" aria-hidden="true"></i><span>Tutorial</span>
+          </a>
           <div class="showcase-card-overlay">
-            <span class="showcase-source">Original Bilibili Tutorial ↗</span>
+            <span class="showcase-source">Tutorial ↗</span>
             <h3>【blender】用抓精灵的时间告诉你如何实现炫彩材质！</h3>
           </div>
-        </a>
+        </article>
         <article class="showcase-card"><video muted loop playsinline preload="metadata" aria-label="Chromatic duck edit one"><source src="./assets/showcase/edit-chromatic-01.mp4?v=20260828duckblack1" type="video/mp4"></video><div class="showcase-card-overlay"><span>Appearance Edit · 01</span><h3>Chromatic Study I</h3></div></article>
         <article class="showcase-card"><video muted loop playsinline preload="metadata" aria-label="Chromatic duck edit two"><source src="./assets/showcase/edit-chromatic-02.mp4?v=20260828duckblack1" type="video/mp4"></video><div class="showcase-card-overlay"><span>Appearance Edit · 02</span><h3>Chromatic Study II</h3></div></article>
         <article class="showcase-card"><video muted loop playsinline preload="metadata" aria-label="Chromatic duck edit three"><source src="./assets/showcase/edit-chromatic-03.mp4?v=20260828duckblack1" type="video/mp4"></video><div class="showcase-card-overlay"><span>Appearance Edit · 03</span><h3>Chromatic Study III</h3></div></article>
@@ -670,25 +719,50 @@ bpy.ops.wm.save_as_mainfile(filepath=str(OUTPUT_DIR / "asset.blend"))</code></pr
           <p>One material language, transferred across forms.</p>
         </header>
         <div class="showcase-strip showcase-strip--glass" aria-label="Glass Heart material transfers">
-          <article class="showcase-card"><video autoplay muted loop playsinline preload="metadata" poster="./assets/showcase/glass-heart-original.png?v=20260830lightbg1" aria-label="Original Glass Heart material turntable"><source src="./assets/showcase/glass-heart-original.mp4?v=20260830lightbg1" type="video/mp4"></video><div class="showcase-card-overlay"><span>Original Material · Motion</span><h3>Original Glass Heart</h3></div></article>
-          <article class="showcase-card"><video autoplay muted loop playsinline preload="metadata" poster="./assets/showcase/glass-heart-frog-traveler.png?v=20260830lightbg1" aria-label="Glass Heart frog traveler 360-degree turntable"><source src="./assets/showcase/glass-heart-frog-traveler.mp4?v=20260830lightbg1" type="video/mp4"></video><div class="showcase-card-overlay"><span>Glass Material · Motion</span><h3>Frog Traveler</h3></div></article>
-          <article class="showcase-card"><video autoplay muted loop playsinline preload="metadata" poster="./assets/showcase/glass-heart-horned-feathered-creature.png?v=20260830lightbg1" aria-label="Glass Heart horned feathered creature 360-degree turntable"><source src="./assets/showcase/glass-heart-horned-feathered-creature.mp4?v=20260830lightbg1" type="video/mp4"></video><div class="showcase-card-overlay"><span>Glass Material · Motion</span><h3>Horned Feathered Creature</h3></div></article>
-          <article class="showcase-card"><video autoplay muted loop playsinline preload="metadata" poster="./assets/showcase/glass-heart-oni-samurai.png?v=20260830lightbg1" aria-label="Glass Heart oni samurai 360-degree turntable"><source src="./assets/showcase/glass-heart-oni-samurai.mp4?v=20260830lightbg1" type="video/mp4"></video><div class="showcase-card-overlay"><span>Glass Material · Motion</span><h3>Oni Samurai</h3></div></article>
-          <article class="showcase-card"><video autoplay muted loop playsinline preload="metadata" poster="./assets/showcase/glass-heart-female-bust.png?v=20260830lightbg1" aria-label="Glass Heart female bust 360-degree turntable"><source src="./assets/showcase/glass-heart-female-bust.mp4?v=20260830lightbg1" type="video/mp4"></video><div class="showcase-card-overlay"><span>Glass Material · Motion</span><h3>Female Bust</h3></div></article>
-          <article class="showcase-card"><video autoplay muted loop playsinline preload="metadata" poster="./assets/showcase/glass-heart-2b-sculpture.png?v=20260830lightbg1" aria-label="Glass Heart 2B sculpture 360-degree turntable"><source src="./assets/showcase/glass-heart-2b-sculpture.mp4?v=20260830lightbg1" type="video/mp4"></video><div class="showcase-card-overlay"><span>Glass Material · Motion</span><h3>2B Sculpture</h3></div></article>
-          <article class="showcase-card"><video autoplay muted loop playsinline preload="metadata" poster="./assets/showcase/glass-heart-african-wild-dog.png?v=20260830lightbg1" aria-label="Glass Heart African wild dog 360-degree turntable"><source src="./assets/showcase/glass-heart-african-wild-dog.mp4?v=20260830lightbg1" type="video/mp4"></video><div class="showcase-card-overlay"><span>Glass Material · Motion</span><h3>African Wild Dog</h3></div></article>
-          <article class="showcase-card"><video autoplay muted loop playsinline preload="metadata" poster="./assets/showcase/glass-heart-bentwood-cane-chair.png?v=20260830lightbg1" aria-label="Glass Heart bentwood cane chair 360-degree turntable"><source src="./assets/showcase/glass-heart-bentwood-cane-chair.mp4?v=20260830lightbg1" type="video/mp4"></video><div class="showcase-card-overlay"><span>Glass Material · Motion</span><h3>Bentwood Cane Chair</h3></div></article>
-          <article class="showcase-card"><video autoplay muted loop playsinline preload="metadata" poster="./assets/showcase/glass-heart-vintage-racing-car.png?v=20260830lightbg1" aria-label="Glass Heart vintage racing car 360-degree turntable"><source src="./assets/showcase/glass-heart-vintage-racing-car.mp4?v=20260830lightbg1" type="video/mp4"></video><div class="showcase-card-overlay"><span>Glass Material · Motion</span><h3>Vintage Racing Car</h3></div></article>
-          <article class="showcase-card"><video autoplay muted loop playsinline preload="metadata" poster="./assets/showcase/glass-heart-classical-sailing-ship.png?v=20260830lightbg1" aria-label="Glass Heart classical sailing ship 360-degree turntable"><source src="./assets/showcase/glass-heart-classical-sailing-ship.mp4?v=20260830lightbg1" type="video/mp4"></video><div class="showcase-card-overlay"><span>Glass Material · Motion</span><h3>Classical Sailing Ship</h3></div></article>
+          <article class="showcase-card"><video autoplay muted loop playsinline preload="metadata" poster="./assets/showcase/glass-heart-original-dark.png?v=20260830glassbg3" aria-label="Original Glass Heart material turntable"><source src="./assets/showcase/glass-heart-original-dark.mp4?v=20260830glassbg3" type="video/mp4"></video><div class="showcase-card-overlay"><span>Original Material · Motion</span><h3>Original Glass Heart</h3></div></article>
+          <article class="showcase-card"><video autoplay muted loop playsinline preload="metadata" poster="./assets/showcase/glass-heart-frog-traveler-dark.png?v=20260830glassbg3" aria-label="Glass Heart frog traveler 360-degree turntable"><source src="./assets/showcase/glass-heart-frog-traveler-dark.mp4?v=20260830glassbg3" type="video/mp4"></video><div class="showcase-card-overlay"><span>Glass Material · Motion</span><h3>Frog Traveler</h3></div></article>
+          <article class="showcase-card"><video autoplay muted loop playsinline preload="metadata" poster="./assets/showcase/glass-heart-horned-feathered-creature-dark.png?v=20260830glassbg3" aria-label="Glass Heart horned feathered creature 360-degree turntable"><source src="./assets/showcase/glass-heart-horned-feathered-creature-dark.mp4?v=20260830glassbg3" type="video/mp4"></video><div class="showcase-card-overlay"><span>Glass Material · Motion</span><h3>Horned Feathered Creature</h3></div></article>
+          <article class="showcase-card"><video autoplay muted loop playsinline preload="metadata" poster="./assets/showcase/glass-heart-oni-samurai-dark.png?v=20260830glassbg3" aria-label="Glass Heart oni samurai 360-degree turntable"><source src="./assets/showcase/glass-heart-oni-samurai-dark.mp4?v=20260830glassbg3" type="video/mp4"></video><div class="showcase-card-overlay"><span>Glass Material · Motion</span><h3>Oni Samurai</h3></div></article>
+          <article class="showcase-card"><video autoplay muted loop playsinline preload="metadata" poster="./assets/showcase/glass-heart-female-bust-dark.png?v=20260830glassbg3" aria-label="Glass Heart female bust 360-degree turntable"><source src="./assets/showcase/glass-heart-female-bust-dark.mp4?v=20260830glassbg3" type="video/mp4"></video><div class="showcase-card-overlay"><span>Glass Material · Motion</span><h3>Female Bust</h3></div></article>
+          <article class="showcase-card"><video autoplay muted loop playsinline preload="metadata" poster="./assets/showcase/glass-heart-2b-sculpture-dark.png?v=20260830glassbg3" aria-label="Glass Heart 2B sculpture 360-degree turntable"><source src="./assets/showcase/glass-heart-2b-sculpture-dark.mp4?v=20260830glassbg3" type="video/mp4"></video><div class="showcase-card-overlay"><span>Glass Material · Motion</span><h3>2B Sculpture</h3></div></article>
+          <article class="showcase-card"><video autoplay muted loop playsinline preload="metadata" poster="./assets/showcase/glass-heart-african-wild-dog-dark.png?v=20260830glassbg3" aria-label="Glass Heart African wild dog 360-degree turntable"><source src="./assets/showcase/glass-heart-african-wild-dog-dark.mp4?v=20260830glassbg3" type="video/mp4"></video><div class="showcase-card-overlay"><span>Glass Material · Motion</span><h3>African Wild Dog</h3></div></article>
+          <article class="showcase-card"><video autoplay muted loop playsinline preload="metadata" poster="./assets/showcase/glass-heart-bentwood-cane-chair-dark.png?v=20260830glassbg3" aria-label="Glass Heart bentwood cane chair 360-degree turntable"><source src="./assets/showcase/glass-heart-bentwood-cane-chair-dark.mp4?v=20260830glassbg3" type="video/mp4"></video><div class="showcase-card-overlay"><span>Glass Material · Motion</span><h3>Bentwood Cane Chair</h3></div></article>
+          <article class="showcase-card"><video autoplay muted loop playsinline preload="metadata" poster="./assets/showcase/glass-heart-vintage-racing-car-dark.png?v=20260830glassbg3" aria-label="Glass Heart vintage racing car 360-degree turntable"><source src="./assets/showcase/glass-heart-vintage-racing-car-dark.mp4?v=20260830glassbg3" type="video/mp4"></video><div class="showcase-card-overlay"><span>Glass Material · Motion</span><h3>Vintage Racing Car</h3></div></article>
+          <article class="showcase-card"><video autoplay muted loop playsinline preload="metadata" poster="./assets/showcase/glass-heart-classical-sailing-ship-dark.png?v=20260830glassbg3" aria-label="Glass Heart classical sailing ship 360-degree turntable"><source src="./assets/showcase/glass-heart-classical-sailing-ship-dark.mp4?v=20260830glassbg3" type="video/mp4"></video><div class="showcase-card-overlay"><span>Glass Material · Motion</span><h3>Classical Sailing Ship</h3></div></article>
         </div>
       </section>
     </section>
+  <!-- =================== CITATION =================== -->
+  <section class="showcase-citation reveal" id="bibtex" aria-labelledby="citation-title">
+    <header class="showcase-compact-heading showcase-citation-heading">
+      <p class="showcase-kicker" id="citation-title">Citation</p>
+    </header>
+
+    <div class="cite-wrap">
+      <button type="button" class="cite-copy" data-copy-target="#cite-bibtex" aria-label="Copy citation to clipboard">
+        <i class="fa fa-clipboard" aria-hidden="true"></i><span>Copy</span>
+      </button>
+      <pre class="cite-block"><code id="cite-bibtex">@article{threeDCodingBlender2026,
+  title       = {3D-Coding-Blender: Learning Awesome Blender Code Generation from Internet Tutorial Videos},
+  author      = {{Author1} and {Author2} and {Author3} and {Author4}},
+  journal     = {arXiv preprint},
+  year        = {2026}
+}</code></pre>
+    </div>
+  </section>
+
   </main>
 
   <!-- =================== FOOTER =================== -->
   <footer class="surflo-footer">
+    <div class="surflo-footer-bar" aria-hidden="true">
+      <span>3D-CODING-BLENDER</span>
+      <span class="surflo-footer-bar-line"></span>
+    </div>
     <p class="quiet">
-      &copy; 2026 The 3D-Coding-Blender authors
+      <span class="footer-copyright-year">&copy; 2026</span>
+      <span class="footer-copyright-divider" aria-hidden="true"></span>
+      <span class="footer-copyright-name">The 3D-Coding-Blender authors</span>
     </p>
   </footer>
 
@@ -705,20 +779,20 @@ bpy.ops.wm.save_as_mainfile(filepath=str(OUTPUT_DIR / "asset.blend"))</code></pr
 
   <!-- Interactive hero renderers + project viewers -->
   <script type="module">
-    import('./assets/hero-glb.js?v=20260830-four-hero').catch((err) => {
+    import('./assets/hero-glb.js?v=20260831-maoqiu-full-glb4').catch((err) => {
       console.error('[surflo] hero-glb.js failed to load:', err);
     });
     import('./assets/hero-turntable.js?v=20260830-cycles1').catch((err) => {
       console.error('[surflo] hero-turntable.js failed to load:', err);
     });
-    import('./surflo.js?v=20260830-fur-turntable1').catch((err) => {
+    import('./surflo.js?v=20260831-maoqiu-full-glb').catch((err) => {
       console.error('[surflo] surflo.js failed to load:', err);
     });
   </script>
 
   <!-- Site-wide micro-interactions (reveal-on-scroll, magnetic buttons, lightbox) -->
-  <script src="./assets/site.js?v=20260828-no-theme-toggle"></script>
-  <script src="./assets/showcase.js?v=20260830-editing-tabs"></script>
+  <script src="./assets/site.js?v=20260831-hero-page-expand2"></script>
+  <script src="./assets/showcase.js?v=20260831-workflow-lightbox4"></script>
 
 </body>
 </html>
