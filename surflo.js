@@ -84,8 +84,8 @@ const HERO_ANIMATIONS = {
     url: './assets/models/maoqiu.glb?v=20260830-original1',
     offsetY: 0.06,
     kind: 'maoqiu',
-    targetSize: 1.38,
-    mobileTargetSize: 0.88,
+    targetSize: 1.52,
+    mobileTargetSize: 0.94,
     // This asset is already a dense baked fur mesh. Rendering it through the
     // generic particle reveal downsamples ~828k hair vertices and leaves the
     // hero looking incomplete while adding unnecessary GPU work.
@@ -98,12 +98,46 @@ function startHero() {
   const canvas = document.getElementById('hero-canvas');
   if (!canvas) return;
 
+  const furPoster = document.getElementById('hero-fur-poster');
+  const furVideo = document.getElementById('hero-fur-video');
+  const heroStage = document.getElementById('hero-animation-panel');
   const controls = document.querySelector('.hero-animation-controls');
   const tabs = Array.from(document.querySelectorAll('.hero-animation-tab'));
   const copies = Array.from(document.querySelectorAll('.hero-asset-copy'));
   let activeKey = '';
   let heroInstance = null;
   let loadGeneration = 0;
+  let furDragging = false;
+  let furDragX = 0;
+  let furWasPlaying = false;
+
+  furVideo?.addEventListener('pointerdown', (event) => {
+    if (!furVideo.classList.contains('is-visible')) return;
+    furDragging = true;
+    furDragX = event.clientX;
+    furWasPlaying = !furVideo.paused;
+    furVideo.pause();
+    furVideo.classList.add('is-dragging');
+    furVideo.setPointerCapture?.(event.pointerId);
+    event.preventDefault();
+  });
+  furVideo?.addEventListener('pointermove', (event) => {
+    if (!furDragging || !Number.isFinite(furVideo.duration) || furVideo.duration <= 0) return;
+    const delta = event.clientX - furDragX;
+    furDragX = event.clientX;
+    const nextTime = furVideo.currentTime - delta * (furVideo.duration / Math.max(window.innerWidth, 1)) * 1.8;
+    furVideo.currentTime = ((nextTime % furVideo.duration) + furVideo.duration) % furVideo.duration;
+    event.preventDefault();
+  });
+  const finishFurDrag = (event) => {
+    if (!furDragging) return;
+    furDragging = false;
+    furVideo?.classList.remove('is-dragging');
+    furVideo?.releasePointerCapture?.(event.pointerId);
+    if (furWasPlaying && furVideo?.classList.contains('is-visible')) furVideo.play().catch(() => {});
+  };
+  furVideo?.addEventListener('pointerup', finishFurDrag);
+  furVideo?.addEventListener('pointercancel', finishFurDrag);
 
   function tryStart() {
     if (typeof window.initHeroGLB !== 'function') {
@@ -117,8 +151,22 @@ function startHero() {
 
       activeKey = key;
       const generation = ++loadGeneration;
+      const usesFurPreview = key === 'maoqiu';
       if (heroInstance) heroInstance.destroy();
       heroInstance = null;
+
+      canvas.classList.toggle('is-hidden', usesFurPreview);
+      heroStage?.classList.toggle('is-fur-preview', usesFurPreview);
+      furPoster?.classList.toggle('is-visible', usesFurPreview);
+      furVideo?.classList.toggle('is-visible', usesFurPreview);
+      if (usesFurPreview) {
+        if (furVideo) {
+          furVideo.currentTime = 0;
+          furVideo.play().catch(() => {});
+        }
+      } else {
+        furVideo?.pause();
+      }
 
       tabs.forEach((tab) => {
         const selected = tab.dataset.heroAnimation === key;

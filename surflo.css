@@ -264,6 +264,32 @@ body.hero-viewer-expanded { overflow: hidden; }
   cursor: grab;
   touch-action: pan-y;
 }
+.hero-fur-poster,
+.hero-fur-video {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+}
+.hero-fur-poster.is-visible,
+.hero-fur-video.is-visible { opacity: 1; }
+.hero-fur-poster { z-index: 1; }
+.hero-fur-video { z-index: 2; }
+.hero-fur-video.is-visible {
+  pointer-events: auto;
+  cursor: grab;
+  touch-action: none;
+}
+.hero-fur-video.is-dragging { cursor: grabbing; }
+.hero-canvas.is-hidden { opacity: 0; pointer-events: none; }
+.hero-stage .hero-vignette { z-index: 3; }
+.hero-stage.is-fur-preview .hero-vignette { opacity: 0; }
 .hero-stage::after {
   content: "";
   position: absolute;

@@ -142,20 +142,18 @@ function initHeroGLB(canvas, opts = {}) {
 
   function enhanceMaoqiuMaterial(material) {
     const isHair = material.name === 'web_baked_particle_hair_material';
-    material.envMapIntensity = isHair ? 1.15 : 0.95;
-    if (material.color) material.color.set(isHair ? 0xd39a52 : 0xb97932);
-    if ('roughness' in material) material.roughness = isHair ? 0.38 : 0.68;
+    material.envMapIntensity = isHair ? 1.5 : 1.05;
+    if (material.color) material.color.set(isHair ? 0xe4ad65 : 0x9a5424);
+    if ('roughness' in material) material.roughness = isHair ? 0.46 : 0.68;
     if ('metalness' in material) material.metalness = 0;
-    if ('sheen' in material) material.sheen = isHair ? 0.3 : 0.18;
-    if ('sheenColor' in material) material.sheenColor.set(isHair ? 0xc17a2e : 0x9a5c22);
-    if ('sheenRoughness' in material) material.sheenRoughness = isHair ? 0.26 : 0.34;
+    if ('sheen' in material) material.sheen = isHair ? 0.42 : 0.18;
+    if ('sheenColor' in material) material.sheenColor.set(isHair ? 0xf0bd72 : 0x9a5c22);
+    if ('sheenRoughness' in material) material.sheenRoughness = isHair ? 0.3 : 0.34;
     if (isHair) {
-      // The baked fur consists of many thin overlapping strand faces. Do not
-      // let the opaque body depth-test them away: a strand's base can be
-      // inside the body while its tip is visible outside the silhouette.
-      // Disabling both depth operations preserves the complete baked shell;
-      // the hair is rendered after the body (renderOrder 1) below.
-      material.depthTest = false;
+      // Match the tuned GLB presentation from commits 2579de1/4be47ec:
+      // preserve depth testing for layered strand shading while keeping
+      // depth writes disabled so overlapping hair remains soft and visible.
+      material.depthTest = true;
       material.depthWrite = false;
       material.polygonOffset = true;
       material.polygonOffsetFactor = -1;
