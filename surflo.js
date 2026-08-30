@@ -2,7 +2,7 @@
    surflo.js — 3D-Coding-Blender project page interactions
 
    Three independent pieces:
-     1) Hero GLB scene — uses ./assets/hero-glb.js (window.initHeroGLB)
+     1) Interactive hero scenes — GLB viewers and a rendered fur turntable
      2) Pipeline animation — token sparkle, N-cycle, output point cloud,
         and a continuous particle flow between blocks.
      3) Lazy mesh / point-cloud viewers for the gallery and comparison
@@ -81,11 +81,15 @@ const HERO_ANIMATIONS = {
     autoRotate: 0.000025,
   },
   maoqiu: {
-    url: './assets/models/maoqiu.glb?v=20260830-original1',
+    renderer: 'turntable',
+    atlasUrl: './assets/maoqiu-turntable/atlas.webp?v=20260830-cycles1',
+    columns: 6,
+    rows: 6,
+    frameCount: 36,
     offsetY: 0.06,
     kind: 'maoqiu',
-    targetSize: 1.38,
-    mobileTargetSize: 0.88,
+    scale: 0.93,
+    pixelsPerFrame: 9,
     autoRotate: 0.00007,
   },
 };
@@ -125,10 +129,24 @@ function startHero() {
       controls?.classList.add('is-loading');
       canvas.classList.add('is-switching');
 
-      heroInstance = window.initHeroGLB(canvas, {
+      const initializer = item.renderer === 'turntable'
+        ? window.initHeroTurntable
+        : window.initHeroGLB;
+      if (typeof initializer !== 'function') {
+        controls?.classList.remove('is-loading');
+        canvas.classList.remove('is-switching');
+        return;
+      }
+      heroInstance = initializer(canvas, {
         url: item.url,
+        atlasUrl: item.atlasUrl,
+        columns: item.columns,
+        rows: item.rows,
+        frameCount: item.frameCount,
         autoRotate: item.autoRotate ?? 0.00013,
         offsetY: item.offsetY,
+        scale: item.scale,
+        pixelsPerFrame: item.pixelsPerFrame,
         kind: item.kind,
         reveal: item.reveal,
         targetSize: item.targetSize,
