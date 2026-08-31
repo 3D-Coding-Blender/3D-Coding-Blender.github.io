@@ -542,7 +542,7 @@ body.surflo-page {
 }
 
 .showcase-grid--sofa {
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
 }
 
 #editing-sofa-panel .showcase-card {
@@ -1319,6 +1319,9 @@ video.showcase-lightbox-media-element {
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+.showcase-band-heading--editing h3 {
+  text-transform: none;
 }
 .showcase-band-heading p {
   margin: 0;
