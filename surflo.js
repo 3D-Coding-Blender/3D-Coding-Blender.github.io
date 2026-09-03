@@ -259,12 +259,14 @@ function setupWorkflowHeroPreview() {
     const item = HERO_ANIMATIONS['stained-glass-window'];
     window.initHeroGLB(canvas, {
       url: item.url,
-      autoRotate: item.autoRotate,
+      autoRotate: 0.00004,
+      forceAutoRotate: true,
       offsetY: item.offsetY,
       kind: item.kind,
-      targetSize: item.targetSize,
-      mobileTargetSize: item.mobileTargetSize,
+      targetSize: item.targetSize * 0.7,
+      mobileTargetSize: item.mobileTargetSize * 0.7,
       initialRotationY: item.initialRotationY,
+      interactive: false,
       reveal: false,
       preserveDrawingBuffer: true,
     });

@@ -12,6 +12,7 @@ const ACCENT = 0x4d8dff;
 function initHeroGLB(canvas, opts = {}) {
   if (!canvas) return null;
 
+  const interactive = opts.interactive !== false;
   const isMobile = !!(window.matchMedia
     && window.matchMedia('(max-width: 820px)').matches);
   const reduceMotion = !!(window.matchMedia
@@ -644,11 +645,13 @@ function initHeroGLB(canvas, opts = {}) {
     targetPointerX = 0;
     targetPointerY = 0;
   }
-  canvas.addEventListener('pointerdown', onPointerDown);
-  window.addEventListener('pointermove', onPointerMove, { passive: true });
-  window.addEventListener('pointerup', onPointerUp);
-  window.addEventListener('pointercancel', onPointerUp);
-  window.addEventListener('pointerleave', onPointerLeave);
+  if (interactive) {
+    canvas.addEventListener('pointerdown', onPointerDown);
+    window.addEventListener('pointermove', onPointerMove, { passive: true });
+    window.addEventListener('pointerup', onPointerUp);
+    window.addEventListener('pointercancel', onPointerUp);
+    window.addEventListener('pointerleave', onPointerLeave);
+  }
 
   let intersectionObserver = null;
   if ('IntersectionObserver' in window) {
@@ -680,9 +683,16 @@ function initHeroGLB(canvas, opts = {}) {
     const deltaSeconds = deltaMs / 1000;
     lastTime = now;
 
-    pointerX += (targetPointerX - pointerX) * 0.055;
-    pointerY += (targetPointerY - pointerY) * 0.055;
-    if (!reduceMotion) rotation += (opts.autoRotate ?? 0.00013) * deltaMs;
+    if (interactive) {
+      pointerX += (targetPointerX - pointerX) * 0.055;
+      pointerY += (targetPointerY - pointerY) * 0.055;
+    } else {
+      pointerX = 0;
+      pointerY = 0;
+    }
+    if (!reduceMotion || opts.forceAutoRotate) {
+      rotation += (opts.autoRotate ?? 0.00013) * deltaMs;
+    }
     pivot.rotation.y = baseRotationY + rotation + dragRotationY + pointerX * 0.28;
     pivot.rotation.x = baseRotationX + dragRotationX + pointerY * 0.16;
     pivot.position.x = pointerX * 0.035;
@@ -706,11 +716,13 @@ function initHeroGLB(canvas, opts = {}) {
       intersectionObserver?.disconnect();
       themeObserver.disconnect();
       window.removeEventListener('resize', resize);
-      canvas.removeEventListener('pointerdown', onPointerDown);
-      window.removeEventListener('pointermove', onPointerMove);
-      window.removeEventListener('pointerup', onPointerUp);
-      window.removeEventListener('pointercancel', onPointerUp);
-      window.removeEventListener('pointerleave', onPointerLeave);
+      if (interactive) {
+        canvas.removeEventListener('pointerdown', onPointerDown);
+        window.removeEventListener('pointermove', onPointerMove);
+        window.removeEventListener('pointerup', onPointerUp);
+        window.removeEventListener('pointercancel', onPointerUp);
+        window.removeEventListener('pointerleave', onPointerLeave);
+      }
       document.removeEventListener('visibilitychange', onVisibilityChange);
 
       mixer?.stopAllAction();

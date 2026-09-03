@@ -117,15 +117,14 @@ The following destinations are placeholders until the project releases its final
 
 ## Citation
 
-The citation below is a temporary placeholder and should be replaced when the paper metadata is finalized:
-
 ```bibtex
-@article{threeDCodingBlender2026,
-  title   = {3D-Coding-Blender: Learning Blender Creation from Internet Tutorial Videos},
-  author  = {TODO},
-  journal = {arXiv preprint arXiv:2603.04379},
-  year    = {2026},
-  note    = {Placeholder citation; update with the final publication metadata}
+@misc{2026threeDCodingBlender2026,
+  title       = {3D-Coding-Blender: Learning Awesome Blender Code Generation from Internet Tutorial Videos},
+  author      = {Author1 and Author2 and Author3 and Author4},
+  year        = {2026},
+  publisher   = {GitHub},
+  journal     = {GitHub repository},
+  howpublished = {\url{https://github.com/FreedomIntelligence/3D-Coding-Blender}},
 }
 ```
 
