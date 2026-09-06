@@ -64,11 +64,11 @@
         <p>Duck Gigi starts from a generated PBR character whose yellow surface is replaced with a procedural iridescent material. Star textures, mapped noise, color ramps, and wave-based bands create the shifting finish; masks preserve the face, feet, and beak. Controlled emission, bloom, and keyframed shader parameters produce the animated color transitions.</p>
       </article>
       <article class="hero-asset-copy" data-hero-copy="stained-glass-window" aria-hidden="true" hidden>
-        <h2>Stained Glass Asuka</h2>
+        <h2>Stained-Glass Asuka</h2>
         <p>The agent first recovers the geometric setup—a thin, solidified plane that gives the material physical thickness—then rebuilds the shader graph around the source artwork. A mapped image texture provides the local colors, while a 2D Voronoi texture in Distance to Edge mode partitions the picture into irregular glass panes. ColorRamp nodes sharpen these boundaries into a reusable mask, which separates the translucent colored glass from its dark metallic leading and also drives raised and inset bump details along the seams. Additional noise-based distortion breaks up overly regular borders, introduces subtle surface waviness, and enriches the color variation inside each pane. The resulting asset adapts this procedural workflow to the Asuka artwork, preserving the original composition while giving it the depth, transmission, reflections, and handcrafted mosaic character of a luminous stained-glass window.</p>
       </article>
       <article class="hero-asset-copy" data-hero-copy="maoqiu" aria-hidden="true" hidden>
-        <h2>Golden Fur Ball</h2>
+        <h2>Procedural Fur Ball</h2>
         <p>The agent starts from a compact spherical core and reconstructs a procedural hair system across its surface. Strand density, length, clumping, roughness, and direction are varied to create a soft, naturally uneven silhouette instead of a uniform shell. Warm color variation and strand-aware shading preserve depth between the fibers, while the hidden core prevents gaps as the asset rotates. The result is an editable golden fur material whose density, length, shape, and palette can be adjusted through the same procedural setup.</p>
       </article>
     </div>
@@ -105,10 +105,10 @@
 
     <div class="hero-animation-controls">
       <div class="hero-animation-tabs" role="tablist" aria-label="3D animation selection">
-        <button type="button" class="hero-animation-tab is-active" role="tab" aria-selected="true" aria-controls="hero-animation-panel" data-hero-animation="holographic-card">Holographic Foil Card</button>
-        <button type="button" class="hero-animation-tab" role="tab" aria-selected="false" aria-controls="hero-animation-panel" data-hero-animation="chromatic-duck" tabindex="-1">Iridescent Duck Gigi</button>
-        <button type="button" class="hero-animation-tab" role="tab" aria-selected="false" aria-controls="hero-animation-panel" data-hero-animation="stained-glass-window" tabindex="-1">Stained Glass Window</button>
-        <button type="button" class="hero-animation-tab" role="tab" aria-selected="false" aria-controls="hero-animation-panel" data-hero-animation="maoqiu" tabindex="-1">Golden Fur Ball</button>
+        <button type="button" class="hero-animation-tab is-active" role="tab" aria-selected="true" aria-controls="hero-animation-panel" data-hero-animation="holographic-card">Case 1 · Holographic Card</button>
+        <button type="button" class="hero-animation-tab" role="tab" aria-selected="false" aria-controls="hero-animation-panel" data-hero-animation="chromatic-duck" tabindex="-1">Case 2 · Duck Gigi</button>
+        <button type="button" class="hero-animation-tab" role="tab" aria-selected="false" aria-controls="hero-animation-panel" data-hero-animation="stained-glass-window" tabindex="-1">Case 3 · Asuka</button>
+        <button type="button" class="hero-animation-tab" role="tab" aria-selected="false" aria-controls="hero-animation-panel" data-hero-animation="maoqiu" tabindex="-1">Case 4 · Fur Ball</button>
       </div>
       <span class="hero-animation-loader" role="status" aria-label="Loading animation"></span>
     </div>
