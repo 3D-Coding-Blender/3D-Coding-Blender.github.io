@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>3D-Coding-Blender: Learning Awesome Blender Code Generation from Internet Tutorial Videos</title>
-  <meta name="description" content="3D-Coding-Blender — Learning 3D coding from real-world 3D creation workflows."/>
+  <title>BlenderLore: Learning 3D Coding from Internet Tutorial Videos</title>
+  <meta name="description" content="BlenderLore — Learning 3D Coding from Internet Tutorial Videos."/>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
   <meta charset="utf-8">
 
   <!-- OpenGraph -->
   <meta property="og:type" content="website"/>
-  <meta property="og:title" content="3D-Coding-Blender"/>
-  <meta property="og:description" content="Learning 3D coding from real-world 3D creation workflows."/>
+  <meta property="og:title" content="BlenderLore: Learning 3D Coding from Internet Tutorial Videos"/>
+  <meta property="og:description" content="An agent framework that learns reusable Blender workflows from internet tutorial videos."/>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -76,9 +76,9 @@
     <div class="hero-content">
       <!-- Project title card -->
       <figcaption class="hero-caption">
-        <span class="hero-caption-title" aria-label="3D-Coding-Blender">3D-Coding-Blender</span>
+        <span class="hero-caption-title" aria-label="BlenderLore">BlenderLore</span>
         <span class="hero-caption-sub">
-          Learning 3D coding from real-world 3D creation workflows.
+          Learning 3D Coding from Internet Tutorial Videos.
         </span>
         <nav class="hero-resource-links" aria-label="Project resources">
           <a class="hero-resource-link" href="https://arxiv.org/" target="_blank" rel="noopener noreferrer">
@@ -121,13 +121,13 @@
   <!-- =================== PROJECT INTRODUCTION =================== -->
   <main class="showcase-main">
     <section id="abstract" class="showcase-intro reveal">
-      <p class="showcase-kicker">3D-Coding-Blender</p>
+      <p class="showcase-kicker">BlenderLore</p>
       <div class="showcase-intro-grid">
-        <h2>Learning Blender creation from internet tutorial videos.</h2>
+        <h2>Learning 3D Coding from Internet Tutorial Videos.</h2>
         <div class="showcase-abstract">
           <span class="showcase-label">Abstract</span>
           <p>
-            Internet Blender tutorials contain rich, real-world creation knowledge, but that knowledge is difficult for an agent to use directly. Important instructions may appear in narration, on-screen captions, changing interface states, or brief node-graph operations, while the final result alone does not reveal how the asset was constructed. We present 3D-Coding-Blender, an agent pipeline that converts tutorial videos into timestamped multimodal evidence, reconstructs the demonstrated workflow, and generates executable Blender Python from a canonical scene.
+            Internet Blender tutorials contain rich, real-world creation knowledge, but that knowledge is difficult for an agent to use directly. Important instructions may appear in narration, on-screen captions, changing interface states, or brief node-graph operations, while the final result alone does not reveal how the asset was constructed. We present <span class="accent">BlenderLore</span>, an agent pipeline that converts tutorial videos into timestamped multimodal evidence, reconstructs the demonstrated workflow, and generates executable Blender Python from a canonical scene.
           </p>
           <p>
             The agent combines visual keyframes, OCR, available transcript evidence, Blender-version cues, and retrieved workflow knowledge to build a bounded reconstruction specification. Generated programs are executed inside Blender and evaluated through fresh renders, multi-view observations, and turntable or animation evidence when motion is supported by the tutorial. The primary output is an editable <code>.blend</code> asset rather than a flattened image.
@@ -153,8 +153,8 @@
         <p class="showcase-kicker">Method</p>
       </header>
       <figure class="showcase-pipeline-figure">
-        <img src="./assets/method-pipeline.png?v=20260830-v2" alt="Five-stage 3D-Coding-Blender pipeline from internet tutorials through multimodal evidence, workflow specification, coding-agent execution, and verified deliverables" loading="lazy" decoding="async">
-        <figcaption>3D-Coding-Blender pipeline overview</figcaption>
+        <img src="./assets/method-pipeline.png?v=20260830-v2" alt="Five-stage BlenderLore pipeline from internet tutorials through multimodal evidence, workflow specification, coding-agent execution, and verified deliverables" loading="lazy" decoding="async">
+        <figcaption>BlenderLore pipeline overview</figcaption>
       </figure>
     </section>
 
@@ -538,13 +538,13 @@ bpy.ops.wm.save_as_mainfile(filepath=str(OUTPUT_DIR / "asset.blend"))</code></pr
       <button type="button" class="cite-copy" data-copy-target="#cite-bibtex" aria-label="Copy citation to clipboard">
         <i class="fa fa-clipboard" aria-hidden="true"></i><span>Copy</span>
       </button>
-      <pre class="cite-block"><code id="cite-bibtex">@misc{2026threeDCodingBlender2026,
-  title       = {3D-Coding-Blender: Learning Awesome Blender Code Generation from Internet Tutorial Videos},
+      <pre class="cite-block"><code id="cite-bibtex">@misc{blenderlore2026,
+  title       = {BlenderLore: Learning 3D Coding from Internet Tutorial Videos},
   author      = {Author1 and Author2 and Author3 and Author4},
   year        = {2026},
   publisher   = {GitHub},
   journal     = {GitHub repository},
-  howpublished = {\url{https://github.com/FreedomIntelligence/3D-Coding-Blender}},
+  howpublished = {\url{https://github.com/3D-Coding-Blender/3D-Coding-Blender.github.io}},
 }</code></pre>
     </div>
   </section>
@@ -554,13 +554,13 @@ bpy.ops.wm.save_as_mainfile(filepath=str(OUTPUT_DIR / "asset.blend"))</code></pr
   <!-- =================== FOOTER =================== -->
   <footer class="surflo-footer">
     <div class="surflo-footer-bar" aria-hidden="true">
-      <span>3D-CODING-BLENDER</span>
+      <span>BLENDERLORE</span>
       <span class="surflo-footer-bar-line"></span>
     </div>
     <p class="quiet">
       <span class="footer-copyright-year">&copy; 2026</span>
       <span class="footer-copyright-divider" aria-hidden="true"></span>
-      <span class="footer-copyright-name">The 3D-Coding-Blender authors</span>
+      <span class="footer-copyright-name">The BlenderLore authors</span>
     </p>
   </footer>
 

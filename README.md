@@ -1,7 +1,7 @@
-# 3D-Coding-Blender
+# BlenderLore
 
 <p align="center">
-  <strong>Learning Blender creation from real-world internet tutorial videos.</strong>
+  <strong>Learning 3D Coding from Internet Tutorial Videos</strong>
 </p>
 
 <p align="center">
@@ -23,7 +23,7 @@
 
 Blender tutorials contain practical knowledge that is difficult for an AI agent to use directly. Important steps may appear in narration, captions, changing interface states, node graphs, or short modeling operations, while a final render does not explain how the asset was built.
 
-3D-Coding-Blender explores an agent pipeline that turns tutorial videos into executable, editable Blender workflows. The system combines multimodal evidence, workflow reconstruction, Blender Python generation, execution, visual validation, and reusable knowledge retention. The website presents the resulting assets and the evidence behind them.
+BlenderLore explores an agent pipeline that turns tutorial videos into executable, editable Blender workflows. The system combines multimodal evidence, workflow reconstruction, Blender Python generation, execution, visual validation, and reusable knowledge retention. The website presents the resulting assets and the evidence behind them.
 
 The primary output is an editable `.blend` scene and its reproducible script—not only a flattened image.
 
@@ -48,7 +48,7 @@ The live page includes interactive Three.js viewers, workflow diagrams, videos, 
 
 The workflow overview is also available as a standalone image:
 
-![3D-Coding-Blender workflow overview](./assets/method-pipeline.png)
+![BlenderLore workflow overview](./assets/method-pipeline.png)
 
 ## How It Works
 
@@ -118,13 +118,13 @@ The following destinations are placeholders until the project releases its final
 ## Citation
 
 ```bibtex
-@misc{2026threeDCodingBlender2026,
-  title       = {3D-Coding-Blender: Learning Awesome Blender Code Generation from Internet Tutorial Videos},
+@misc{blenderlore2026,
+  title       = {BlenderLore: Learning 3D Coding from Internet Tutorial Videos},
   author      = {Author1 and Author2 and Author3 and Author4},
   year        = {2026},
   publisher   = {GitHub},
   journal     = {GitHub repository},
-  howpublished = {\url{https://github.com/FreedomIntelligence/3D-Coding-Blender}},
+  howpublished = {\url{https://github.com/3D-Coding-Blender/3D-Coding-Blender.github.io}},
 }
 ```
 

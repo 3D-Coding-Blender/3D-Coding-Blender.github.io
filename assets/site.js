@@ -238,7 +238,7 @@
       document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en';
       document.title = language === 'zh'
         ? '3D-Coding-Blender：从互联网教程视频学习优秀的 Blender 代码生成'
-        : '3D-Coding-Blender: Learning Awesome Blender Code Generation from Internet Tutorial Videos';
+        : 'BlenderLore: Learning 3D Coding from Internet Tutorial Videos';
     }
     const observer = new MutationObserver((records) => {
       if (language !== 'zh') return;
