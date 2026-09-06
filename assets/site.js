@@ -121,9 +121,9 @@
       'Case 2 · Duck Gigi': '案例 2 · 炫彩鸭吉吉',
       'Case 3 · Asuka': '案例 3 · 明日香窗花',
       'Case 4 · Fur Ball': '案例 4 · 毛球运动',
-      'Stained Glass Window': '玻璃窗花材质',
-      'Stained Glass Asuka': '玻璃窗花材质',
-      'Stained-Glass Asuka': '玻璃窗花材质',
+      'Stained Glass Window': '玻璃花窗材质',
+      'Stained Glass Asuka': '玻璃花窗材质',
+      'Stained-Glass Asuka': '玻璃花窗材质',
       'Chromatic Duck Gigi': '炫彩鸭吉吉',
       'Golden Fur Ball': '金色毛球',
       'Procedural Fur Ball': '毛球运动',
@@ -132,7 +132,7 @@
       'Abstract': '摘要',
       'Method': '方法',
       'How It Works': '工作原理',
-      'What You Get': '成果',
+      'What You Get': '你将得到',
       'Generation': '生成',
       'Editing': '编辑',
       'Citation': '引用',
@@ -152,7 +152,7 @@
       'Learning Blender creation from internet tutorial videos.': '从互联网教程视频中学习 Blender 创作。',
       'Internet Blender tutorials contain rich, real-world creation knowledge, but that knowledge is difficult for an agent to use directly. Important instructions may appear in narration, on-screen captions, changing interface states, or brief node-graph operations, while the final result alone does not reveal how the asset was constructed. We present 3D-Coding-Blender, an agent pipeline that converts tutorial videos into timestamped multimodal evidence, reconstructs the demonstrated workflow, and generates executable Blender Python from a canonical scene.': '互联网 Blender 教程包含丰富的真实创作知识，但智能体难以直接使用这些知识。重要指令可能出现在旁白、屏幕字幕、变化的界面状态或简短的节点图操作中，而最终结果本身无法说明资产是如何构建的。我们提出 3D-Coding-Blender：一个将教程视频转换为带时间戳的多模态证据、重建示范工作流，并从规范场景生成可执行 Blender Python 的智能体流程。',
       'The agent combines visual keyframes, OCR, available transcript evidence, Blender-version cues, and retrieved workflow knowledge to build a bounded reconstruction specification. Generated programs are executed inside Blender and evaluated through fresh renders, multi-view observations, and turntable or animation evidence when motion is supported by the tutorial. The primary output is an editable': '智能体结合视觉关键帧、OCR、可用的字幕证据、Blender 版本线索和检索到的工作流知识，构建边界明确的重建规范。生成的程序在 Blender 中执行，并通过新渲染、多视角观察，以及教程支持动作时的转台或动画证据进行评估。主要输出是可编辑的',
-      'asset rather than a flattened image.': '资产，而不是扁平化图像。',
+      'asset rather than a flattened image.': '资产，而不只是图像。',
       'Successful reconstructions can be retained as candidate procedural knowledge for future tasks. A complementary editing workflow applies learned geometry and material techniques to existing assets while preserving non-target scene content and validating the result through before-and-after visual review.': '成功的重建结果可以作为候选程序化知识保留，用于未来任务。配套的编辑工作流将学习到的几何和材质技术应用于现有资产，同时保留非目标场景内容，并通过编辑前后的视觉检查验证结果。',
       'Five-stage 3D-Coding-Blender pipeline from internet tutorials through multimodal evidence, workflow specification, coding-agent execution, and verified deliverables': '从互联网教程、多模态证据、工作流规范、代码智能体执行到验证交付物的五阶段 3D-Coding-Blender 流程',
       '3D-Coding-Blender pipeline overview': '3D-Coding-Blender 流程概览',
@@ -172,18 +172,18 @@
       'One material language, transferred across forms.': '将同一种材质语言迁移到不同形体。',
       'Collect Tutorials': '收集教程', 'Recover Evidence': '恢复证据', 'Specify the Workflow': '定义工作流', 'Code, Run, Repair': '编码、运行、修复', 'Verify and Retain': '验证与保留',
       'Material / node graph': '材质 / 节点图', 'Fresh render': '新渲染', 'Six-view evidence': '六视角证据', 'Turntable or validated animation': '转台或验证过的动画', 'Execution receipt / trace': '执行记录 / 追踪'
-      , 'Learning 3D Coding from Internet Tutorial Videos.': '从互联网教程视频中学习 3D 编程。'
-      , 'Learning 3D Coding from Internet Tutorial Videos': '从互联网教程视频中学习 3D 编程'
+      , 'Learning 3D Coding from Internet Tutorial Videos.': '从互联网教程视频中学习程序化 3D 生成'
+      , 'Learning 3D Coding from Internet Tutorial Videos': '从互联网教程视频中学习程序化 3D 生成'
       , 'Generalization': '泛化'
       , 'Generalization is central to BlenderLore. Successful reconstructions are retained as candidate procedural knowledge. When facing unfamiliar generation or editing tasks, the agent retrieves and recombines these reusable construction patterns.': '泛化是 BlenderLore 的核心。成功的重建结果会作为候选程序化知识保留。面对陌生的生成或编辑任务时，智能体会检索并重新组合这些可复用的构建模式。'
       , 'BlenderLore pipeline overview': 'BlenderLore 流程概览'
       , 'Five-stage BlenderLore pipeline from internet tutorials through multimodal evidence, workflow specification, coding-agent execution, and verified deliverables': '从互联网教程、多模态证据、工作流规范、代码智能体执行到验证交付物的五阶段 BlenderLore 流程'
       , 'A Reusable Procedural Knowledge Library': '可复用的程序化知识库'
-      , 'The procedural knowledge library serves as a key mechanism for generalization: when facing an unfamiliar target, the agent decomposes it into reusable construction patterns, retrieves relevant procedural knowledge, and recombines it into task-specific Blender code.': '程序化知识库是实现泛化的关键机制：面对陌生目标时，智能体将其分解为可复用的构建模式，检索相关程序化知识，并将其重新组合为针对任务的 Blender 代码。'
+      , 'The procedural knowledge library serves as a key mechanism for generalization: when facing an unfamiliar target, the agent decomposes it into reusable construction patterns, retrieves relevant procedural knowledge, and recombines it into task-specific Blender code.': '程序化知识库是实现泛化的关键机制：面对从未见过的任务时，智能体将其分解为可复用的构建模式，检索相关程序化知识，并将其重新组合为最终的 Blender 代码。'
       , 'Generation': '生成', 'Editing': '编辑', 'Tutorials become executable, editable assets.': '教程变成可执行、可编辑的资产。'
-      , 'Stained Glass Asuka': '彩色玻璃明日香', 'Source image and tutorial cover to editable Blender material.': '从源图像和教程封面到可编辑的 Blender 材质。'
+      , 'Stained Glass Asuka': '明日香玻璃花窗材质', 'Source image and tutorial cover to editable Blender material.': '从源图像和教程封面到可编辑的 Blender 材质。'
       , 'Input': '输入', 'Executable outputs': '可执行输出', 'Render': '渲染', 'Final Blender work': '最终 Blender 成果'
-      , 'Duck Gigi: Iridescent Skins': '鸭子 Gigi：虹彩外观', 'Sofa Material Swaps': '沙发材质替换', 'Glass Heart Material Transfer': '玻璃心材质迁移'
+      , 'Duck Gigi: Iridescent Skins': '鸭吉吉：替换炫彩皮肤', 'Sofa Material Swaps': '沙发材质替换', 'Glass Heart Material Transfer': '玻璃心材质迁移到不同物体'
       , 'One material language, transferred across forms.': '将同一种材质语言迁移到不同形体。'
       , 'Tutorial-learned surfaces, shaders, and animated effects.': '从教程中学习的表面、着色器和动画效果。'
       , 'Editable forms, scientific visualizations, and compact scene studies.': '可编辑的形体、科学可视化和紧凑的场景研究。'
