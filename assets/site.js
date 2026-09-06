@@ -115,18 +115,18 @@
     if (!button) return;
     const translations = {
       'Learning 3D coding from real-world 3D creation workflows.': '从真实的 3D 创作流程中学习 3D 编程。',
-      'Holographic Foil Card': '全息箔卡',
-      'Iridescent Duck Gigi': '彩虹变色鸭 Gigi',
-      'Case 1 · Holographic Card': '案例 1 · 镭射卡片',
-      'Case 2 · Duck Gigi': '案例 2 · 小鸭 Gigi',
-      'Case 3 · Asuka': '案例 3 · 明日香',
-      'Case 4 · Fur Ball': '案例 4 · 毛球',
-      'Stained Glass Window': '彩色玻璃窗',
-      'Stained Glass Asuka': '彩色玻璃 Asuka',
-      'Stained-Glass Asuka': '彩色玻璃明日香',
-      'Chromatic Duck Gigi': '炫彩鸭 Gigi',
+      'Holographic Foil Card': '镭射闪卡',
+      'Iridescent Duck Gigi': '炫彩鸭吉吉',
+      'Case 1 · Holographic Card': '案例 1 · 镭射闪卡',
+      'Case 2 · Duck Gigi': '案例 2 · 炫彩鸭吉吉',
+      'Case 3 · Asuka': '案例 3 · 明日香窗花',
+      'Case 4 · Fur Ball': '案例 4 · 毛球运动',
+      'Stained Glass Window': '玻璃窗花材质',
+      'Stained Glass Asuka': '玻璃窗花材质',
+      'Stained-Glass Asuka': '玻璃窗花材质',
+      'Chromatic Duck Gigi': '炫彩鸭吉吉',
       'Golden Fur Ball': '金色毛球',
-      'Procedural Fur Ball': '程序化毛球',
+      'Procedural Fur Ball': '毛球运动',
       'Scroll': '下滑',
       'Learning Blender creation from internet tutorial videos.': '从互联网教程视频中学习 Blender 创作。',
       'Abstract': '摘要',
@@ -197,8 +197,8 @@
       , 'Generate Blender Python, execute it in Blender, render the scene, compare the result, and repair failures in a closed loop.': '生成 Blender Python，在 Blender 中执行并渲染场景，比较结果并在闭环中修复失败。'
       , 'Package editable assets and visual evidence, then retain validated workflow patterns as candidate reusable knowledge.': '打包可编辑资产和视觉证据，并将验证过的工作流模式保留为候选可复用知识。'
       , 'Internet Blender tutorials contain rich, real-world creation knowledge, but that knowledge is difficult for an agent to use directly. Important instructions may appear in narration, on-screen captions, changing interface states, or brief node-graph operations, while the final result alone does not reveal how the asset was constructed. We present BlenderLore, an agent pipeline that converts tutorial videos into timestamped multimodal evidence, reconstructs the demonstrated workflow, and generates executable Blender Python from a canonical scene.': '互联网 Blender 教程包含丰富的真实创作知识，但智能体难以直接使用这些知识。重要指令可能出现在旁白、屏幕字幕、变化的界面状态或简短的节点图操作中，而最终结果本身无法说明资产是如何构建的。我们提出 BlenderLore：一个将教程视频转换为带时间戳的多模态证据、重建示范工作流，并从规范场景生成可执行 Blender Python 的智能体流程。'
-      , 'Gold Foil Card': '金色箔卡', 'Laser Card': '激光卡片', 'Fuse-Bead Material': '拼豆材质'
-      , 'Cat Paw Jelly': '猫爪果冻', 'Bee Keycap': '蜜蜂键帽', 'Shaved Ice': '刨冰', 'Bear Ice Zongzi': '冰粽熊', 'Pearl Necklace': '珍珠项链', 'Little Ghost': '小幽灵', 'Toon-Style Render': '卡通风格渲染', 'Toon-Style Room': '卡通风格房间', 'Low-Poly House': '低多边形房屋'
+      , 'Gold Foil Card': '烫金闪卡', 'Laser Card': '镭射卡片', 'Fuse-Bead Material': '拼豆材质'
+      , 'Cat Paw Jelly': '猫爪果冻', 'Bee Keycap': '蜜蜂键帽', 'Shaved Ice': '刨冰', 'Bear Ice Zongzi': '冰粽熊', 'Pearl Necklace': '珍珠项链', 'Little Ghost': '小幽灵', 'Toon-Style Render': '三渲二', 'Toon-Style Room': '卡通风格房间', 'Low-Poly House': '低多边形房屋'
       , 'Original Glass Heart': '原始玻璃心', 'Frog Traveler': '青蛙旅者', 'Horned Feathered Creature': '角羽生物', 'Oni Samurai': '鬼武士', 'Female Bust': '女性胸像', '2B Sculpture': '2B 雕塑', 'African Wild Dog': '非洲野犬', 'Bentwood Cane Chair': '弯木藤椅', 'Vintage Racing Car': '复古赛车', 'Classical Sailing Ship': '古典帆船'
       , 'The agent separates the character, background, text, and outline into transparent layers, then offsets them at different depths with view-dependent coordinates to create parallax. Alpha masks preserve each silhouette, while procedural Voronoi and wave patterns add iridescent highlights, sparkles, and a gold outline. Animated reflections complete a holographic foil card that shifts as it moves.': '智能体将角色、背景、文字和轮廓分离为透明图层，再利用随视角变化的坐标将它们放置在不同深度，从而产生视差。Alpha 蒙版保留每个轮廓，程序化 Voronoi 和波纹图案带来虹彩高光、闪烁和金色描边。动态反射完成了会随移动变化的全息箔卡。'
     };
@@ -233,7 +233,7 @@
       ['stained glass', '彩色玻璃'], ['chromatic', '炫彩'], ['Glass Heart', '玻璃心'], ['tutorial', '教程'], ['material', '材质'], ['cover', '封面'], ['render', '渲染'],
       ['contain rich, real-world creation knowledge', '包含丰富的真实创作知识'], ['but that knowledge is difficult for an agent to use directly', '但智能体难以直接使用这些知识'], ['Important instructions may appear in narration', '重要指令可能出现在旁白'], ['on-screen captions', '屏幕字幕'], ['changing interface states', '变化的界面状态'], ['or brief node-graph operations', '或简短的节点图操作'], ['while the final result alone does not reveal how the asset was constructed', '而最终结果本身无法说明资产是如何构建的'], ['an agent pipeline that converts', '一个将'], ['into timestamped multimodal evidence', '转换为带时间戳的多模态证据'], ['reconstructs the demonstrated workflow', '重建示范工作流'], ['and generates executable Blender Python from a canonical scene', '并从规范场景生成可执行 Blender Python'],
       ['The agent combines visual keyframes', '智能体结合视觉关键帧'], ['available transcript evidence', '可用的字幕证据'], ['Blender-version cues', 'Blender 版本线索'], ['retrieved workflow knowledge', '检索到的工作流知识'], ['to build a bounded reconstruction specification', '构建边界明确的重建规范'], ['Generated programs are executed inside Blender', '生成的程序在 Blender 中执行'], ['and evaluated through fresh renders', '并通过新渲染进行评估'], ['multi-view observations', '多视角观察'], ['and turntable or animation evidence', '以及转台或动画证据'], ['when motion is supported by the tutorial', '在教程支持动作时'], ['The primary output is an editable', '主要输出是可编辑的'], ['asset rather than a flattened image', '资产，而不是扁平化图像'],
-      ['is central to BlenderLore', '是 BlenderLore 的核心'], ['Successful reconstructions are retained as candidate procedural knowledge', '成功的重建结果会作为候选程序化知识保留'], ['When facing unfamiliar generation or editing tasks', '面对陌生的生成或编辑任务时'], ['the agent retrieves and recombines these reusable construction patterns', '智能体会检索并重新组合这些可复用的构建模式'],
+      ['is central to BlenderLore', '是 BlenderLore 的核心'], ['Successful reconstructions are retained as candidate procedural knowledge', '成功的复现结果会作为候选程序化知识保留'], ['When facing unfamiliar generation or editing tasks', '面对未见过的生成或编辑任务时'], ['the agent retrieves and recombines these reusable construction patterns', '智能体会检索并重组这些可复用的构建模式'],
       ['Learned techniques reshape existing assets while preserving what should stay', '学习到的技术重塑现有资产，同时保留应当保留的内容'], ['Original yellow asset and material tutorial to a generated chromatic result', '从原始黄色资产和材质教程到生成的炫彩结果'], ['Make an Iridescent Material While Catching a Pokémon!', '捕捉宝可梦时制作虹彩材质！'],
       ['We present', '我们提出'], ['while the final result alone', '而最终结果本身'],
       ['Holographic Card', '镭射卡片'], ['Duck Gigi', '小鸭 Gigi'], ['Fur Ball', '毛球'], ['Objects', '物体'], ['Citation', '引用'], ['Copy', '复制'],
@@ -278,7 +278,7 @@
       button.setAttribute('aria-label', language === 'zh' ? 'Switch to English' : '切换到中文');
       document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en';
       document.title = language === 'zh'
-        ? '3D-Coding-Blender：从互联网教程视频学习优秀的 Blender 代码生成'
+        ? 'BlenderLore：从互联网教程视频中学习程序化 3D 生成'
         : 'BlenderLore: Learning 3D Coding from Internet Tutorial Videos';
     }
     const observer = new MutationObserver((records) => {
