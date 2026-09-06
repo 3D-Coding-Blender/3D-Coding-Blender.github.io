@@ -172,7 +172,7 @@
       'One material language, transferred across forms.': '将同一种材质语言迁移到不同形体。',
       'Collect Tutorials': '收集教程', 'Recover Evidence': '恢复证据', 'Specify the Workflow': '定义工作流', 'Code, Run, Repair': '编码、运行、修复', 'Verify and Retain': '验证与保留',
       'Editable': '可编辑资产', 'Reproducible': '复现脚本', 'Reconstruction deliverables': '复现交付物',
-      'Material / node graph': '材质与节点图', 'Fresh render': '全新渲染结果', 'Six-view evidence': '六视角验证', 'Turntable or validated animation': '转台展示或经验证的动画', 'Execution receipt / trace': '执行回执与运行轨迹'
+      'Material / node graph': '材质与节点图', 'Fresh render': '渲染结果', 'Six-view evidence': '多视角效果图', 'Turntable or validated animation': '效果动画', 'Execution receipt / trace': 'Agent轨迹'
       , 'Learning 3D Coding from Internet Tutorial Videos.': '从互联网教程视频中学习程序化 3D 生成'
       , 'Learning 3D Coding from Internet Tutorial Videos': '从互联网教程视频中学习程序化 3D 生成'
       , 'Generalization': '泛化'
