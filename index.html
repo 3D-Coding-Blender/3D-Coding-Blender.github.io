@@ -81,10 +81,6 @@
           Learning 3D Coding from Internet Tutorial Videos.
         </span>
         <nav class="hero-resource-links" aria-label="Project resources">
-          <a class="hero-resource-link" href="https://arxiv.org/" target="_blank" rel="noopener noreferrer">
-            <i class="fa fa-file-text-o" aria-hidden="true"></i>
-            <span>arXiv</span>
-          </a>
           <a class="hero-resource-link" href="https://github.com/" target="_blank" rel="noopener noreferrer">
             <i class="fa fa-github" aria-hidden="true"></i>
             <span>Github</span>
@@ -133,7 +129,7 @@
             The agent combines visual keyframes, OCR, available transcript evidence, Blender-version cues, and retrieved workflow knowledge to build a bounded reconstruction specification. Generated programs are executed inside Blender and evaluated through fresh renders, multi-view observations, and turntable or animation evidence when motion is supported by the tutorial. The primary output is an editable <code>.blend</code> asset rather than a flattened image.
           </p>
           <p>
-            <span class="accent">Generalization</span> is central to BlenderLore. Successful reconstructions are retained as candidate procedural knowledge. When facing unfamiliar generation or editing tasks, the agent retrieves and recombines these reusable construction patterns.
+            <span class="accent">Generalization</span> is central to BlenderLore. Successful reconstructions are retained as candidate procedural knowledge. When facing an unfamiliar generation or editing task, the agent decomposes the target into reusable construction patterns, retrieves relevant procedural knowledge and recombines it into task-specific Blender code.
           </p>
         </div>
       </div>
@@ -188,7 +184,7 @@
         <article class="showcase-method-step">
           <span class="showcase-index">05</span>
           <h3>Verify and Retain</h3>
-          <p>Package editable assets and visual evidence, then retain validated workflow patterns as candidate reusable knowledge.</p>
+          <p>Package editable assets and visual evidence, then retain validated workflow patterns as candidate procedural knowledge for reuse.</p>
         </article>
       </div>
     </section>
@@ -201,8 +197,8 @@
       <div class="showcase-outcome-grid">
         <article class="showcase-outcome-card showcase-outcome-card--primary">
           <span class="showcase-index">01</span>
-          <h3>A Reproducible Asset Package</h3>
-          <p>One pipeline turns a tutorial into an editable, evidence-backed Blender result.</p>
+          <h3>An End-to-End Agent Pipeline</h3>
+          <p>Each run reconstructs a tutorial workflow and produces an editable, reproducible Blender asset package supported by validation evidence.</p>
           <ul class="showcase-deliverable-list" aria-label="Reconstruction deliverables">
             <li>Editable <code>asset.blend</code></li>
             <li>Reproducible <code>reproduce.py</code></li>
@@ -216,7 +212,7 @@
         <article class="showcase-outcome-card">
           <span class="showcase-index">02</span>
           <h3>A High-Quality 3D Dataset</h3>
-          <p>High-quality 3D assets expanded through verified reconstruction and controlled editing—not a collection of flattened final images.</p>
+          <p>Through collection, repair, and reconstruction, we built a high-quality dataset of 23K procedural 3D assets.</p>
         </article>
         <article class="showcase-outcome-card">
           <span class="showcase-index">03</span>
@@ -540,7 +536,7 @@ bpy.ops.wm.save_as_mainfile(filepath=str(OUTPUT_DIR / "asset.blend"))</code></pr
       </button>
       <pre class="cite-block"><code id="cite-bibtex">@misc{blenderlore2026,
   title       = {BlenderLore: Learning 3D Coding from Internet Tutorial Videos},
-  author      = {Author1 and Author2 and Author3 and Author4},
+  author      = {BlenderLore Team},
   year        = {2026},
   publisher   = {GitHub},
   journal     = {GitHub repository},
@@ -589,7 +585,7 @@ bpy.ops.wm.save_as_mainfile(filepath=str(OUTPUT_DIR / "asset.blend"))</code></pr
   </script>
 
   <!-- Site-wide micro-interactions (reveal-on-scroll, magnetic buttons, lightbox) -->
-  <script src="./assets/site.js?v=20260906-language-toggle9"></script>
+  <script src="./assets/site.js?v=20260907-language-toggle10"></script>
   <script src="./assets/showcase.js?v=20260831-workflow-lightbox4"></script>
 
 </body>

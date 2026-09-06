@@ -160,9 +160,9 @@
       'Align keyframes, OCR, narration or audio, interface actions, timestamps, and Blender-version cues.': '对齐关键帧、OCR、旁白或音频、界面操作、时间戳和 Blender 版本线索。',
       'Convert evidence into ordered operations and retrieve relevant modeling, material, lighting, and animation knowledge.': '将证据转换为有序操作，并检索相关的建模、材质、灯光和动画知识。',
       'Generate Blender Python, execute it in Blender, render the scene, compare the result, and repair failures in a closed loop.': '生成 Blender Python，在 Blender 中执行并渲染场景，比较结果并在闭环中修复失败。',
-      'Package editable assets and visual evidence, then retain validated workflow patterns as candidate reusable knowledge.': '打包可编辑资产和视觉证据，并将验证过的工作流模式保留为候选可复用知识。',
-      'A Reproducible Asset Package': '可复现的资产包', 'One pipeline turns a tutorial into an editable, evidence-backed Blender result.': '一套流程将教程转换为有证据支持的可编辑 Blender 结果。',
-      'A High-Quality 3D Dataset': '高质量 3D 数据集', 'High-quality 3D assets expanded through verified reconstruction and controlled editing—not a collection of flattened final images.': '通过验证重建和受控编辑扩展的高质量 3D 资产，而不是一组扁平化的最终图像。',
+      'Package editable assets and visual evidence, then retain validated workflow patterns as candidate procedural knowledge for reuse.': '打包可编辑资产与视觉证据，并将经过验证的工作流模式保留为候选程序化知识，以供后续复用。',
+      'An End-to-End Agent Pipeline': '端到端智能体流程', 'Each run reconstructs a tutorial workflow and produces an editable, reproducible Blender asset package supported by validation evidence.': '每次运行都会重建教程工作流，并生成可编辑、可复现且有验证证据支持的 Blender 资产包。',
+      'A High-Quality 3D Dataset': '高质量 3D 数据集', 'Through collection, repair, and reconstruction, we built a high-quality dataset of 23K procedural 3D assets.': '通过收集、修复与复现，我们构建了一个包含 23K 个程序化 3D 资产的高质量数据集。',
       'A Reusable Knowledge Library': '可复用知识库', 'Retrieval-ready modeling, material, lighting, animation, and workflow patterns distilled from successful runs.': '从成功运行中提炼、可供检索的建模、材质、灯光、动画和工作流模式。',
       'Tutorials become executable, editable assets.': '教程变成可执行、可编辑的资产。', 'Generation workflow': '生成工作流', 'Editing workflow': '编辑工作流',
       'Original yellow asset and material tutorial to a generated chromatic result.': '从原始黄色资产和材质教程到生成的炫彩结果。',
@@ -171,11 +171,12 @@
       'Learned techniques reshape existing assets while preserving what should stay.': '学习到的技术重塑现有资产，同时保留应当保留的内容。',
       'One material language, transferred across forms.': '将同一种材质语言迁移到不同形体。',
       'Collect Tutorials': '收集教程', 'Recover Evidence': '恢复证据', 'Specify the Workflow': '定义工作流', 'Code, Run, Repair': '编码、运行、修复', 'Verify and Retain': '验证与保留',
-      'Material / node graph': '材质 / 节点图', 'Fresh render': '新渲染', 'Six-view evidence': '六视角证据', 'Turntable or validated animation': '转台或验证过的动画', 'Execution receipt / trace': '执行记录 / 追踪'
+      'Editable': '可编辑资产', 'Reproducible': '复现脚本', 'Reconstruction deliverables': '复现交付物',
+      'Material / node graph': '材质与节点图', 'Fresh render': '全新渲染结果', 'Six-view evidence': '六视角验证', 'Turntable or validated animation': '转台展示或经验证的动画', 'Execution receipt / trace': '执行回执与运行轨迹'
       , 'Learning 3D Coding from Internet Tutorial Videos.': '从互联网教程视频中学习程序化 3D 生成'
       , 'Learning 3D Coding from Internet Tutorial Videos': '从互联网教程视频中学习程序化 3D 生成'
       , 'Generalization': '泛化'
-      , 'Generalization is central to BlenderLore. Successful reconstructions are retained as candidate procedural knowledge. When facing unfamiliar generation or editing tasks, the agent retrieves and recombines these reusable construction patterns.': '泛化是 BlenderLore 的核心。成功的重建结果会作为候选程序化知识保留。面对陌生的生成或编辑任务时，智能体会检索并重新组合这些可复用的构建模式。'
+      , 'Generalization is central to BlenderLore. Successful reconstructions are retained as candidate procedural knowledge. When facing an unfamiliar generation or editing task, the agent decomposes the target into reusable construction patterns, retrieves relevant procedural knowledge and recombines it into task-specific Blender code.': '泛化是 BlenderLore 的核心。成功的复现结果会被保留为候选程序化知识。面对未见过的生成或编辑任务时，智能体先将目标分解为可复用的构建模式，检索相关程序化知识，并将其重组为面向具体任务的 Blender 代码。'
       , 'BlenderLore pipeline overview': 'BlenderLore 流程概览'
       , 'Five-stage BlenderLore pipeline from internet tutorials through multimodal evidence, workflow specification, coding-agent execution, and verified deliverables': '从互联网教程、多模态证据、工作流规范、代码智能体执行到验证交付物的五阶段 BlenderLore 流程'
       , 'A Reusable Procedural Knowledge Library': '可复用的程序化知识库'
@@ -187,15 +188,15 @@
       , 'One material language, transferred across forms.': '将同一种材质语言迁移到不同形体。'
       , 'Tutorial-learned surfaces, shaders, and animated effects.': '从教程中学习的表面、着色器和动画效果。'
       , 'Editable forms, scientific visualizations, and compact scene studies.': '可编辑的形体、科学可视化和紧凑的场景研究。'
-      , 'A Reproducible Asset Package': '可复现的资产包', 'A High-Quality 3D Dataset': '高质量 3D 数据集'
-      , 'One pipeline turns a tutorial into an editable, evidence-backed Blender result.': '一套流程将教程转换为有证据支持的可编辑 Blender 结果。'
-      , 'High-quality 3D assets expanded through verified reconstruction and controlled editing—not a collection of flattened final images.': '通过验证重建和受控编辑扩展的高质量 3D 资产，而不是一组扁平化的最终图像。'
+      , 'An End-to-End Agent Pipeline': '端到端智能体流程', 'A High-Quality 3D Dataset': '高质量 3D 数据集'
+      , 'Each run reconstructs a tutorial workflow and produces an editable, reproducible Blender asset package supported by validation evidence.': '每次运行都会重建教程工作流，并生成可编辑、可复现且有验证证据支持的 Blender 资产包。'
+      , 'Through collection, repair, and reconstruction, we built a high-quality dataset of 23K procedural 3D assets.': '通过收集、修复与复现，我们构建了一个包含 23K 个程序化 3D 资产的高质量数据集。'
       , 'How It Works': '工作原理', 'Collect Tutorials': '收集教程', 'Recover Evidence': '恢复证据', 'Specify the Workflow': '定义工作流', 'Code, Run, Repair': '编码、运行、修复', 'Verify and Retain': '验证与保留'
       , 'Start from high-quality internet Blender tutorials and identify the target asset, workflow, and supported motion.': '从高质量互联网 Blender 教程开始，确定目标资产、工作流和支持的动作。'
       , 'Align keyframes, OCR, narration or audio, interface actions, timestamps, and Blender-version cues.': '对齐关键帧、OCR、旁白或音频、界面操作、时间戳和 Blender 版本线索。'
       , 'Convert evidence into ordered operations and retrieve relevant procedural knowledge.': '将证据转换为有序操作，并检索相关程序化知识。'
       , 'Generate Blender Python, execute it in Blender, render the scene, compare the result, and repair failures in a closed loop.': '生成 Blender Python，在 Blender 中执行并渲染场景，比较结果并在闭环中修复失败。'
-      , 'Package editable assets and visual evidence, then retain validated workflow patterns as candidate reusable knowledge.': '打包可编辑资产和视觉证据，并将验证过的工作流模式保留为候选可复用知识。'
+      , 'Package editable assets and visual evidence, then retain validated workflow patterns as candidate procedural knowledge for reuse.': '打包可编辑资产与视觉证据，并将经过验证的工作流模式保留为候选程序化知识，以供后续复用。'
       , 'Internet Blender tutorials contain rich, real-world creation knowledge, but that knowledge is difficult for an agent to use directly. Important instructions may appear in narration, on-screen captions, changing interface states, or brief node-graph operations, while the final result alone does not reveal how the asset was constructed. We present BlenderLore, an agent pipeline that converts tutorial videos into timestamped multimodal evidence, reconstructs the demonstrated workflow, and generates executable Blender Python from a canonical scene.': '互联网 Blender 教程包含丰富的真实创作知识，但智能体难以直接使用这些知识。重要指令可能出现在旁白、屏幕字幕、变化的界面状态或简短的节点图操作中，而最终结果本身无法说明资产是如何构建的。我们提出 BlenderLore：一个将教程视频转换为带时间戳的多模态证据、重建示范工作流，并从规范场景生成可执行 Blender Python 的智能体流程。'
       , 'Gold Foil Card': '烫金闪卡', 'Laser Card': '镭射卡片', 'Fuse-Bead Material': '拼豆材质'
       , 'Cat Paw Jelly': '猫爪果冻', 'Bee Keycap': '蜜蜂键帽', 'Shaved Ice': '刨冰', 'Bear Ice Zongzi': '冰粽熊', 'Pearl Necklace': '珍珠项链', 'Little Ghost': '小幽灵', 'Toon-Style Render': '三渲二', 'Toon-Style Room': '卡通风格房间', 'Low-Poly House': '低多边形房屋'
@@ -233,7 +234,7 @@
       ['stained glass', '彩色玻璃'], ['chromatic', '炫彩'], ['Glass Heart', '玻璃心'], ['tutorial', '教程'], ['material', '材质'], ['cover', '封面'], ['render', '渲染'],
       ['contain rich, real-world creation knowledge', '包含丰富的真实创作知识'], ['but that knowledge is difficult for an agent to use directly', '但智能体难以直接使用这些知识'], ['Important instructions may appear in narration', '重要指令可能出现在旁白'], ['on-screen captions', '屏幕字幕'], ['changing interface states', '变化的界面状态'], ['or brief node-graph operations', '或简短的节点图操作'], ['while the final result alone does not reveal how the asset was constructed', '而最终结果本身无法说明资产是如何构建的'], ['an agent pipeline that converts', '一个将'], ['into timestamped multimodal evidence', '转换为带时间戳的多模态证据'], ['reconstructs the demonstrated workflow', '重建示范工作流'], ['and generates executable Blender Python from a canonical scene', '并从规范场景生成可执行 Blender Python'],
       ['The agent combines visual keyframes', '智能体结合视觉关键帧'], ['available transcript evidence', '可用的字幕证据'], ['Blender-version cues', 'Blender 版本线索'], ['retrieved workflow knowledge', '检索到的工作流知识'], ['to build a bounded reconstruction specification', '构建边界明确的重建规范'], ['Generated programs are executed inside Blender', '生成的程序在 Blender 中执行'], ['and evaluated through fresh renders', '并通过新渲染进行评估'], ['multi-view observations', '多视角观察'], ['and turntable or animation evidence', '以及转台或动画证据'], ['when motion is supported by the tutorial', '在教程支持动作时'], ['The primary output is an editable', '主要输出是可编辑的'], ['asset rather than a flattened image', '资产，而不是扁平化图像'],
-      ['is central to BlenderLore', '是 BlenderLore 的核心'], ['Successful reconstructions are retained as candidate procedural knowledge', '成功的复现结果会作为候选程序化知识保留'], ['When facing unfamiliar generation or editing tasks', '面对未见过的生成或编辑任务时'], ['the agent retrieves and recombines these reusable construction patterns', '智能体会检索并重组这些可复用的构建模式'],
+      ['is central to BlenderLore', '是 BlenderLore 的核心'], ['Successful reconstructions are retained as candidate procedural knowledge', '成功的复现结果会被保留为候选程序化知识'], ['When facing an unfamiliar generation or editing task', '面对未见过的生成或编辑任务时'], ['the agent decomposes the target into reusable construction patterns', '智能体先将目标分解为可复用的构建模式'], ['retrieves relevant procedural knowledge', '检索相关程序化知识'], ['and recombines it into task-specific Blender code', '并将其重组为面向具体任务的 Blender 代码'],
       ['Learned techniques reshape existing assets while preserving what should stay', '学习到的技术重塑现有资产，同时保留应当保留的内容'], ['Original yellow asset and material tutorial to a generated chromatic result', '从原始黄色资产和材质教程到生成的炫彩结果'], ['Make an Iridescent Material While Catching a Pokémon!', '捕捉宝可梦时制作虹彩材质！'],
       ['We present', '我们提出'], ['while the final result alone', '而最终结果本身'],
       ['Holographic Card', '镭射卡片'], ['Duck Gigi', '小鸭 Gigi'], ['Fur Ball', '毛球'], ['Objects', '物体'], ['Citation', '引用'], ['Copy', '复制'],

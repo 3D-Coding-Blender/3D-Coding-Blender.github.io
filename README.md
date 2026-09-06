@@ -117,7 +117,7 @@ The following destinations are placeholders until the project releases its final
 ```bibtex
 @misc{blenderlore2026,
   title       = {BlenderLore: Learning 3D Coding from Internet Tutorial Videos},
-  author      = {Author1 and Author2 and Author3 and Author4},
+  author      = {BlenderLore Team},
   year        = {2026},
   publisher   = {GitHub},
   journal     = {GitHub repository},
