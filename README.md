@@ -6,13 +6,11 @@
 
 <p align="center">
   <a href="https://3d-coding-blender.github.io/">Project Website</a> ·
-  <a href="https://arxiv.org/abs/2603.04379">Paper (placeholder)</a> ·
   <a href="https://github.com/3D-Coding-Blender/3D-Coding-Blender.github.io">GitHub</a>
 </p>
 
 <p align="center">
   <a href="https://3d-coding-blender.github.io/"><img src="https://img.shields.io/badge/Project-Website-7b61ff" alt="Project Website"></a>
-  <a href="https://arxiv.org/abs/2603.04379"><img src="https://img.shields.io/badge/arXiv-2603.04379-b31b1b.svg?logo=arxiv" alt="arXiv placeholder"></a>
   <a href="https://github.com/3D-Coding-Blender/3D-Coding-Blender.github.io"><img src="https://img.shields.io/badge/GitHub-Repository-111111.svg?logo=github" alt="GitHub"></a>
   <a href="https://huggingface.co/"><img src="https://img.shields.io/badge/HuggingFace-Dataset-f6c344.svg?logo=huggingface" alt="Hugging Face"></a>
 </p>
@@ -102,7 +100,6 @@ Open <http://localhost:8080> in a modern browser. A local HTTP server is recomme
 The following destinations are placeholders until the project releases its final publication and data artifacts:
 
 - **Project page:** <https://3d-coding-blender.github.io/>
-- **Paper:** <https://arxiv.org/abs/2603.04379>
 - **Code:** <https://github.com/3D-Coding-Blender/3D-Coding-Blender.github.io>
 - **Dataset:** <https://huggingface.co/>
 - **Model and asset release:** <!-- TODO: add the final model or asset URL -->
