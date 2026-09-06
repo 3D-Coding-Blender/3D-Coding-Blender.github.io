@@ -18,7 +18,7 @@
 
   <link href="./base.css?v=20260828-no-theme-toggle" rel="stylesheet">
   <link href="./assets/site.css?v=20260831-back-to-top1" rel="stylesheet">
-  <link href="./surflo.css?v=20260831-fur-preview-contrast1" rel="stylesheet">
+  <link href="./surflo.css?v=20260906-language-aligned1" rel="stylesheet">
   <link href="./assets/showcase.css?v=20260831-objects-tutorial-links1" rel="stylesheet">
 
 <!--  Google Analytics (DO NOT copy/paste following section, setup your own analytics tag at https://analytics.google.com/analytics/web/)  -->
@@ -52,6 +52,7 @@
             aria-pressed="false" title="Expand 3D viewer">
       <i class="fa fa-expand" aria-hidden="true"></i>
     </button>
+    <button type="button" class="language-toggle" id="language-toggle" aria-label="Switch to Chinese">中文</button>
 
     <div class="hero-asset-copy-wrap" aria-live="polite">
       <article class="hero-asset-copy" data-hero-copy="holographic-card" aria-hidden="false">
@@ -588,7 +589,7 @@ bpy.ops.wm.save_as_mainfile(filepath=str(OUTPUT_DIR / "asset.blend"))</code></pr
   </script>
 
   <!-- Site-wide micro-interactions (reveal-on-scroll, magnetic buttons, lightbox) -->
-  <script src="./assets/site.js?v=20260831-hero-page-expand2"></script>
+  <script src="./assets/site.js?v=20260906-language-toggle4"></script>
   <script src="./assets/showcase.js?v=20260831-workflow-lightbox4"></script>
 
 </body>

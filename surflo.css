@@ -150,6 +150,20 @@
               background 180ms var(--ease-out),
               transform 180ms var(--ease-out);
 }
+
+.hero .language-toggle {
+  position: absolute;
+  top: 22px;
+  right: 72px;
+  z-index: 8;
+  margin: 0;
+  min-width: 64px;
+  height: 42px;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
 .hero-expand:hover,
 .hero-expand:focus-visible,
 .hero-expand[aria-pressed="true"] {
@@ -357,6 +371,12 @@ body.hero-viewer-expanded { overflow: hidden; }
     width: 38px;
     height: 38px;
     font-size: 13px;
+  }
+  .hero .language-toggle {
+    top: 14px;
+    right: 60px;
+    min-width: 58px;
+    height: 38px;
   }
   .surflo-page .hero-caption {
     flex: none;

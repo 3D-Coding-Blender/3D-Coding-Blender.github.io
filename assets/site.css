@@ -1059,6 +1059,21 @@ body.is-lite .site-header { display: block; opacity: 1; }
   margin-top: 3rem;
 }
 
+/* Language switcher */
+.language-toggle {
+  margin-top: 14px;
+  padding: 7px 13px;
+  border: 1px solid rgba(182, 156, 255, 0.6);
+  border-radius: 999px;
+  background: rgba(123, 97, 255, 0.12);
+  color: #eeeaff;
+  font: inherit;
+  font-size: 11px;
+  cursor: pointer;
+}
+.language-toggle:hover,
+.language-toggle:focus-visible { background: rgba(123, 97, 255, 0.28); outline: none; }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   :root { --section-pad: 4rem; }
