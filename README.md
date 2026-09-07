@@ -1,3 +1,5 @@
+English | <a href="README_zh-CN.md">简体中文</a>
+
 # BlenderLore
 
 <p align="center">
@@ -5,17 +7,11 @@
 </p>
 
 <p align="center">
-  English | <a href="README_zh-CN.md">简体中文</a>
-</p>
-
-<p align="center">
-  <a href="https://3d-coding-blender.github.io/"><img src="https://img.shields.io/badge/Project-Website-7b61ff" alt="Project Website"></a>
-  <a href="https://github.com/3D-Coding-Blender/3D-Coding-Blender.github.io"><img src="https://img.shields.io/badge/GitHub-Repository-111111.svg?logo=github" alt="GitHub Repository"></a>
+  <a href="https://blenderlore.github.io/"><img src="https://img.shields.io/badge/Project-Website-7b61ff" alt="Project Website"></a>
+  <a href="https://github.com/FreedomIntelligence/BlenderLore"><img src="https://img.shields.io/badge/GitHub-Repository-111111.svg?logo=github" alt="GitHub Repository"></a>
   <a href="https://huggingface.co/"><img src="https://img.shields.io/badge/HuggingFace-Dataset-f6c344.svg?logo=huggingface" alt="Hugging Face Dataset"></a>
   <img src="https://img.shields.io/badge/Paper-Coming_Soon-8f7ad8" alt="Paper Coming Soon">
 </p>
-
-> **Status:** Research prototype. The paper and dataset will be released soon.
 
 ## Overview
 
@@ -27,7 +23,7 @@ Generalization is central to BlenderLore. Successful reconstructions are retaine
 
 ## Method
 
-![BlenderLore pipeline overview](https://3d-coding-blender.github.io/assets/method-pipeline.png)
+![BlenderLore pipeline overview](https://blenderlore.github.io/assets/method-pipeline.png?v=20260830-v2)
 
 1. **Collect tutorials** — select a high-quality Blender tutorial and define the target asset or supported motion.
 2. **Recover evidence** — align visual keyframes, OCR, narration, timestamps, interface actions, and Blender-version cues.
@@ -156,11 +152,11 @@ You can replace the input with a full video URL or a Markdown tutorial path. Inc
 ```bibtex
 @misc{blenderlore2026,
   title        = {BlenderLore: Learning 3D Coding from Internet Tutorial Videos},
-  author       = {BlenderLore Team},
+  author       = {FreedomAI Team},
   year         = {2026},
   publisher    = {GitHub},
   journal      = {GitHub repository},
-  howpublished = {\url{https://github.com/3D-Coding-Blender/3D-Coding-Blender.github.io}},
+  howpublished = {\url{https://github.com/BlenderLore/BlenderLore.github.io}},
 }
 ```
 
@@ -170,4 +166,8 @@ This project builds on the Blender ecosystem, Three.js, and the open-source tool
 
 ## License
 
-The repository license is **to be confirmed**. Please check the repository before reusing code, media, models, or tutorial-derived assets.
+This project is released under the Apache 2.0 license.
+
+## Contact
+
+For questions and feedback, please contact us at: <a href="mailto:minghaowu@link.cuhk.edu.cn">minghaowu@link.cuhk.edu.cn</a>
