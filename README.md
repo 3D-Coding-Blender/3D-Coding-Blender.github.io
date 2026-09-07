@@ -5,122 +5,161 @@
 </p>
 
 <p align="center">
-  <a href="https://3d-coding-blender.github.io/">Project Website</a> ·
-  <a href="https://github.com/3D-Coding-Blender/3D-Coding-Blender.github.io">GitHub</a>
+  English | <a href="README_zh-CN.md">简体中文</a>
 </p>
 
 <p align="center">
   <a href="https://3d-coding-blender.github.io/"><img src="https://img.shields.io/badge/Project-Website-7b61ff" alt="Project Website"></a>
-  <a href="https://github.com/3D-Coding-Blender/3D-Coding-Blender.github.io"><img src="https://img.shields.io/badge/GitHub-Repository-111111.svg?logo=github" alt="GitHub"></a>
-  <a href="https://huggingface.co/"><img src="https://img.shields.io/badge/HuggingFace-Dataset-f6c344.svg?logo=huggingface" alt="Hugging Face"></a>
+  <a href="https://github.com/FreedomIntelligence/BlenderLore"><img src="https://img.shields.io/badge/GitHub-Repository-111111.svg?logo=github" alt="GitHub Repository"></a>
+  <a href="https://huggingface.co/"><img src="https://img.shields.io/badge/HuggingFace-Dataset-f6c344.svg?logo=huggingface" alt="Hugging Face Dataset"></a>
+  <img src="https://img.shields.io/badge/Paper-Coming_Soon-8f7ad8" alt="Paper Coming Soon">
 </p>
 
-> **Status:** research prototype and interactive project page. Paper identifier, dataset release, and pretrained artifacts will be updated when they are available.
+> **Status:** Research prototype. The paper and dataset will be released soon.
 
 ## Overview
 
-Blender tutorials contain practical knowledge that is difficult for an AI agent to use directly. Important steps may appear in narration, captions, changing interface states, node graphs, or short modeling operations, while a final render does not explain how the asset was built.
+Internet Blender tutorials contain rich, real-world creation knowledge, but that knowledge is difficult for an agent to use directly. Important instructions may appear in narration, on-screen captions, changing interface states, or brief node-graph operations.
 
-BlenderLore explores an agent pipeline that turns tutorial videos into executable, editable Blender workflows. The system combines multimodal evidence, workflow reconstruction, Blender Python generation, execution, visual validation, and reusable knowledge retention. The website presents the resulting assets and the evidence behind them.
+BlenderLore converts tutorial videos into timestamped multimodal evidence, reconstructs the demonstrated workflow, and generates executable Blender Python. Each run delivers an editable Blender project, a reproduction script, renders, and validation results.
 
-The primary output is an editable `.blend` scene and its reproducible script—not only a flattened image.
+Generalization is central to BlenderLore. Successful reconstructions are retained as candidate procedural knowledge. When facing an unfamiliar generation or editing task, the agent decomposes the target into reusable construction patterns, retrieves relevant procedural knowledge, and recombines it into task-specific Blender code.
 
-## Highlights
+## Method
 
-1. **Tutorial-to-workflow reconstruction** — recover ordered modeling, material, lighting, and animation operations from real Blender videos.
-2. **Multimodal evidence** — combine keyframes, OCR, transcript or audio evidence, timestamps, interface states, and Blender-version cues.
-3. **Executable Blender code** — generate and run Python inside Blender, then inspect fresh renders and multi-view evidence.
-4. **Closed-loop repair** — compare results against the target and iterate when geometry, materials, lighting, or motion need correction.
-5. **Editable deliverables** — retain `.blend` files, scripts, node graphs, renders, turntables, and execution traces as a reusable knowledge library.
-6. **Generation and editing workflows** — create assets from tutorials or apply learned techniques to existing assets while preserving non-target content.
-
-## Demonstrations
-
-The live page includes interactive Three.js viewers, workflow diagrams, videos, and material-transfer studies:
-
-- **Generation:** Stained Glass Asuka, Golden Fur Ball, holographic and procedural material studies.
-- **Editing:** Chromatic Duck Gigi and a collection of appearance edits.
-- **Glass Heart Material Transfer:** the same glass language transferred across multiple forms.
-- **Scientific visualization:** compact neuron, cell, and membrane examples.
-- **Interactive hero assets:** Holographic Foil Card, Iridescent Duck Gigi, Stained Glass Window, and Golden Fur Ball.
-
-The workflow overview is also available as a standalone image:
-
-![BlenderLore workflow overview](./assets/method-pipeline.png)
-
-## How It Works
+![BlenderLore pipeline overview](https://3d-coding-blender.github.io/assets/method-pipeline.png)
 
 1. **Collect tutorials** — select a high-quality Blender tutorial and define the target asset or supported motion.
-2. **Recover evidence** — align visual keyframes, OCR, narration, timestamps, interface actions, and version cues.
-3. **Specify the workflow** — convert evidence into ordered operations and retrieve relevant procedural knowledge.
+2. **Recover evidence** — align visual keyframes, OCR, narration, timestamps, interface actions, and Blender-version cues.
+3. **Specify the workflow** — convert the evidence into ordered operations and retrieve relevant procedural knowledge.
 4. **Code, run, and repair** — generate Blender Python, execute it, render the scene, compare the result, and repair failures.
-5. **Verify and retain** — package editable assets and evidence, then retain validated patterns for future tasks.
+5. **Verify and retain** — package editable assets and visual evidence, then retain validated patterns for future tasks.
 
 ## What You Get
 
-- Editable `asset.blend`
-- Reproducible `reproduce.py`
-- Material and node-graph evidence
-- Fresh renders and six-view observations
-- Turntable or validated animation when motion is supported
-- Execution receipts and reconstruction traces
-- Candidate reusable knowledge for future modeling and material tasks
+### 01 · An End-to-End Agent Pipeline
 
-## Repository Layout
+Each run recreates a tutorial workflow and delivers an editable Blender project, a reproduction script, renders, and validation results.
 
-```text
-.
-├── index.html                 # Project homepage
-├── base.css                   # Base page styles
-├── surflo.css                 # Layout and presentation styles
-├── surflo.js                  # Page interactions and viewers
-├── assets/
-│   ├── models/                # Interactive GLB hero assets
-│   ├── showcase/              # Material, modeling, editing, and glass videos
-│   ├── workflows/             # Tutorial inputs, node graphs, and scripts
-│   ├── images/                # Reconstruction and comparison figures
-│   └── method-pipeline.png    # Workflow overview figure
-└── README.md
-```
+- Editable Asset — `asset.blend`
+- Reproduction Script — `reproduce.py`
+- Materials & Node Graphs
+- Final Render
+- Multi-View Renders
+- Animation
+- Agent Log
 
-## Run Locally
+### 02 · A High-Quality 3D Dataset
 
-This repository is a static site. No build step is required for the current demo.
+Through collection, repair, and reconstruction, we built a high-quality dataset of 23K procedural 3D assets.
+
+### 03 · A Reusable Procedural Knowledge Library
+
+Successful workflows are retained as reusable procedural knowledge. For unfamiliar targets, the agent decomposes the task, retrieves relevant patterns, and recombines them into task-specific Blender code.
+
+## Quick Start
+
+### 1. Install prerequisites
+
+Install Python 3.10+, Blender, and FFmpeg (including `ffprobe`), with Blender and FFmpeg on `PATH`. Commands below target macOS/Linux; on Windows, use Linux Python and Blender in WSL. Replace example paths with your own.
 
 ```bash
-git clone https://github.com/3D-Coding-Blender/3D-Coding-Blender.github.io.git
-cd 3D-Coding-Blender.github.io
-python3 -m http.server 8080
+git clone https://github.com/FreedomIntelligence/BlenderLore.git
+cd BlenderLore
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
 ```
 
-Open <http://localhost:8080> in a modern browser. A local HTTP server is recommended because GLB modules, textures, and media can be restricted when loaded directly from `file://` URLs.
+For Codex, install and sign in to Codex CLI using the [official documentation](https://developers.openai.com/codex/cli/), and ensure the client can run `codex`.
 
-## Project Links
+### 2. Install Skills
 
-The following destinations are placeholders until the project releases its final publication and data artifacts:
+Run from the repository root to install the Skill into the current user's Codex environment:
 
-- **Project page:** <https://3d-coding-blender.github.io/>
-- **Code:** <https://github.com/3D-Coding-Blender/3D-Coding-Blender.github.io>
-- **Dataset:** <https://huggingface.co/>
-- **Model and asset release:** <!-- TODO: add the final model or asset URL -->
+```bash
+mkdir -p "$HOME/.agents/skills"
+ln -s "$PWD/skills/blender-pipeline" "$HOME/.agents/skills/blender-pipeline"
+```
 
-## Roadmap
+### 3. Configure rendering
 
-- [ ] Finalize paper title, authors, and arXiv identifier
-- [ ] Release the reconstructed tutorial dataset and metadata format
-- [ ] Publish benchmark tasks and quantitative evaluation results
-- [ ] Release reproducible Blender scripts and scene packages
-- [ ] Add more tutorial domains, asset categories, and repair diagnostics
+Cycles uses the CPU by default. Omit the Blender path setting if Blender is already on `PATH`.
+
+```bash
+export BLENDER_PIPELINE_BLENDER=/path/to/blender
+export VIDEO2BLENDER_CYCLES_BACKEND=CPU
+```
+
+For GPU rendering, replace `CPU` with the appropriate backend: `OPTIX` or `CUDA` for NVIDIA, `METAL` for Apple Silicon, `HIP` for AMD, or `ONEAPI` for Intel.
+
+### 4. Configure inputs and outputs
+
+Keep input files on your computer. For API mode, enter their paths in the terminal launch command in step 5; for Codex, provide paths or links directly in the client's chat composer.
+
+| Input | API argument | Provide in Codex |
+| --- | --- | --- |
+| Local video | `--video-file` | Absolute path to the video |
+| Video URL | `--video-url` | Full HTTPS video URL |
+| Markdown tutorial | `--tutorial` | Absolute path to the `.md` file |
+
+Markdown tutorials need numbered operations and their referenced images. Text-only tutorials also require a final reference image.
+
+Choose a new or empty output directory outside the repository: use `--output-dir` in API mode, or specify it in the Codex conversation. Output formats are fixed; main files appear as their corresponding stages complete:
+
+```text
+run_001/
+  tutorial.md             # Illustrated tutorial
+  reproduce.py            # Blender Python code
+  asset.blend             # Editable project
+  render.png              # Rendered image
+  six_views/              # Static multi-view renders, when applicable
+  final_effect.mp4        # Animation or turntable video, when applicable
+  pipeline_review.json    # Review results
+```
+
+### 5. Start with API / Codex
+
+#### API
+
+Open a terminal at the repository root and run this command for first-time setup:
+
+```bash
+python run_api.py --configure --config "$HOME/.config/blender-pipeline/pipeline.json"
+```
+
+At the terminal prompts, enter an HTTPS API endpoint ending in `/chat/completions` and your API key. The endpoint is saved in the `endpoint` field of `~/.config/blender-pipeline/pipeline.json`; the key is saved in `model_api_key` in the same directory. Edit these files to change the configuration later.
+
+Launch from the same terminal, replacing the input path and output directory with your own. Use the corresponding argument from step 4 for other input types:
+
+```bash
+python run_api.py --config "$HOME/.config/blender-pipeline/pipeline.json" \
+  --video-file /path/to/input/tutorial.mp4 --output-dir /path/to/data/run_api
+```
+
+For a tutorial with a starting project, append `--asset /path/to/starter.blend`; for a text-only tutorial, append `--target-image /path/to/target.png`.
+
+#### Codex
+
+Type `/blender-pipeline` in the chat composer:
+
+```text
+/blender-pipeline
+Input: /path/to/input/tutorial.mp4
+Output: /path/to/data/run_skill
+```
+
+You can replace the input with a full video URL or a Markdown tutorial path. Include paths to any supporting project or reference images in the same message.
 
 ## Citation
 
 ```bibtex
 @misc{blenderlore2026,
-  title       = {BlenderLore: Learning 3D Coding from Internet Tutorial Videos},
-  author      = {BlenderLore Team},
-  year        = {2026},
-  publisher   = {GitHub},
-  journal     = {GitHub repository},
+  title        = {BlenderLore: Learning 3D Coding from Internet Tutorial Videos},
+  author       = {BlenderLore Team},
+  year         = {2026},
+  publisher    = {GitHub},
+  journal      = {GitHub repository},
   howpublished = {\url{https://github.com/3D-Coding-Blender/3D-Coding-Blender.github.io}},
 }
 ```
