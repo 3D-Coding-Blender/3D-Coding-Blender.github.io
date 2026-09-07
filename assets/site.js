@@ -161,7 +161,7 @@
       'Convert evidence into ordered operations and retrieve relevant modeling, material, lighting, and animation knowledge.': '将证据转换为有序操作，并检索相关的建模、材质、灯光和动画知识。',
       'Generate Blender Python, execute it in Blender, render the scene, compare the result, and repair failures in a closed loop.': '生成 Blender Python，在 Blender 中执行并渲染场景，比较结果并在闭环中修复失败。',
       'Package editable assets and visual evidence, then retain validated workflow patterns as candidate procedural knowledge for reuse.': '打包可编辑资产与视觉证据，并将经过验证的工作流模式保留为候选程序化知识，以供后续复用。',
-      'An End-to-End Agent Pipeline': '端到端智能体流程', 'Each run reconstructs a tutorial workflow and produces an editable, reproducible Blender asset package supported by validation evidence.': '每次运行都会重建教程工作流，并生成可编辑、可复现且有验证证据支持的 Blender 资产包。',
+      'An End-to-End Agent Pipeline': '端到端智能体流程', 'Each run recreates a tutorial workflow and delivers an editable Blender project, a reproduction script, renders, and validation results.': '每次运行都会重建教程工作流，并交付可编辑的 Blender 工程、复现脚本、渲染结果和验证结果。',
       'A High-Quality 3D Dataset': '高质量 3D 数据集', 'Through collection, repair, and reconstruction, we built a high-quality dataset of 23K procedural 3D assets.': '通过收集、修复与复现，我们构建了一个包含 23K 个程序化 3D 资产的高质量数据集。',
       'A Reusable Knowledge Library': '可复用知识库', 'Retrieval-ready modeling, material, lighting, animation, and workflow patterns distilled from successful runs.': '从成功运行中提炼、可供检索的建模、材质、灯光、动画和工作流模式。',
       'Tutorials become executable, editable assets.': '教程变成可执行、可编辑的资产。', 'Generation workflow': '生成工作流', 'Editing workflow': '编辑工作流',
@@ -171,8 +171,8 @@
       'Learned techniques reshape existing assets while preserving what should stay.': '学习到的技术重塑现有资产，同时保留应当保留的内容。',
       'One material language, transferred across forms.': '将同一种材质语言迁移到不同形体。',
       'Collect Tutorials': '收集教程', 'Recover Evidence': '恢复证据', 'Specify the Workflow': '定义工作流', 'Code, Run, Repair': '编码、运行、修复', 'Verify and Retain': '验证与保留',
-      'Editable': '可编辑资产', 'Reproducible': '复现脚本', 'Reconstruction deliverables': '复现交付物',
-      'Material / node graph': '材质与节点图', 'Fresh render': '渲染结果', 'Six-view evidence': '多视角效果图', 'Turntable or validated animation': '效果动画', 'Execution receipt / trace': 'Agent轨迹'
+      'Editable Asset': '可编辑资产', 'Reproduction Script': '复现脚本', 'Reconstruction deliverables': '复现交付物',
+      'Materials & Node Graphs': '材质与节点图', 'Final Render': '渲染结果', 'Multi-View Renders': '多视角效果图', 'Animation': '效果动画', 'Agent Log': 'Agent 轨迹'
       , 'Learning 3D Coding from Internet Tutorial Videos.': '从互联网教程视频中学习程序化 3D 生成'
       , 'Learning 3D Coding from Internet Tutorial Videos': '从互联网教程视频中学习程序化 3D 生成'
       , 'Generalization': '泛化'
@@ -189,7 +189,7 @@
       , 'Tutorial-learned surfaces, shaders, and animated effects.': '从教程中学习的表面、着色器和动画效果。'
       , 'Editable forms, scientific visualizations, and compact scene studies.': '可编辑的形体、科学可视化和紧凑的场景研究。'
       , 'An End-to-End Agent Pipeline': '端到端智能体流程', 'A High-Quality 3D Dataset': '高质量 3D 数据集'
-      , 'Each run reconstructs a tutorial workflow and produces an editable, reproducible Blender asset package supported by validation evidence.': '每次运行都会重建教程工作流，并生成可编辑、可复现且有验证证据支持的 Blender 资产包。'
+      , 'Each run recreates a tutorial workflow and delivers an editable Blender project, a reproduction script, renders, and validation results.': '每次运行都会重建教程工作流，并交付可编辑的 Blender 工程、复现脚本、渲染结果和验证结果。'
       , 'Through collection, repair, and reconstruction, we built a high-quality dataset of 23K procedural 3D assets.': '通过收集、修复与复现，我们构建了一个包含 23K 个程序化 3D 资产的高质量数据集。'
       , 'How It Works': '工作原理', 'Collect Tutorials': '收集教程', 'Recover Evidence': '恢复证据', 'Specify the Workflow': '定义工作流', 'Code, Run, Repair': '编码、运行、修复', 'Verify and Retain': '验证与保留'
       , 'Start from high-quality internet Blender tutorials and identify the target asset, workflow, and supported motion.': '从高质量互联网 Blender 教程开始，确定目标资产、工作流和支持的动作。'
