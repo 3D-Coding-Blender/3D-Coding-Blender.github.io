@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="https://3d-coding-blender.github.io/"><img src="https://img.shields.io/badge/项目-展示网页-7b61ff" alt="项目展示网页"></a>
-  <a href="https://github.com/FreedomIntelligence/BlenderLore"><img src="https://img.shields.io/badge/GitHub-代码仓库-111111.svg?logo=github" alt="GitHub 代码仓库"></a>
+  <a href="https://github.com/3D-Coding-Blender/3D-Coding-Blender.github.io"><img src="https://img.shields.io/badge/GitHub-展示仓库-111111.svg?logo=github" alt="GitHub 展示仓库"></a>
   <a href="https://huggingface.co/"><img src="https://img.shields.io/badge/HuggingFace-数据集-f6c344.svg?logo=huggingface" alt="Hugging Face 数据集"></a>
   <img src="https://img.shields.io/badge/论文-即将发布-8f7ad8" alt="论文即将发布">
 </p>
